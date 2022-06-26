@@ -107,32 +107,32 @@ header{
     }
   } 
 #title >.letter:nth-of-type(4){
-  animation: neon 5s infinite, blink 5s linear alternate,break 20s 10s both;
+  animation: neon 5s infinite, blink 5s linear alternate,break 10s 5s both;
 }
   @keyframes break {
   0%{
     transform : rotate(0deg);
     margin-top: 0px;
     margin-left: 0px; 
-    animation: neon 5s infinite;
+    animation: neon 2s infinite;
   }
   25%{
     transform : rotate(14deg);
     margin-top: 41px;
     margin-left: -2px; 
-    animation: blink 5s linear alternate;
+    animation: blink 3s linear alternate;
   }
   50%{
     transform : rotate(28deg);
     margin-top: 82px;
     margin-left: -4px; 
-    animation: blink 5s linear alternate;
+    animation: blink 3s linear alternate;
   }
   80%{
     transform : rotate(45deg);
     margin-top: 140px;
     margin-left: -2px;
-    animation :blink 5s infinite ;
+    animation :blink 3s infinite ;
     text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 0 10px 3px #000;  
   }
   90%{
@@ -141,7 +141,7 @@ header{
   }
   100%{
     transform : rotate(75deg);
-    margin-top: 800px;
+    margin-top: 900px;
     display: none;
   }
 }
@@ -182,4 +182,15 @@ header{
 #display{
   display: none;
   text-align: center;
+}
+#display> img{
+  width: 65%;
+  min-height: 50Vh;
+}
+p{
+  font-family: 'poppins';
+  color:rgb(255, 255, 255);
+  font-size: 30px;
+  margin-bottom: 100px;
+  margin-left: -55px;
 }
