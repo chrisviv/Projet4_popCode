@@ -15,15 +15,16 @@ body{
   height: 100vh;
   background: #112 url(//images.weserv.nl/?url=i.imgur.com/6QJjYMe.jpg)  center no-repeat;
   background-size:cover;
-  margin:0
+  margin:0;
 }
 header{
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  overflow: hidden;
  }
 #title {
   display: flex;
@@ -46,8 +47,7 @@ header{
   font-family: neon;
   font-weight: 400;
   color: #fee;
-  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 0 10px 3px #000; 
-  animation: neon 5s infinite;
+  animation: neon 3s infinite;
 }
   @keyframes neon {
   from {
@@ -71,7 +71,7 @@ header{
 }
 #title > .letter > .c1{
    text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 0 10px 3px #000; 
-   animation :blink 5s infinite, ;
+   animation :blink 5s alternate;
   } 
   @keyframes blink {
     78% {
@@ -107,37 +107,41 @@ header{
     }
   } 
 #title >.letter:nth-of-type(4){
-  animation: neon 5s infinite, blink 5s linear alternate,break 10s 5s both;
-}
+  animation: blink 5s linear alternate, neon 5s , break 5s 5s both;
+  }
   @keyframes break {
   0%{
     transform : rotate(0deg);
     margin-top: 0px;
     margin-left: 0px; 
-    animation: neon 2s infinite;
+    animation: neon 1s infinite;
   }
   25%{
     transform : rotate(14deg);
     margin-top: 41px;
     margin-left: -2px; 
-    animation: blink 3s linear alternate;
+    animation: blink 2s linear alternate;
+    
   }
   50%{
     transform : rotate(28deg);
     margin-top: 82px;
     margin-left: -4px; 
-    animation: blink 3s linear alternate;
+    animation: blink 2s linear alternate;
+    text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 0 10px 3px #000;  
   }
   80%{
     transform : rotate(45deg);
     margin-top: 140px;
     margin-left: -2px;
-    animation :blink 3s infinite ;
-    text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 0 10px 3px #000;  
+    animation :blink 2s infinite ;
   }
-  90%{
+  85%{
     transform : rotate(60deg);
-    margin-top: 250px;
+    margin-top: 200px;
+    text-shadow: 0 10px 3px #000;  
+    animation :blink 2s;
+    
   }
   100%{
     transform : rotate(75deg);
@@ -145,7 +149,7 @@ header{
     display: none;
   }
 }
-  h3{
+h3{
   color: rgb(255, 255, 255);
   font-family: 'Poppins', sans-serif;
   font-size: 30px;
@@ -172,25 +176,35 @@ header{
     background-color: #fff;
     transform-origin: 50%;
     margin: 0 10px;
-    margin-top: 30px; }
-    @keyframes jump {
+    margin-top: 30px; 
+  }
+  @keyframes jump {
       100%{transform:translateY(-20px);}}
 .dot1{animation: jump infinite .30s alternate ease-in-out,blur-text 3s 1s infinite;}
 .dot2{animation: jump infinite .30s 0.05s alternate ease-in-out,blur-text 3s 1s infinite;}
 .dot3{animation: jump infinite .30s 0.1s alternate ease-in-out,blur-text 3s 1s infinite;}
-
 #display{
   display: none;
   text-align: center;
 }
-#display> img{
-  width: 65%;
+#display > img{
+  width: 50%;
   min-height: 50Vh;
 }
-p{
-  font-family: 'poppins';
+/* p{
+  font-family:'poppins';
   color:rgb(255, 255, 255);
-  font-size: 30px;
-  margin-bottom: 100px;
-  margin-left: -55px;
+  font-size: 25px;
+  animation: neon 5s infinite;
+} */
+#boxMentions{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+a{
+  width: 100%;
+  font-family: 'poppins';
+  color: white;
 }
