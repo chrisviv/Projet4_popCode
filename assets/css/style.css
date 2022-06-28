@@ -188,7 +188,7 @@ h3{
   text-align: center;
 }
 #display > img{
-  width: 50%;
+  width: 100%;
   min-height: 50Vh;
 }
 /* p{
@@ -197,7 +197,7 @@ h3{
   font-size: 25px;
   animation: neon 5s infinite;
 } */
-#boxMentions{
+/* #boxMentions{
   width: 100%;
   display: flex;
   justify-content: center;
@@ -207,4 +207,4 @@ a{
   width: 100%;
   font-family: 'poppins';
   color: white;
-}
+} */
