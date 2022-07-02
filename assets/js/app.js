@@ -1,23 +1,22 @@
 let title = document.querySelector("#title") ;
 let wrapper = document.querySelector(".wrapper");
-let display = document.querySelector(".display");
-let body = document.querySelector("body");
+let boxChargement = document.querySelector("#boxChargement");
+let loader = document.querySelector("#loader");
 let logo = document.querySelector('.logo-code');
-let number = document.querySelector('.number');
-let reference = document.querySelector('.reference');
-let commerce = document.querySelector('.commencer');
+let chargement = document.querySelector('.chargement');
+
 
  window.onload = setTimeout(showContent, 6000);
 
 function showContent() {
   title.style.display = "none";
   wrapper.style.display = "none";
-  body.style.background = "block";
   logo.style.display = "none";
-  display.style.display = "block";
-  number.style.display = "block";
-  reference.style.display = "block";
-  commerce.style.display = "block";
+  // nouvelle page apparait
+  loader.style.display = "none";
+  boxChargement.style.display = "block";
+  body.style.background = "block";
+  chargement.style.display = "block";
 
  }
 // // 2eme section
