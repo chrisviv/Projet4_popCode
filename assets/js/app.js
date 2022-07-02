@@ -19,8 +19,6 @@ function showContent() {
   chargement.style.display = "block";
 
  }
-// // 2eme section
-// // display nouvelle page 
 
 
 // //  let code = document.getElementById('code')

@@ -8,14 +8,14 @@
 body{
   width: 100%;
   height: 100vh;
-  overflow: hidden;
-  background: url(//images.weserv.nl/?url=i.imgur.com/6QJjYMe.jpg) center center/ cover;}
+  overflow: hidden;}
 /************Partie loader**************/
 #loader{
   width: 100%;
   height: 100vh;
   display: flex;
-  flex-direction: column;}
+  flex-direction: column;
+  background: url(//images.weserv.nl/?url=i.imgur.com/6QJjYMe.jpg) center center/ cover;}
 .logo-code{width: 100%;}
 .logo-code>img{width: 15%;margin: 50px 50px;}
 /* Partie Animation PopCode Néon */
@@ -47,7 +47,7 @@ body{
     82% {color: #333; text-shadow: none;}
     83% {color: inherit; text-shadow: inherit;}
     92% {color: #333; text-shadow: none;}
-    92.5% {color: inherit; text-shadow: inherit;}  } 
+    92.5% {color: inherit; text-shadow: inherit;}} 
 #title >.letter:nth-of-type(4){animation: blink 5s linear alternate, neon 5s , break 4s 2s both;}
   @keyframes break { 
   0%{transform : rotate(0deg);
@@ -96,16 +96,17 @@ body{
 .dot1{animation: jump infinite .30s alternate ease-in-out,blur-text 3s 1s infinite;}
 .dot2{animation: jump infinite .30s 0.05s alternate ease-in-out,blur-text 3s 1s infinite;}
 .dot3{animation: jump infinite .30s 0.1s alternate ease-in-out,blur-text 3s 1s infinite;}
-#display{width: 100%;height: 100vh; display: none; text-align: center;}
-#display > img{ width: 100%; min-height: 100vh; animation: apparition 1s;}
 /* Partie Mentions légales */
 #boxMentions{position: absolute;right: 0; bottom: 0;}
 #boxMentions > a{font-family: 'poppins'; color: white; padding-left: 20px;} 
 #boxMentions > a > .legales,.politique{width: 100%;}
-/********** section chargement display ***********/
-#chargement{width: 100%; min-height: 100vh; display: flex; justify-content: center; align-items: center;}
-#chargement> img{ width: 100%; min-height: 100Vh; animation: apparition 1s;}
-#chargement > .number{width: 100%;font-family: 'GothamMedium';font-size: 150px;color: #0AEFF7;}
-#chargemet > .reference{width: 100%;font-size: 15px; font-weight: 500;  font-family: 'GothamMedium';}
+/********** section chargement ***********/
+#boxChargement{
+  background: url(../img/Chargement.jpg) center center / cover;
+  width: 100%;
+  height: 100%; }
+.chargement{text-align: center;width: 100%; min-height: 100vh; display: flex; justify-content: center; align-items: center;}
+.chargement > .number{width: 100%;height: 30vh; font-family: 'GothamMedium';font-size: 150px;color: #0AEFF7;}
+.chargemet > .reference{width: 80%;font-size: 15px; font-weight: 500;  font-family: 'GothamMedium';line-height: 30px;letter-spacing: 5px;transform:translateY(-120px)}
 #chargement > .commencer{width: 100%; color: #FFAAFF; font-size: 13px; font-weight: 500; font-family: 'GothamMedium';}
   
