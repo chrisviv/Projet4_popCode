@@ -15,8 +15,7 @@ function showContent() {
   loader.style.display = "none";
   boxchargement.style.display = "block";
   body.style.background = "block";
-  chargement.style.display ="block";
-}
+  chargement.style.display ="block"; }
 
 
 

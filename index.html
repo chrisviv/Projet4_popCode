@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loading-Pop_Code</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://unpkg.com/vanilla-counter"></script>
+</head>
 </head>
 <body>
     <section id="loader">
         <div class="logo-code">
-            <img src="./assets/img/logo_pop_code.png" alt="image du logo popCode">
+            <img src="./assets/img/logo.png" alt="image du logo popCode">
         </div>
         <div id="title">
             <span class="letter p1">P</span>
@@ -65,15 +67,23 @@
                 <span class="more">+</span>
                 <span class="progres"></span>
                 <span class="less">-</span>
-            <div class="boxLangages">
-                <span class="iconify" data-icon="arcticons:xiaoyuan-search"></span>
-                <p class="langages">LANGAGES TROUVÉS</p>
+                <div id="searchLangages">
+                    <div class="boxLangages">
+                        <span class="iconify" data-icon="arcticons:xiaoyuan-search"></span>
+                        <p class="langages">LANGAGES TROUVÉS</p>
+                    </div>
+                </div>
             </div>
+            <div id="mentions">
+                <a href="#" class="legale"> Mentions Légales </a> 
+                <a href="#" class="politiques"> Politique de confidentialité </a>
+            </div> 
         </div> 
        </div>
     </section>
   
-  <script src="./assets/js/app.js"></script>
+ 
   <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+   <script src="./assets/js/app.js"></script>
 </body>
 </html>
