@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loading-Pop_Code</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-    <script src="https://unpkg.com/vanilla-counter"></script>
+    <script src="./assets/js/count.js"></script>
 </head>
 </head>
 <body>
@@ -33,7 +33,7 @@
         </div> 
     <section id="boxChargement">
         <div class="chargement">
-            <p class="number">30</p>
+            <p class="number"><span data-vanilla-counter data-start-at="0" data-end-at="30" data-delay="0" data-format="{}">${}</span></p>
             <p class="reference">RÉFÉRENCES DE<br>LANGAGES DE PROGRAMMATION <br> À RETROUVER</br></p>
             <a href="#boxJeu" class="commencer">CLIQUER POUR COMMENCER</a>
         </div>
@@ -83,7 +83,10 @@
     </section>
   
  
-  <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
-   <script src="./assets/js/app.js"></script>
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+    <script src="./assets/js/app.js"></script>
+    <script>
+    VanillaCounter()
+    </script>
 </body>
 </html>
