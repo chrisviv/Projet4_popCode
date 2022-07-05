@@ -3,7 +3,7 @@
   @font-face {font-family: 'neon'; src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);}
   @font-face {font-family: 'GothamMedium'; src: url(../font/GothamMedium.ttf);}
   @font-face {font-family: 'Gotham-Bold'; src: url(../font/GothamBold.ttf);}
-  @font-face{font-family: 'GothamLight'; src: url(../font/GothamLight.otf);}
+  @font-face {font-family: 'GothamLight'; src: url(../font/GothamLight.otf);}
 *{margin: 0; padding: 0;box-sizing: border-box;}
 body{width: 100%; height: 100vh; overflow: hidden;}
 #loader{ width: 100%; height: 100vh;display: flex; flex-direction: column;background: url(//images.weserv.nl/?url=i.imgur.com/6QJjYMe.jpg) center center/ cover;}
@@ -46,23 +46,34 @@ body{width: 100%; height: 100vh; overflow: hidden;}
 .chargement{ font-family: 'GothamMedium';text-align:center;  width: 100%; min-height: 100vh;display: flex; justify-content:flex-end; align-items: center;flex-direction: column;}
 .chargement >.number{  width: 100%; height: 30vh; font-size: 150px; color: #0AEFF7;  transform: translateY(-0px);}
 .chargement >.reference{ width: 100%;font-size: 15px;color: #fff;line-height: 30px;letter-spacing: 5px; transform: translateY(-38px);}
-.chargement >.commencer{width: 100%; color: #FFAAFF;font-size: 13px; padding-top: 50px;letter-spacing: 5px; transform: translatey(-40px);text-decoration: none; animation: apparition 2s;}
+.chargement >.commencer{width: 100%; color: #FFAAFF;font-size: 13px; padding-top: 50px;letter-spacing: 5px; transform: translatey(-40px);text-decoration: none; animation: clignotte 3s infinite}
+@keyframes clignotte {0%,	50%,100% {opacity: 1;}25%,75% {opacity: 0;}}
 /*************************** Section Jeu *********************/
-#boxJeu{ width: 100%; min-height: 100vh; background: url(../img/Jeu.jpg) center center / cover; display: flex; justify-content: center; align-items: center; flex-direction: column;}
+#boxJeu{ width: 100%; min-height: 100vh; background: url(../img/Jeu.jpg) center center / cover; opacity: 1;
+  display: flex; justify-content: center; align-items: center; flex-direction: column;}
 /**************** Partie Jeu :score ****************/
 #boxScore{ width: 100%; height: 50vh; display: flex;justify-content:space-between;align-items: flex-start;}
 #boxScore >.resultat{width: 50%; display: flex;flex-direction: column;}
+/*////////////////////////////////////*/
+/* tapeClavier pour apparaitre en JS */
+#boxTape{width:100vw; height:85vh;display: flex; justify-content: center;align-items: center;flex-direction:column;}
+#boxTape>#nomLangage{width:28vw;height:10vh;font-size:63px;
+  display: flex;justify-content: center; border:none ; color :#000;padding:10px}
+  .opacite{ opacity: 0; }
+#boxTape>.tapeName {height:0vh;font-size:15px;color: white;font-family: 'GothamMedium'; letter-spacing: 5px;padding-top:20px;}
+/*///////////////////////////////////*/
 .boxScore{display: flex; margin: 0px 0px -30px -65px;}
-#boxScore> .resultat >.boxScore> h4{ font-family: 'GothamMedium';font-size: 8px;letter-spacing: 2px;color: #0AEFF7; rotate:-90deg;margin-left: 55px; margin-top: 20px;}
-#boxScore> .resultat >.boxScore> h4::before{ position: absolute;content: '';width: 87%; border: 1px solid #D9D9D9;top: 12px;left: 0px; }
+#boxScore> .resultat >.boxScore> h4{ font-family: 'GothamMedium';font-size: 12px;letter-spacing: 2px;color: #0AEFF7; rotate:-90deg;margin-left: 55px; margin-top: 20px;}
+#boxScore> .resultat >.boxScore> h4::before{ position: absolute;content: '';width: 88%; border: 1px solid #D9D9D9;top: 15px;left: 1px; }
 /* Box Score 08 / 30*/
-.score{width: 50%;display: flex;margin-left: 30px;}
+.score{width: 50%;display: flex;margin-left: 35px;}
 .score>p{font-family:'GothamMedium';padding-left: 5px;color:#fff;font-size: 18px;}
 /* Box ERREUR XXX */
-.erreur{width:50%;display: flex; justify-content: flex-start;margin: 5px 0 0 20px;font-family:'GothamMedium';font-size: 18px;}
-.erreur>span{ color: rgba(255, 255, 255, 0.3);padding-left: 15px;}
-.erreur>.firstX{color: rgba(10, 239, 247, 1);}
-.resultat{width:50%; margin: 20px 0 0 30px; }
+.erreur{width:50%;display: flex; justify-content: flex-start;margin: 5px 0 0 33px;font-family:'GothamMedium';font-size: 18px;}
+.erreur>span{ color: rgba(255, 255, 255, 0.3);padding-left: 10px;}
+.erreur>.firstX{color:rgba(255, 255, 255, 0.3);}    
+ /* color: rgba(10, 239, 247, 1); */
+.resultat{width:50%; margin: 20px 0 0 30px;}
 /* Partie Gauche Logo */
 .boxImg{width: 50%; display: flex;justify-content: flex-end; margin-top: 20px;} 
 .boxImg> img{width: 20%; margin: 10px 30px 0 0 ;} 
@@ -71,17 +82,16 @@ body{width: 100%; height: 100vh; overflow: hidden;}
 #zoom >.boxZoom{ width: 100%; display: flex;flex-direction: column; margin-top: 30px }
 /* partie BOX ZOOM */
 .boxZoomer{width: 5%; display:flex; justify-content: center;align-items:center; margin: 0px 0px 10px 15px; rotate: -90deg;}
-.boxZoomer>.zoomer{display:flex; justify-content: center;align-items: center; font-size: 8px; color: #0AEFF7;}
+.boxZoomer>.zoomer{display:flex; justify-content: center;align-items: center; font-size: 10px; color: #0AEFF7;}
 .boxZoom>.more,.less{font-family:'GothamMedium';font-size: 14px;color:#fff; margin: 5px 0px 8px 30px;}
 .progres{width: 0%; border: 1px solid #D9D9D9; height: 124px; margin-left: 33px;}
 /* BOX LANGAGES */
 #searchLangages{ width: 100%;display: flex;align-items: center; margin-bottom: 15px;margin-left: 20px}
 .boxLangages{width:25%; height: 25px; display: flex;justify-content: center;align-items: center;border: 1px solid #fff;margin-left: 50px;margin-top: -50px;}
 .boxLangages> p>.langages{display: flex; height: 10vh; margin-top :20px ;}
-.boxLangages >.iconify{color:#fff; font-size: 14px; }
 .langages{padding-left: 10px; font-family:'GothamLight';font-size: 8px; color: #fff; letter-spacing: 2px;}
 /* partie Mentions */
 #mentions{width: 100%;display: flex;justify-content: flex-end;align-items: flex-end;color: #fff;font-family:'GothamLight';font-size: 12px; margin-right:30px}
-#mentions>.legale{height: 50px; display: flex;justify-content: flex-end; align-items: center;color: #fff;font-family:'GothamLight';font-size: 12px;}
-#mentions>.politiques {height: 50px; display: flex; align-items: center;padding-left: 20px;color: #fff;font-family:'GothamLight';font-size: 12px;}
- 
+#mentions>.legale{height: 50px; display: flex;justify-content: flex-end; align-items: center;color: #fff;font-family:'GothamLight';font-size: 12px; text-underline-offset: 0.3rem;}
+#mentions>.politiques {height: 50px; display: flex; align-items: center;padding-left: 20px;color: #fff;font-family:'GothamLight';font-size: 12px;text-underline-offset: 0.3rem;}
+
