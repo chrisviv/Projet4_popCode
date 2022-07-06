@@ -14,6 +14,7 @@ function showContent() {
   // nouvelle page apparait
   loader.style.display = "none";
   boxchargement.style.display = "block";
+  // A REVOIR POUR LE 'BODY' ERREUR 
   body.style.background = "block";
   chargement.style.display ="block"; }
 
@@ -41,7 +42,7 @@ window.addEventListener('keydown', function(event){
   }
 })
 
-window.addEventListener('keydup', function(event){
+window.addEventListener('keyup', function(event){
   key = event.key
   console.log(key);
   if(key === event.key){
@@ -51,7 +52,16 @@ window.addEventListener('keydup', function(event){
 })
 
 
+// Modale pour les langages trouvés
+const modalContenair = document.querySelector(".modal-container"); 
+const modalTriggers = document.querySelectorAll(".modal-trigger");
 
+modalTriggers.forEach(trigger => trigger.addEventListener("click", toggleModal))
+
+function toggleModal(){
+  modalContainer.classList.toggle("active")}
+
+  
 
 
 

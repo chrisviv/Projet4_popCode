@@ -46,7 +46,7 @@
                 <div class="score">
                     <p id="numberFirst">00</p>
                     <p class="slash">/</p>
-                    <p class="numberSecond">28</p>
+                    <p class="numberSecond">27</p>
                 </div>
                 <div class="erreur">
                     <span class="firstX">X</span>
@@ -73,11 +73,27 @@
                 <div id="searchLangages">
                     <div class="boxLangages">
                         <img src="./assets/img/loupe.svg" alt="recherche ">
-                    
-                        <p class="langages">LANGAGES TROUVÉS</p>
+                        <a class="langages" href="">LANGAGES TROUVÉS</a>
                     </div>
                 </div>
             </div>
+            <div class="modal-container">
+
+                <div class="overlay modal-trigger"></div>
+
+                <div class="modal" role="dialog" 
+                aria-labelledby="modalTitle" aria-describedby="dialogDesc">
+                    <button 
+                    class="close-modal modal-trigger">X</button>
+                    <h2 id="modalTtitle">Voici les langages déjà trouvés</h2>
+                    <p id="dialogDesc" class="listeTrouve"></p>
+                </div>
+            </div> 
+
+            <button class="modal-btn modal-trigger">Open Modal</button>
+
+
+
             <div id="mentions">
                 <a href="#" class="legale"> Mentions Légales </a> 
                 <a href="#" class="politiques"> Politique de confidentialité </a>

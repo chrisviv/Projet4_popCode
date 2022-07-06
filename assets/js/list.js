@@ -1,8 +1,36 @@
-let listLangages =['JavaScript', 'javascript', 'JAVASCRIPT','HTML','html','CSS', 'css','SQL','sql','Python','python', 'PYTHON','JAVA','java','Java',
-'Bash','bash','BASH', 'Shell','SHELL','shell','PowerShell', 'POWERSHELL', 'powershell','C#', 'c#','PHP','php', 'C++', 'C++','TypeScript','TYPESCRIPT', 'typescript',
-'typeScript','C','c','Ruby','RUBY','ruby','Go','go','GO','Assembly','assembly','ASSEMBLY','Swift','swift','SWIFT','Kotlin','KOTLIN','kotlin','R','r','VBA','vba',
-'Objective-C','objective-c','OBJECTIVE-C','Scala','SCALA','scala','Rust','RUST','rust','Dart','DART','dart','Elixir','elixir','ELIXIR','Clojure','clojure','CLOJURE', 
-'WebAssembly', 'webassembly','WEBASSEMBLY'];
+
+document.getElementById('nameLangage').innerHTML = listeLangages[1];
+let listeLangages =['JavaScript','HTML','CSS','SQL','Python','Java','Bash','PowerShell','C#','PHP','C++', 'TypeScript',
+'C','Ruby','Go','Assembly','Swift','Kotlin','VBA','Objective-C','Scala','Rust','Dart','Elixir','Clojure','WebAssembly'];
+
+let resultat = prompt('Mettre votre réponse');
+
+// for ( i=0; i <listeLangages.length; i++){
+//     resultat + listeLanages.toLowerCase().replace(é, e) ===  resultat + listeLanages [i].toLowerCase().replace(é, e); 
+//   break
+// }
+
+
+
+
+
+
+
+// // on initialise une variable let i
+// let i =28;
+
+// //Tant que
+// while (i<28){
+//     //...exécute ce code
+//     document.getElementById('nomLangage').innerHTML += 'i la valeur ' + '/ 28' + (i + 1);
+//     x++;
+// }
+// //sortie de la boucle quand arrive à 28 'condition de sortie'
+
+// for (let i =0; i<28; i++){
+//     document.getElementById('noomLangage'.innerHTML +=
+//     'i stock la valeur' + i + 'lors du passage N°' + (i + 1) + 'dans la boucle<br>';
+}
 
 
 // ***************************************************//
