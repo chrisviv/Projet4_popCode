@@ -13,13 +13,11 @@ function showContent() {
   wrapper.style.display = "none";
   // nouvelle page apparait
   loader.style.display = "none";
-  boxchargement.style.display = "block";
-  // A REVOIR POUR LE 'BODY' ERREUR 
-  body.style.background = "block";
-  chargement.style.display ="block"; }
+  boxchargement.style.display = "block";}
 
   // ***************************************************
 
+  let boxTape = document.getElementById('boxTape');
   let nomLangage = document.getElementById('nomLangage');
   let tapeName = document.querySelector('.tapeName');
   let boxJeu = document.querySelector('#boxJeu');
@@ -38,28 +36,28 @@ window.addEventListener('keydown', function(event){
   console.log(key);
   if(key === event.key){
     nomLangage.focus()
-    nomLangage.classList.remove('opacite');
+    boxTape.classList.remove('opacite');
   }
 })
 
 window.addEventListener('keyup', function(event){
   key = event.key
   console.log(key);
-  if(key === event.key){
-    nomLangage.focus()
-    nomLangage.classList.remove('opacite');
+  if('Enter' === event.key){
+    boxTape.classList.add('opacite');
+    nomLangage.value =''
   }
 })
 
+/*************************************************************/
+ // Modale pour les langages trouvés
+// const modalContenair = document.querySelector(".modal-container"); 
+// const modalTriggers = document.querySelectorAll(".modal-trigger");
 
-// Modale pour les langages trouvés
-const modalContenair = document.querySelector(".modal-container"); 
-const modalTriggers = document.querySelectorAll(".modal-trigger");
+// modalTriggers.forEach(trigger => trigger.addEventListener("click", toggleModal))
 
-modalTriggers.forEach(trigger => trigger.addEventListener("click", toggleModal))
-
-function toggleModal(){
-  modalContainer.classList.toggle("active")}
+// function toggleModal(){
+//   modalContainer.classList.toggle("active")}
 
   
 

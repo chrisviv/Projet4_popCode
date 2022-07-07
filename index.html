@@ -9,6 +9,10 @@
 </head>
 </head>
 <body>
+    <div id="boxMentions">
+        <a href="#" class="legales"> Mentions Légales </a> 
+        <a href="#" class="politique"> Politique de confidentialité </a>
+    </div> 
     <section id="loader">
         <div class="logo-code">
             <img src="./assets/img/logo.png" alt="image du logo popCode">
@@ -26,86 +30,22 @@
             <div class="dot dot3"></div>
         </div>
     </section>
-        <div id="boxMentions">
-            <a href="#" class="legales"> Mentions Légales </a> 
-            <a href="#" class="politique"> Politique de confidentialité </a>
-        </div> 
     <section id="boxChargement">
         <div class="chargement">
-            <p class="number"><span data-vanilla-counter data-start-at="0" data-end-at="28" data-delay="6000" data-format="{}">${}</span></p>
+            <p class="number"><span data-vanilla-counter data-start-at="0" data-end-at="27" data-delay="6000" data-format="{}">${}</span></p>
             <p class="reference">RÉFÉRENCES DE<br>LANGAGES DE PROGRAMMATION <br> À RETROUVER</br></p>
-            <a href="#boxJeu" class="commencer">CLIQUER POUR COMMENCER</a>
+            <a href="jeu.html" class="commencer">CLIQUER POUR COMMENCER</a>
         </div>
     </section>
-    <section id="boxJeu">
-        <div id="boxScore">
-            <div class="resultat">
-                <div class="boxScore">
-                    <h4>SCORE</h4>
-                </div>   
-                <div class="score">
-                    <p id="numberFirst">00</p>
-                    <p class="slash">/</p>
-                    <p class="numberSecond">27</p>
-                </div>
-                <div class="erreur">
-                    <span class="firstX">X</span>
-                    <span class="secondX">X</spanvcla>
-                    <span class="thirdX">X</span>
-                </div>
-                <div id="boxTape">
-                    <input id="nomLangage" class="opacite" type="text" maxlength="12">
-                    <p class="tapeName">TAPE UN NOM DE LANGAGE DE PROGRAMMATION</p>
-                </div>
-            </div>
-            <div class="boxImg">
-                <img src="./assets/img/logo_pop_code1.png" alt="logo du jeu Pop Code">
-            </div>
-        </div>
-        <div id="zoom">
-            <div class="boxZoom">
-                <div class="boxZoomer">
-                    <span class="zoomer">ZOOM</span>
-                </div>
-                <span class="more">+</span>
-                <span class="progres"></span>
-                <span class="less">-</span>
-                <div id="searchLangages">
-                    <div class="boxLangages">
-                        <img src="./assets/img/loupe.svg" alt="recherche ">
-                        <a class="langages" href="">LANGAGES TROUVÉS</a>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-container">
-
-                <div class="overlay modal-trigger"></div>
-
-                <div class="modal" role="dialog" 
-                aria-labelledby="modalTitle" aria-describedby="dialogDesc">
-                    <button 
-                    class="close-modal modal-trigger">X</button>
-                    <h2 id="modalTtitle">Voici les langages déjà trouvés</h2>
-                    <p id="dialogDesc" class="listeTrouve"></p>
-                </div>
-            </div> 
-
-            <button class="modal-btn modal-trigger">Open Modal</button>
-
-
-
-            <div id="mentions">
-                <a href="#" class="legale"> Mentions Légales </a> 
-                <a href="#" class="politiques"> Politique de confidentialité </a>
-            </div> 
-        </div> 
-    </section>
-
+   
   
    
     <script src="./assets/js/app.js"></script>
     <script src="./assets/js/count.js"></script>
+    <script src="./assets/js/listes.js"></script>
+    <script src="./assets/js/condition.js"></script>
     <script> VanillaCounter()</script>
+    <script>wheelzoom(document.querySelector('img.zoom'));</script>
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
   </body> 
 </html>
