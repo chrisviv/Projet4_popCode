@@ -1,9 +1,4 @@
 
-document.getElementById('nameLangage').innerHTML = listeLangages[1];
-let listeLangages =['JavaScript','HTML','CSS','SQL','Python','Java','Bash','PowerShell','C#','PHP','C++', 'TypeScript',
-'C','Ruby','Go','Assembly','Swift','Kotlin','VBA','Objective-C','Scala','Rust','Dart','Elixir','Clojure','WebAssembly'];
-
-let resultat = prompt('Mettre votre réponse');
 
 // for ( i=0; i <listeLangages.length; i++){
 //     resultat + listeLanages.toLowerCase().replace(é, e) ===  resultat + listeLanages [i].toLowerCase().replace(é, e); 
@@ -29,8 +24,8 @@ let resultat = prompt('Mettre votre réponse');
 
 // for (let i =0; i<28; i++){
 //     document.getElementById('noomLangage'.innerHTML +=
-//     'i stock la valeur' + i + 'lors du passage N°' + (i + 1) + 'dans la boucle<br>';
-}
+//     'i stock la valeur' + i + 'lors du passage N°' + (i + 1) + 'dans la boucle<br>';}
+
 
 
 // ***************************************************//

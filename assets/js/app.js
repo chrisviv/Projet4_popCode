@@ -33,21 +33,58 @@ function showContent() {
   
 window.addEventListener('keydown', function(event){
   key = event.key
-  console.log(key);
+  // console.log(key);
   if(key === event.key){
     nomLangage.focus()
     boxTape.classList.remove('opacite');
   }
 })
+let score = 0;
+let numberFirst = document.getElementById('numberFirst');
+let X = document.querySelectorAll('.X');
+let erreur = [];
 
 window.addEventListener('keyup', function(event){
   key = event.key
-  console.log(key);
+  // console.log(key);
   if('Enter' === event.key){
     boxTape.classList.add('opacite');
-    nomLangage.value =''
+    input = nomLangage.value;
+    // console.log(input);
+    for (let i = 0; i < listeLangages.length; i++) {
+      if (input.toLowerCase()=== listeLangages[i].toLowerCase() ) {
+        // console.log(true);
+        score++;
+        if (score< 10) {
+         numberFirst.textContent = '0' + score;}
+        else {
+          numberFirst.textContent = score;}
+      } 
+        }
+
+        for (let i = 0; i < erreur.length; i++) {
+          if(input != listeLangages[i] ){
+            erreur.push(input);
+            X[i].classList.add('color');
+            console.log(erreur);
+          }
+          
+          
+        }
+    nomLangage.value ='';
   }
 })
+
+
+
+let input = "";
+
+
+let listeLangages =['JavaScript','HTML','CSS','SQL','Python','Java','Bash','PowerShell','C#','PHP','C++', 'TypeScript',
+'C','Ruby','Go','Assembly','Swift','Kotlin','VBA','Objective-C','Scala','Rust','Dart','Elixir','Clojure','WebAssembly'];
+
+
+// let resultat = prompt('Mettre votre réponse');
 
 /*************************************************************/
  // Modale pour les langages trouvés
