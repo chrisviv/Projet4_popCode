@@ -1,16 +1,4 @@
 
-
-// for ( i=0; i <listeLangages.length; i++){
-//     resultat + listeLanages.toLowerCase().replace(é, e) ===  resultat + listeLanages [i].toLowerCase().replace(é, e); 
-//   break
-// }
-
-
-
-
-
-
-
 // // on initialise une variable let i
 // let i =28;
 
@@ -23,7 +11,7 @@
 // //sortie de la boucle quand arrive à 28 'condition de sortie'
 
 // for (let i =0; i<28; i++){
-//     document.getElementById('noomLangage'.innerHTML +=
+//     document.getElementById('nomLangage'.innerHTML +=
 //     'i stock la valeur' + i + 'lors du passage N°' + (i + 1) + 'dans la boucle<br>';}
 
 

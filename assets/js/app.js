@@ -11,13 +11,14 @@ function showContent() {
   logo.style.display = "none";
   title.style.display = "none";
   wrapper.style.display = "none";
-  // nouvelle page apparait
   loader.style.display = "none";
+  // nouvelle page apparait
   boxchargement.style.display = "block";}
 
   // ***************************************************
 
   let boxTape = document.getElementById('boxTape');
+  // nomLangage coorespont au input
   let nomLangage = document.getElementById('nomLangage');
   let tapeName = document.querySelector('.tapeName');
   let boxJeu = document.querySelector('#boxJeu');
@@ -27,10 +28,10 @@ function showContent() {
   window.onload = setTimeout(showTape, 7000);
   
   function showTape(){
-    tapeName.style.display= 'block'; }
+    tapeName.style.display= 'block';}
 
-// 
-  
+
+/*************************************************************** */
 window.addEventListener('keydown', function(event){
   key = event.key
   // console.log(key);
@@ -43,6 +44,8 @@ let score = 0;
 let numberFirst = document.getElementById('numberFirst');
 let X = document.querySelectorAll('.X');
 let erreur = [];
+let listeLangages =['JavaScript','HTML','CSS','SQL','Python','Java','Bash','PowerShell','C#','PHP','C++', 'TypeScript',
+'C','Ruby','Go','Assembly','Swift','Kotlin','VBA','Objective-C','Scala','Rust','Dart','Elixir','Clojure','WebAssembly'];
 
 window.addEventListener('keyup', function(event){
   key = event.key
@@ -61,29 +64,34 @@ window.addEventListener('keyup', function(event){
           numberFirst.textContent = score;}
       } 
         }
-
         for (let i = 0; i < erreur.length; i++) {
-          if(input != listeLangages[i] ){
-            erreur.push(input);
+          if( input != listeLangages[i] ){
+             erreur.push(input);
             X[i].classList.add('color');
             console.log(erreur);
           }
-          
-          
         }
     nomLangage.value ='';
+
   }
 })
 
-
-
 let input = "";
 
+ ///////////////////////////////////CURSOR ANIME///////////////////////////////////////////////////
+ const cursor = document.querySelector('.cursor');
 
-let listeLangages =['JavaScript','HTML','CSS','SQL','Python','Java','Bash','PowerShell','C#','PHP','C++', 'TypeScript',
-'C','Ruby','Go','Assembly','Swift','Kotlin','VBA','Objective-C','Scala','Rust','Dart','Elixir','Clojure','WebAssembly'];
-
-
+ document.addEventListener('mousemove', e => {
+     cursor.setAttribute('style', 'top:'+(e.pageY - 20)+"px; left:"+(e.pageX - 20)+"px;")
+ });
+ 
+ document.addEventListener('click', ()=>{
+     cursor.classList.add('expand');
+ 
+     setTimeout(()=>{
+         cursor.classList.remove("expand");
+     }, 500);
+ });
 // let resultat = prompt('Mettre votre réponse');
 
 /*************************************************************/
