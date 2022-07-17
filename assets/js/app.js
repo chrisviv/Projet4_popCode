@@ -100,9 +100,11 @@ window.addEventListener("keyup", function (event) {
     for (let i = 0; i < listeLangages.length; i++) {
       if (input.toLowerCase() === listeLangages[i].toLowerCase()) {
         alert ('Bravo ! Vous avez trouvé. Continuer la partie.');
+        
 // Mets le langague trouvé dans le tableau/modal nommé le language trouvé et enléve un language dans le premier tableau 'listeLangages'
         langagesPassed.push(res)
         program.textContent += langagesPassed.slice(-1) + ''
+       
        
 // variable / remet la reponse trouve en miniscule
         let lowerCaseAnswer = langagesPassed.map(name => name.toLowerCase())
@@ -120,10 +122,9 @@ window.addEventListener("keyup", function (event) {
         break;
 // sinon si le language trouvé est inclus dans le tableau déjà trouvé : réponse en une alert ("...");
       }else if(langagesPassed.includes(res)){
-          // alert("Tu l'as déjà trouvé  !   Continue...");
-        let findTrue = alert;
-        findTrue.innerText = "Tu l'as déjà trouvé  !   Continue...";
-       
+          alert("Tu l'as déjà trouvé  !");
+          erreur -=1;
+          alert('Continue...');
         break;
 
       }else {
@@ -140,33 +141,29 @@ window.addEventListener("keyup", function (event) {
     }
       else{
           erreur +=1;
-           // console.log(erreur)
-          // 1 erreur met la X en bleu
+// console.log(erreur)
+// 1 erreur met la X en bleu
          
           switch(erreur){
             case 1:
-            document.querySelector('.Xone').style = 'color: #0AEFF7';
-          // console.log("perdu")
-          // 1 erreur met la X en bleu
-            alert ('Ouuupps presque... ça, tu as droit à encore 2 erreurs !');
-            break;
+              document.querySelector('.Xone').style = 'color: #0AEFF7';
+               alert('Attention ! Au bout de 3 erreurs , le code bugge et le défit est perdu !')
+              break;
 
             case 2:
               document.querySelector('.Xtwo').style = 'color: #0AEFF7';
-              alert ('Oulaa fait attention, tu as droit encore à 1 erreurs !');
+              alert ('Fait attention, tu as droit encore à 1 erreurs !');
               break; 
 
             case 3:
               document.querySelector('.Xtree').style = 'color: #0AEFF7';
-              alert ('Dommage ! Vous avez perdu....;-).');
+              alert ('Dommage ! Vous avez perdu...Recommence une autre partie.;-).');
               break;
           }
-          // let countX = 0;
+         
           // console.log(erreur);
 
-          // while(!erreur){
-          //   if()
-          // }
+          
       }
      
     
@@ -201,12 +198,6 @@ window.addEventListener("keyup", function (event) {
 // '{"code" :"Elixir","Logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Official_Elixir_logo.png/640px-Official_Elixir_logo.png", "description":"Elixir est un langage de programmation multi-paradigme fonctionnant sur la machine virtuelle Erlang (BEAM). Il est créé en 2011 par le développeur José Valim, personnalité du monde Ruby et l'un des premiers contributeurs au framework de programmation Ruby on Rails. Il intègre les paradigmes de programmation fonctionnelle, programmation concurrente et programmation orientée processus (en), et supporte la métaprogrammation via un système de macros et le polymorphisme via un système dit de protocoles."}' +
 // '{"code" :"Clojure","Logo": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Clojure_logo.svg", "description":"Clojure est un langage de programmation fonctionnel compilé, multi-plateforme et destiné à la création de programmes sûrs et facilement distribuables. C’est un dialecte de Lisp. Il transpile vers du bytecode Java, du code JavaScript et du bytecode .NET. Clojure est donc disponible sur la JVM, le CLR, les navigateurs et Node.js."}' +
 // '{"code" :"WebAssembly","Logo": "https://upload.wikimedia.org/wikipedia/commons/1/1f/WebAssembly_Logo.svg", "description":"WebAssembly, abrégé wasm, est un standard du World Wide Web pour le développement d’applications. Il est conçu pour compléter JavaScript avec des performances supérieures. Le standard consiste en un bytecode, sa représentation textuelle et un environnement d'exécution dans un bac à sable compatible avec JavaScript. Il peut être exécuté dans un navigateur Web et en dehors. WebAssembly est standardisé dans le cadre du World Wide Web Consortium.\n\n    Comme WebAssembly ne spécifie qu'un langage de bas niveau, le bytecode est généralement produit en compilant un langage de plus haut niveau. Parmi les premiers langages supportés figurent Rust avec le projet/module (crate) wasm-bindgen ainsi que le C et C++, compilés avec Emscripten (basé sur LLVM). De nombreux autres langages de programmation possèdent aujourd'hui un compilateur WebAssembly, parmi lesquels : C#, Go, Java, Lua, Python ou Ruby.\n    \n    Les navigateurs Web compilent le bytecode wasm dans le langage machine de l'hôte sur lequel ils sont utilisés avant de l'exécuter."}],
-
-
-
-
-
-
 
 
 
@@ -256,3 +247,20 @@ btn.addEventListener("click", () =>{
 //   let tapeClavier = tapeName[i];
 //   tapeClavier.addEventListener('click', showWrite, false);
 // }
+
+// // on initialise une variable let i
+// let i =28;
+
+// //Tant que
+// while (i<28){
+//     //...exécute ce code
+//     document.getElementById('nomLangage').innerHTML += 'i la valeur ' + '/ 28' + (i + 1);
+//     x++;
+// }
+// //sortie de la boucle quand arrive à 28 'condition de sortie'
+
+// for (let i =0; i<28; i++){
+//     document.getElementById('nomLangage'.innerHTML +=
+//     'i stock la valeur' + i + 'lors du passage N°' + (i + 1) + 'dans la boucle<br>';}
+
+
