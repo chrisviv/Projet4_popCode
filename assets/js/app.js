@@ -5,6 +5,16 @@ let boxchargement = document.querySelector("#boxChargement");
 let loader = document.querySelector("#loader");
 let logo = document.querySelector(".logo-code");
 let chargement = document.querySelector(".chargement");
+// variable pour les erreurs
+let popup1 = document.getElementById('popup1');
+let popup2 = document.getElementById('popup2');
+let popupEnd = document.getElementById('popupEnd');
+let recommencer = document.getElementById('recommencer');
+// variable gagné et la victoire
+let gagne = document.getElementById('gagne');
+let victoire = document.getElementById('victoire');
+let deja = document.getElementById('deja');
+
 
 window.onload = setTimeout(showContent, 6000);
 
@@ -39,7 +49,7 @@ window.addEventListener("keydown", function (event) {
     boxTape.classList.remove("opacite");}
 });
 /**************************************************************** */
-// variables
+// variables pour le score gagnat et perdant
 let score = 0;
 let numberFirst = document.getElementById("numberFirst");
 let X = document.querySelectorAll(".X");
@@ -99,14 +109,17 @@ window.addEventListener("keyup", function (event) {
     // console.log(input);
     for (let i = 0; i < listeLangages.length; i++) {
       if (input.toLowerCase() === listeLangages[i].toLowerCase()) {
-        alert ('Bravo ! Vous avez trouvé. Continuer la partie.');
-        
+        gagne.classList.remove('none2')
+        setTimeout(()=> {
+          gagne.classList.add('none2')
+         }, 1000);
+       
+             
 // Mets le langague trouvé dans le tableau/modal nommé le language trouvé et enléve un language dans le premier tableau 'listeLangages'
         langagesPassed.push(res)
         program.textContent += langagesPassed.slice(-1) + ''
        
-       
-// variable / remet la reponse trouve en miniscule
+// variable / remet la reponse trouvé en miniscule
         let lowerCaseAnswer = langagesPassed.map(name => name.toLowerCase())
 // ! :Renvoie false si son unique opérande peut être converti en true, sinon il renvoie true. 
         listeLangages = listeLangages.filter((val) => !lowerCaseAnswer.includes(val));
@@ -122,11 +135,12 @@ window.addEventListener("keyup", function (event) {
         break;
 // sinon si le language trouvé est inclus dans le tableau déjà trouvé : réponse en une alert ("...");
       }else if(langagesPassed.includes(res)){
-          alert("Tu l'as déjà trouvé  !");
           erreur -=1;
-          alert('Continue...');
+          deja.classList.remove('none2')
+          setTimeout(()=> {
+            deja.classList.add('none2')
+           }, 1000)
         break;
-
       }else {
         find = false;
       }
@@ -143,30 +157,36 @@ window.addEventListener("keyup", function (event) {
           erreur +=1;
 // console.log(erreur)
 // 1 erreur met la X en bleu
-         
           switch(erreur){
             case 1:
               document.querySelector('.Xone').style = 'color: #0AEFF7';
-               alert('Attention ! Au bout de 3 erreurs , le code bugge et le défit est perdu !')
+               popup1.classList.remove('none2')
+               setTimeout(()=> {
+                popup1.classList.add('none2')
+               }, 1000)
               break;
 
             case 2:
               document.querySelector('.Xtwo').style = 'color: #0AEFF7';
-              alert ('Fait attention, tu as droit encore à 1 erreurs !');
+              popup2.classList.remove('none2')
+                 setTimeout(()=> {
+                popup2.classList.add('none2')
+               }, 1000)
               break; 
 
             case 3:
               document.querySelector('.Xtree').style = 'color: #0AEFF7';
-              alert ('Dommage ! Vous avez perdu...Recommence une autre partie.;-).');
+              popEnd.textContent = ' GAME OVER !'
+              // recommencer.classList.add('recommencer')
+              popEnd.classList.remove("none2")
+              setTimeout(()=> {
+                popEnd.classList.add('none2')
+                //  recommencer.classList.add('recommencer')
+                }, 3000)
               break;
           }
-         
           // console.log(erreur);
-
-          
       }
-     
-    
   }
 });
 
@@ -199,8 +219,6 @@ window.addEventListener("keyup", function (event) {
 // '{"code" :"Clojure","Logo": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Clojure_logo.svg", "description":"Clojure est un langage de programmation fonctionnel compilé, multi-plateforme et destiné à la création de programmes sûrs et facilement distribuables. C’est un dialecte de Lisp. Il transpile vers du bytecode Java, du code JavaScript et du bytecode .NET. Clojure est donc disponible sur la JVM, le CLR, les navigateurs et Node.js."}' +
 // '{"code" :"WebAssembly","Logo": "https://upload.wikimedia.org/wikipedia/commons/1/1f/WebAssembly_Logo.svg", "description":"WebAssembly, abrégé wasm, est un standard du World Wide Web pour le développement d’applications. Il est conçu pour compléter JavaScript avec des performances supérieures. Le standard consiste en un bytecode, sa représentation textuelle et un environnement d'exécution dans un bac à sable compatible avec JavaScript. Il peut être exécuté dans un navigateur Web et en dehors. WebAssembly est standardisé dans le cadre du World Wide Web Consortium.\n\n    Comme WebAssembly ne spécifie qu'un langage de bas niveau, le bytecode est généralement produit en compilant un langage de plus haut niveau. Parmi les premiers langages supportés figurent Rust avec le projet/module (crate) wasm-bindgen ainsi que le C et C++, compilés avec Emscripten (basé sur LLVM). De nombreux autres langages de programmation possèdent aujourd'hui un compilateur WebAssembly, parmi lesquels : C#, Go, Java, Lua, Python ou Ruby.\n    \n    Les navigateurs Web compilent le bytecode wasm dans le langage machine de l'hôte sur lequel ils sont utilisés avant de l'exécuter."}],
 
-
-
 ///////////////////////////////////CURSOR ANIME///////////////////////////////////////////////////
 const cursor = document.querySelector(".cursor");
 
@@ -232,35 +250,3 @@ btn.addEventListener("click", () =>{
   modalContainer.classList.add('none')
 })
 // console.log(searchLangages)
-
-
-
-
-
-
-
-// function controle(){
-// let saisie= document.getElementById('nomLangage').value;
-// alert("Vous avez saisi : "+ saisie);
-
-// for(let i=0; i<tapeName.length; i++){
-//   let tapeClavier = tapeName[i];
-//   tapeClavier.addEventListener('click', showWrite, false);
-// }
-
-// // on initialise une variable let i
-// let i =28;
-
-// //Tant que
-// while (i<28){
-//     //...exécute ce code
-//     document.getElementById('nomLangage').innerHTML += 'i la valeur ' + '/ 28' + (i + 1);
-//     x++;
-// }
-// //sortie de la boucle quand arrive à 28 'condition de sortie'
-
-// for (let i =0; i<28; i++){
-//     document.getElementById('nomLangage'.innerHTML +=
-//     'i stock la valeur' + i + 'lors du passage N°' + (i + 1) + 'dans la boucle<br>';}
-
-

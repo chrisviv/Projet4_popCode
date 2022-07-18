@@ -29,7 +29,7 @@
             </div>
         </div> 
         <div id="boxMedia"> 
-            <h1 class="popCode">Pop Code</h1>
+            <h1 class="titlePopCode">Pop Code</h1>
             <i class="fa-thin fa-desktop boxDeskTop"></i>
             <i class="fa-thin fa-tablet-screen boxTab"></i>
             <i class="fa-light fa-tablet-screen boxTab"></i>
@@ -63,14 +63,19 @@
                 <h2 id="modalTitle">Voici les langages déjà trouvés</h2>
                 <p id="dialogDesc" class="listeTrouve"></p>
             </div>
+           <div id="popup1" class="none2">Attention ! Au bout de 3 erreurs,le code bugge et le défit est perdu !</div>
+           <div id="popup2"class="none2">Fait attention, tu as droit encore à 1 erreurs !</div>
+           <div id="popEnd" class="none2"></div>
+                <!-- <p id="recommencer" class="none2">CLIQUER POUR RECOMMENCER</p> -->
            
+            <div id="gagne" class="none2">Bravo ! Vous avez trouvé.</div>
+            <div id="deja" class="none2">Tu l'as déjà trouvé  !</div>
+            <div id="victoire"class="none2"></div>
         </div>
     </section>
-
     
     <script src="./assets/js/app.js"></script>
     <script src="./assets/js/count.js"></script>
-    <!-- <script src="./assets/js/media.js"></script> -->
     <script src="./assets/js/zoom.js"></script>
     <script> VanillaCounter()</script>
     <script>wheelzoom(document.querySelector('img.zoom'));</script>
