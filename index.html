@@ -9,12 +9,9 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     </head>
 </head>
-<body>
-    <div class="cursor"></div>
-    <div id="boxMentions">
-        <a href="#" class="legales"> Mentions Légales </a> 
-        <a href="#" class="politique"> Politique de confidentialité </a>
-    </div> 
+    <body>
+        <div class="cursor"></div>
+    
     <section id="loader">
         <div class="logo-code">
             <img src="./assets/img/logo.png" alt="image du logo popCode">
@@ -32,6 +29,7 @@
             <div class="dot dot3"></div>
         </div>
     </section>
+    
     <section id="boxChargement">
         <div class="chargement">
             <p class="number"><span data-vanilla-counter data-start-at="0" data-end-at="27" data-delay="6000" data-format="{}">${}</span></p>
@@ -39,77 +37,92 @@
             <p class="commencer">CLIQUER POUR COMMENCER</p>
         </div>
     </section>
-
     <section class="jeuPopCode none">
-        <section id="boxJeu">
-            <div class="zoom">
-                <img class='zoom1' src="./assets/img/jeu2.jpg" alt="image d'une chambre avec beaucoup d'affiche " />  
+        <div class="zoom">
+            <img class='zoom1' src="./assets/img/jeu2.jpg" alt="image d'une chambre avec beaucoup d'affiche " />  
+        </div>
+            
+        <div id="resultat">
+            <div class="score">
+                <p id="numberFirst">00</p>
+                <p class="slash">/</p>
+                <p class="numberSecond">27</p>
             </div>
-               
-            <div id="resultat">
-                <div class="score">
-                    <p id="numberFirst">00</p>
-                    <p class="slash">/</p>
-                    <p class="numberSecond">27</p>
+
+            <div class="erreur">
+                <span class="X Xone">X</span>
+                <span class="X Xtwo">X</span>
+                <span class="X Xtree">X</span>
+            </div>
+        </div>  
+
+        <div id="zoom">
+            <div class="boxZoom">
+                <div class="more-less">
+                    <span class="zoomer">ZOOM</span>
+                    <span class="more">+</span>
+                    <span class="progres"></span>
+                    <span class="less">-</span>
                 </div>
-    
-                <div class="erreur">
-                    <span class="X Xone">X</span>
-                    <span class="X Xtwo">X</span>
-                    <span class="X Xtree">X</span>
+            </div>
+
+            <div id="searchLangages">
+                <div class="boxLangages">
+                    <img src="./assets/img/loupe.svg" alt="recherche ">
+                    <a class="langages" href="">LANGAGES TROUVÉS</a>
                 </div>
-            </div> 
-    
-            <div id="boxMedia"> 
-                <h1 class="titlePopCode">Pop Code</h1>
-                <i class="fa-thin fa-desktop boxDeskTop"></i>
-                <i class="fa-thin fa-tablet-screen boxTab"></i>
-                <i class="fa-light fa-tablet-screen boxTab"></i>
-                <i class="fa-thin fa-mobile-notch boxMobile"></i>
-            </div> 
-    
+            </div>
+
             <div id="boxTape" class="opacite">
                 <input id="nomLangage"  type="text" maxlength="12">
                 <p class="tapeName">TAPE UN NOM DE LANGAGE DE PROGRAMMATION</p>
             </div>
+
             <div class="boxImg">
                 <img src="./assets/img/logo_pop_code1.png" alt="logo du jeu Pop Code">
             </div>
-    
-            <div id="zoom">
-                <div class="boxZoom">
-                    <div class="more-less">
-                        <span class="zoomer">ZOOM</span>
-                        <span class="more">+</span>
-                        <span class="progres"></span>
-                        <span class="less">-</span>
-                    </div>
-                </div>
-    
-                <div id="searchLangages">
-                    <div class="boxLangages">
-                        <img src="./assets/img/loupe.svg" alt="recherche ">
-                        <a class="langages" href="">LANGAGES TROUVÉS</a>
-                    </div>
-                </div>
-    
-                <div class="modal none" id="modal" role="dialog" aria-labelledby="modalTitle" aria-describedby="dialogDesc">
-                    <button id='close' class="close-modal modal-trigger">X</button>
-                    <h2 id="modalTitle">Voici les langages déjà trouvés</h2>
-                    <p id="dialogDesc" class="listeTrouve"></p>
-                </div>
-                    <div id="popup1" class="none">Attention ! <br> Au bout de 3 erreurs,le défit est perdu !</div>
-                <div id="popup2"class="none">Fait attention, <br> tu as droit encore à 1 erreurs !</div>
-                <div id="popEnd" class="none"></div>
-                    <!-- <p id="recommencer" class="none">CLIQUER POUR RECOMMENCER</p> -->
-                <div id="gagne" class="none">Bravo ! </div>
-                <div id="deja" class="none">Tu l'as déjà trouvé  !</div>
-                <div id="victoire"class="none">Tu est le vainqueur! <br> Un crack du language Web. </div>
-                
+            
+            <div class="modal none" id="modal" role="dialog" aria-labelledby="modalTitle" aria-describedby="dialogDesc">
+                <button id='close' class="close-modal modal-trigger">X</button>
+                <h2 id="modalTitle">Voici les langages déjà trouvés</h2>
+                <p id="dialogDesc" class="listeTrouve"></p>
             </div>
-        </section>
-       
-      
+        </div>
+    </section>
+                        
+    <section id="boxLost">
+
+        <div id="popup1" class="none">Attention ! <br> Au bout de 3 erreurs,le défit est perdu !</div>
+        <div id="popup2"class="none">Fait attention, <br> tu as droit encore à 1 erreurs !</div>
+        <div id="popEnd" class="none"></div>
+        <!-- <p id="recommencer" class="none">CLIQUER POUR RECOMMENCER</p> -->
+    </section>
+    <section id="boxWin">
+
+        <div id="gagne" class="none">Bravo ! </div>
+        <div id="deja" class="none">Tu l'as déjà trouvé  !</div>
+        <div id="victoire"class="none">Tu est le vainqueur! <br> Un crack du language Web. </div>
+    </section>
+    
+    <section id="boxControl">
+        <div id="boxMentions">
+            <a href="#" class="legales"> Mentions Légales </a> 
+            <a href="#" class="politique"> Politique de confidentialité </a>
+        </div> 
+    </section>    
+
+    <section id="mediaQuery">
+
+        <div id="boxMedia"> 
+            <h1 class="titlePopCode">Pop Code</h1>
+            <i class="fa-thin fa-desktop boxDeskTop"></i>
+            <i class="fa-thin fa-tablet-screen boxTab"></i>
+            <i class="fa-light fa-tablet-screen boxTab"></i>
+            <i class="fa-thin fa-mobile-notch boxMobile"></i>
+        </div> 
+    </section>
+
+
     <script src="./assets/js/count.js"></script>
     <script src="./assets/js/zoom-by-ironex.min.js"></script>
     <script> VanillaCounter()</script>
