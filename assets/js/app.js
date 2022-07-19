@@ -1,56 +1,13 @@
-// au chargement du jeu:  affiche/affiche pas apres 6s
+// Au chargement du jeu:  affiche/affiche pas apres 6s
 let title = document.querySelector("#title");
 let wrapper = document.querySelector(".wrapper");
 let boxchargement = document.querySelector("#boxChargement");
 let loader = document.querySelector("#loader");
 let logo = document.querySelector(".logo-code");
 let chargement = document.querySelector(".chargement");
-// variable pour les erreurs
-let popup1 = document.getElementById('popup1');
-let popup2 = document.getElementById('popup2');
-let popupEnd = document.getElementById('popupEnd');
-let recommencer = document.getElementById('recommencer');
-// variable gagné et la victoire
-let gagne = document.getElementById('gagne');
-let victoire = document.getElementById('victoire');
-let deja = document.getElementById('deja');
-
-
-window.onload = setTimeout(showContent, 6000);
-
-function showContent() {
-  logo.style.display = "none";
-  title.style.display = "none";
-  wrapper.style.display = "none";
-  loader.style.display = "none";
-  // nouvelle page apparait
-  boxchargement.style.display = "block";}
-// ***************************************************
-// affichage au bout de 7s class'tapeName = "Tape un nom de langague de programmation"
-let boxTape = document.getElementById("boxTape");
-// nomLangage correspond au input
-let nomLangage = document.getElementById("nomLangage");
-let tapeName = document.querySelector(".tapeName");
-let boxJeu = document.querySelector("#boxJeu");
-
-tapeName.style.display = "none";
-
-window.onload = setTimeout(showTape, 7000);
-
-function showTape() {
-  tapeName.style.display = "block";}
-/*************************************************************** */
-// evenement avec la touche du clavier 
-window.addEventListener("keydown", function (event) {
-  key = event.key;
-  // console.log(key);
-  if (key === event.key) {
-    nomLangage.focus();
-    boxTape.classList.remove("opacite");}
-});
 /**************************************************************** */
-// variables pour le score gagnat et perdant
-let score = 0;
+// variables pour le score gagnant et perdant
+var score = 0;
 let numberFirst = document.getElementById("numberFirst");
 let X = document.querySelectorAll(".X");
 let erreur = 0;
@@ -81,17 +38,75 @@ let listeLangages = [
   "Dart",
   "Elixir",
   "Clojure",
-  "WebAssembly",];
-// liste des noms de languages transformer en miniscule 
-listeLangages = listeLangages.map(name => name.toLowerCase());
-// La méthode map() crée un nouveau tableau avec les résultats de l'appel d'une fonction fournie sur chaque élément du tableau appelant.
+  "WebAssembly",
+  "R"];
 // variable 
 let langagesPassed = [];
 // dialogDesc sur html c'est la liste trouvé
 let program = document.getElementById('dialogDesc');
+/***************************************************/
+// affichage au bout de 7s class'tapeName = "Tape un nom de langague de programmation"
+let boxTape = document.getElementById("boxTape");
+// nomLangage correspond au input
+let nomLangage = document.getElementById("nomLangage");
+let tapeName = document.querySelector(".tapeName");
+let boxJeu = document.querySelector("#boxJeu");
+/*************************************************/
+// variable pour les erreurs
+let popup1 = document.getElementById('popup1');
+let popup2 = document.getElementById('popup2');
+let popupEnd = document.getElementById('popupEnd');
+let recommencer = document.getElementById('recommencer');
+// variable deja trouvé le langague, gagné, gameOver et la victoire
+let gagne = document.getElementById('gagne');
+let victoire = document.getElementById('victoire');
+let deja = document.getElementById('deja');
+/******************************************************* */
+window.onload = setTimeout(showContent, 6000);
+
+function showContent() {
+  // logo.style.display = "none";
+  title.style.display = "none";
+  wrapper.style.display = "none";
+  loader.style.display = "none";
+  resultat.style.display = "none";
+    // nouvelle page apparait
+  boxchargement.style.display = "block";
+};
+// liste des noms de languages transformer en miniscule 
+listeLangages = listeLangages.map(name => name.toLowerCase());
+// La méthode map() crée un nouveau tableau avec les résultats de l'appel d'une fonction fournie sur chaque élément du tableau appelant.
+// a verfier si pb  est none ou noOpacity
+tapeName.style.display = "none";
+
+window.onload = setTimeout(showTape, 7000);
+
+function showTape() {
+  tapeName.style.display = "block";}
+/*************************************************************** */
+// evenement avec la touche du clavier 
+window.addEventListener("keydown", function (event) {
+  key = event.key;
+  // console.log(key);
+  if (key === event.key) {
+    nomLangage.focus();
+    boxTape.classList.remove("opacite");
+  }
+});
+document.getElementsByClassName('commencer')[0].addEventListener('click', function(){
+  document.getElementsByClassName('jeuPopCode')[0].classList.remove('none')
+  document.getElementById('boxChargement').classList.add('none')
+})
+
+/************************************************************************************ */
+// function checkScore() {
+//   if (score === listeLangages.length-1) {
+//   document.
+//   }
+// }
 /************************************************************************************/
 window.addEventListener("keyup", function (event) {
-//evenement avec les touche echappe et entrée pour vider le input
+  //evenement avec les touche echappe et entrée pour vider le input
   key = event.key;
   if ("Escape" === event.key) {
     boxTape.classList.add("opacite");
@@ -102,29 +117,33 @@ window.addEventListener("keyup", function (event) {
     boxTape.classList.add("opacite");
     input = nomLangage.value;
     nomLangage.value = "";
-  /***************************************************************************************/
-  // variable - le input 'html' c est id= "nomLangage"
+    /***************************************************************************************/
+    // variable - le input 'html' c est id= "nomLangage"
     let res = input.toLowerCase()
     find = false;
     // console.log(input);
     for (let i = 0; i < listeLangages.length; i++) {
       if (input.toLowerCase() === listeLangages[i].toLowerCase()) {
-        gagne.classList.remove('none2')
-        setTimeout(()=> {
-          gagne.classList.add('none2')
-         }, 1000);
-       
-             
-// Mets le langague trouvé dans le tableau/modal nommé le language trouvé et enléve un language dans le premier tableau 'listeLangages'
+        gagne.classList.remove('none')
+        setTimeout(() => {
+          gagne.classList.add('none')
+        }, 1000);
+
+        if (score === listeLangages.length - 1)
+          document.querySelector('victoire').style = 'color: #0AEFF7';
+        victoire.classList.remove('none')
+        setTimeout(() => {
+          victoire.classList.add('none')
+        }, 1000)
+        // Mets le langague trouvé dans le tableau/modal nommé le language trouvé et enléve un language dans le premier tableau 'listeLangages'
         langagesPassed.push(res)
         program.textContent += langagesPassed.slice(-1) + ''
-       
-// variable / remet la reponse trouvé en miniscule
+        // variable / remet la reponse trouvé en miniscule
         let lowerCaseAnswer = langagesPassed.map(name => name.toLowerCase())
-// ! :Renvoie false si son unique opérande peut être converti en true, sinon il renvoie true. 
+        // ! :Renvoie false si son unique opérande peut être converti en true, sinon il renvoie true. 
         listeLangages = listeLangages.filter((val) => !lowerCaseAnswer.includes(val));
         console.log(listeLangages);
-// si le score est inf à 10 tu ecris 0+le score en dessous de 10 sinon tu mets le score qui est au dessus de 9
+        // si le score est inf à 10 tu ecris 0+le score en dessous de 10 sinon tu mets le score qui est au dessus de 9
         // console.log(true);
         if (score < 10) {
           numberFirst.textContent = "0" + score;
@@ -133,63 +152,104 @@ window.addEventListener("keyup", function (event) {
         }
         find = true;
         break;
-// sinon si le language trouvé est inclus dans le tableau déjà trouvé : réponse en une alert ("...");
-      }else if(langagesPassed.includes(res)){
-          erreur -=1;
-          deja.classList.remove('none2')
-          setTimeout(()=> {
-            deja.classList.add('none2')
-           }, 1000)
+        // sinon si le language trouvé est inclus dans le tableau déjà trouvé : réponse à chaque figuration
+      } else if (langagesPassed.includes(res)) {
+        erreur -= 1;
+        deja.classList.remove('none')
+        setTimeout(() => {
+          deja.classList.add('none')
+        }, 1000)
         break;
-      }else {
+      } else {
         find = false;
       }
     }
-    if (find === true){
+    if (find === true) {
       score++;
-        if (score < 10) {
-          numberFirst.textContent = "0" + score;
-        } else {
-          numberFirst.textContent = score;
-        }
-    }
-      else{
-          erreur +=1;
-// console.log(erreur)
-// 1 erreur met la X en bleu
-          switch(erreur){
-            case 1:
-              document.querySelector('.Xone').style = 'color: #0AEFF7';
-               popup1.classList.remove('none2')
-               setTimeout(()=> {
-                popup1.classList.add('none2')
-               }, 1000)
-              break;
-
-            case 2:
-              document.querySelector('.Xtwo').style = 'color: #0AEFF7';
-              popup2.classList.remove('none2')
-                 setTimeout(()=> {
-                popup2.classList.add('none2')
-               }, 1000)
-              break; 
-
-            case 3:
-              document.querySelector('.Xtree').style = 'color: #0AEFF7';
-              popEnd.textContent = ' GAME OVER !'
-              // recommencer.classList.add('recommencer')
-              popEnd.classList.remove("none2")
-              setTimeout(()=> {
-                popEnd.classList.add('none2')
-                //  recommencer.classList.add('recommencer')
-                }, 3000)
-              break;
-          }
-          // console.log(erreur);
+      if (score < 10) {
+        numberFirst.textContent = "0" + score;
+      } else {
+        numberFirst.textContent = score;
       }
+    } else {
+      erreur += 1;
+      // console.log(erreur)
+      // 1 erreur met la X en bleu
+      switch (erreur) {
+        case 1:
+          document.querySelector('.Xone').style = 'color: #0AEFF7';
+          popup1.classList.remove('none')
+          setTimeout(() => {
+            popup1.classList.add('none')
+          }, 2000)
+          break;
+
+        case 2:
+          document.querySelector('.Xtwo').style = 'color: #0AEFF7';
+          popup2.classList.remove('none')
+          setTimeout(() => {
+            popup2.classList.add('none')
+          }, 1000)
+          break;
+
+        case 3:
+          document.querySelector('.Xtree').style = 'color: #0AEFF7';
+          popEnd.textContent = ' GAME OVER !'
+          // recommencer.classList.add('recommencer')
+          popEnd.classList.remove("none")
+          setTimeout(() => {
+            popEnd.classList.add('none')
+            // popEnd.textContent = 'Clic ici pour refaire une nouvelle partie'
+
+            // recommencer.classList.add('recommencer')
+          }, 3000)
+          break;
+      }
+      // console.log(erreur);
+    }
   }
 });
-
+///////////////////////////////////CURSOR ANIME///////////////////////////////////////////////////
+// variable
+const cursor = document.querySelector(".cursor");
+document.addEventListener("mousemove", (e) => {
+  cursor.setAttribute("style", "top:" + (e.pageY - 20) + "px; left:" + (e.pageX - 20) + "px;");
+});
+document.addEventListener("click", () => {
+  cursor.classList.add("expand");
+  setTimeout(() => {
+    cursor.classList.remove("expand");
+  }, 500);
+});
+/*********************************************************************************************************/
+//Modale pour les langages trouvés // variable
+let searchLangages = document.getElementById('searchLangages');
+const modalContainer = document.getElementById("modal");
+let btn = document.getElementById('close')
+searchLangages.addEventListener("click", () => {
+  modalContainer.classList.remove('none')
+})
+btn.addEventListener("click", () => {
+  modalContainer.classList.add('none')
+})
+// console.log(searchLangages)
+/*****************************************zoom************************************************************** */
+zoom({
+  active: "zoom-active", // Class added to container when it is zoomed
+  transition: "zoom-transition", // Class added to images when they are being animated, class is removed after animation is finished
+  visible: "visible", // Class added to images after they are loaded,
+  zoom: "zoom" // Image container class
+}, {
+  scaleDefault: 2, // Used on doubleclick, doubletap and resize
+  scaleDifference: 0.5, // Used on wheel zoom
+  scaleMax: 10, // Maximum zoom
+  scaleMin: 1, // Minimum zoom
+  scrollDisable: true, // Disable page scrolling when zooming an image
+  transitionDuration: 200, // This should correspond with zoom-transition transition duration
+  doubleclickDelay: 300 // // Delay between clicks - used when scripts decides if user performed doubleclick or not
+}
+);
+/****************************************************************************************************************/
 //   const langagesList = '{"langagesArray":[' +
 // '{"code" :"Javascript", "Logo": "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg", "description":"JavaScript est un langage de programmation de scripts principalement employé dans les pages web interactives et à ce titre est une partie essentielle des applications web. Avec les langages HTML et CSS, JavaScript est au coeur des langages utilisés par les développeurs web. Une grande majorité des sites web l'utilisent et la majorité des navigateurs web disposent d'un moteur JavaScript[5] pour l'interpréter.JavaScript est aussi employé pour les serveurs Web avec l'utilisation (par exemple) de Node.js[7] ou de Deno[8].JavaScript a été créé en 1995 par Brendan Eich et intégré au navigateur web Netscape Navigator 2.0. L'implémentation concurrente de JavaScript par Microsoft dans Internet Explorer jusqu'à sa version 9 se nommait JScript, tandis que celle d'Adobe Systems se nommait ActionScript. JavaScript a été standardisé sous le nom d'ECMAScript en juin 1997 par Ecma International dans le standard ECMA-262. La version en vigueur de ce standard depuis juin 2022 est la 13e édition.\n    C 'est un langage orienté objet à prototype : les bases du langage et ses principales interfaces sont fournies par des objets. Cependant, à la différence d'\n    un langage orienté objets,\n    les objets de base ne sont pas des instances de classes.En outre,\n    les fonctions sont des objets de première classe.Le langage supporte le paradigme objet,\n    impératif et fonctionnel.JavaScript est le langage possédant le plus large écosystème grâce à son gestionnaire de dépendances npm,\n avec environ 500 000 paquets en août 2017 "}' +
 // '{"code" :"HTML","Logo": "https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg"", "description":"Le HyperText Markup Language, généralement abrégé HTML ou, dans sa dernière version, HTML5, est le langage de balisage conçu pour représenter les pages web.\n\nCe langage permet :\n  \nd’écrire de l’hypertexte, d’où son nom,\nde structurer sémantiquement la page,\nde mettre en forme le contenu,\nde créer des formulaires de saisie,\nd’inclure des ressources multimédias dont des images, des vidéos, et des programmes informatiques,\nde créer des documents interopérables avec des équipements très variés de manière conforme aux exigences de l’accessibilité du web.\n \n  Il est souvent utilisé conjointement avec le langage de programmation JavaScript et des feuilles de style en cascade (CSS). HTML est inspiré du Standard Generalized Markup Language (SGML). Il s'agit d'un format ouvert."}' +
@@ -218,35 +278,4 @@ window.addEventListener("keyup", function (event) {
 // '{"code" :"Elixir","Logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Official_Elixir_logo.png/640px-Official_Elixir_logo.png", "description":"Elixir est un langage de programmation multi-paradigme fonctionnant sur la machine virtuelle Erlang (BEAM). Il est créé en 2011 par le développeur José Valim, personnalité du monde Ruby et l'un des premiers contributeurs au framework de programmation Ruby on Rails. Il intègre les paradigmes de programmation fonctionnelle, programmation concurrente et programmation orientée processus (en), et supporte la métaprogrammation via un système de macros et le polymorphisme via un système dit de protocoles."}' +
 // '{"code" :"Clojure","Logo": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Clojure_logo.svg", "description":"Clojure est un langage de programmation fonctionnel compilé, multi-plateforme et destiné à la création de programmes sûrs et facilement distribuables. C’est un dialecte de Lisp. Il transpile vers du bytecode Java, du code JavaScript et du bytecode .NET. Clojure est donc disponible sur la JVM, le CLR, les navigateurs et Node.js."}' +
 // '{"code" :"WebAssembly","Logo": "https://upload.wikimedia.org/wikipedia/commons/1/1f/WebAssembly_Logo.svg", "description":"WebAssembly, abrégé wasm, est un standard du World Wide Web pour le développement d’applications. Il est conçu pour compléter JavaScript avec des performances supérieures. Le standard consiste en un bytecode, sa représentation textuelle et un environnement d'exécution dans un bac à sable compatible avec JavaScript. Il peut être exécuté dans un navigateur Web et en dehors. WebAssembly est standardisé dans le cadre du World Wide Web Consortium.\n\n    Comme WebAssembly ne spécifie qu'un langage de bas niveau, le bytecode est généralement produit en compilant un langage de plus haut niveau. Parmi les premiers langages supportés figurent Rust avec le projet/module (crate) wasm-bindgen ainsi que le C et C++, compilés avec Emscripten (basé sur LLVM). De nombreux autres langages de programmation possèdent aujourd'hui un compilateur WebAssembly, parmi lesquels : C#, Go, Java, Lua, Python ou Ruby.\n    \n    Les navigateurs Web compilent le bytecode wasm dans le langage machine de l'hôte sur lequel ils sont utilisés avant de l'exécuter."}],
-
-///////////////////////////////////CURSOR ANIME///////////////////////////////////////////////////
-const cursor = document.querySelector(".cursor");
-
-document.addEventListener("mousemove", (e) => {
-  cursor.setAttribute(
-    "style",
-    "top:" + (e.pageY - 20) + "px; left:" + (e.pageX - 20) + "px;"
-  );
-});
-
-document.addEventListener("click", () => {
-  cursor.classList.add("expand");
-
-  setTimeout(() => {
-    cursor.classList.remove("expand");
-  }, 500);
-});
-
-//Modale pour les langages trouvés
-let searchLangages = document.getElementById('searchLangages');
-const modalContainer = document.getElementById("modal"); 
-let btn = document.getElementById('close')
-
-searchLangages.addEventListener("click", () =>{
-  modalContainer.classList.remove('none')
-})
-
-btn.addEventListener("click", () =>{
-  modalContainer.classList.add('none')
-})
-// console.log(searchLangages)
+/*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** */

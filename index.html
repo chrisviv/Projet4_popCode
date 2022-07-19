@@ -36,15 +36,84 @@
         <div class="chargement">
             <p class="number"><span data-vanilla-counter data-start-at="0" data-end-at="27" data-delay="6000" data-format="{}">${}</span></p>
             <p class="reference">RÉFÉRENCES DE<br>LANGAGES DE PROGRAMMATION <br> À RETROUVER</br></p>
-            <a href="jeu.html" class="commencer">CLIQUER POUR COMMENCER</a>
+            <p class="commencer">CLIQUER POUR COMMENCER</p>
         </div>
     </section>
+
+    <section class="jeuPopCode none">
+        <section id="boxJeu">
+            <div class="zoom">
+                <img class='zoom1' src="./assets/img/jeu2.jpg" alt="image d'une chambre avec beaucoup d'affiche " />  
+            </div>
+               
+            <div id="resultat">
+                <div class="score">
+                    <p id="numberFirst">00</p>
+                    <p class="slash">/</p>
+                    <p class="numberSecond">27</p>
+                </div>
+    
+                <div class="erreur">
+                    <span class="X Xone">X</span>
+                    <span class="X Xtwo">X</span>
+                    <span class="X Xtree">X</span>
+                </div>
+            </div> 
+    
+            <div id="boxMedia"> 
+                <h1 class="titlePopCode">Pop Code</h1>
+                <i class="fa-thin fa-desktop boxDeskTop"></i>
+                <i class="fa-thin fa-tablet-screen boxTab"></i>
+                <i class="fa-light fa-tablet-screen boxTab"></i>
+                <i class="fa-thin fa-mobile-notch boxMobile"></i>
+            </div> 
+    
+            <div id="boxTape" class="opacite">
+                <input id="nomLangage"  type="text" maxlength="12">
+                <p class="tapeName">TAPE UN NOM DE LANGAGE DE PROGRAMMATION</p>
+            </div>
+            <div class="boxImg">
+                <img src="./assets/img/logo_pop_code1.png" alt="logo du jeu Pop Code">
+            </div>
+    
+            <div id="zoom">
+                <div class="boxZoom">
+                    <div class="more-less">
+                        <span class="zoomer">ZOOM</span>
+                        <span class="more">+</span>
+                        <span class="progres"></span>
+                        <span class="less">-</span>
+                    </div>
+                </div>
+    
+                <div id="searchLangages">
+                    <div class="boxLangages">
+                        <img src="./assets/img/loupe.svg" alt="recherche ">
+                        <a class="langages" href="">LANGAGES TROUVÉS</a>
+                    </div>
+                </div>
+    
+                <div class="modal none" id="modal" role="dialog" aria-labelledby="modalTitle" aria-describedby="dialogDesc">
+                    <button id='close' class="close-modal modal-trigger">X</button>
+                    <h2 id="modalTitle">Voici les langages déjà trouvés</h2>
+                    <p id="dialogDesc" class="listeTrouve"></p>
+                </div>
+                    <div id="popup1" class="none">Attention ! <br> Au bout de 3 erreurs,le défit est perdu !</div>
+                <div id="popup2"class="none">Fait attention, <br> tu as droit encore à 1 erreurs !</div>
+                <div id="popEnd" class="none"></div>
+                    <!-- <p id="recommencer" class="none">CLIQUER POUR RECOMMENCER</p> -->
+                <div id="gagne" class="none">Bravo ! </div>
+                <div id="deja" class="none">Tu l'as déjà trouvé  !</div>
+                <div id="victoire"class="none">Tu est le vainqueur! <br> Un crack du language Web. </div>
+                
+            </div>
+        </section>
+       
       
-    <script src="./assets/js/app.js"></script>
     <script src="./assets/js/count.js"></script>
-    <script src="./assets/js/zoom.js"></script>
+    <script src="./assets/js/zoom-by-ironex.min.js"></script>
     <script> VanillaCounter()</script>
-    <script>wheelzoom(document.querySelector('img.zoom'));</script>
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+    <script src="./assets/js/app.js"></script>
   </body> 
 </html>

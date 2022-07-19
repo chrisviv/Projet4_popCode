@@ -4,8 +4,17 @@
   @font-face {font-family: 'GothamMedium'; src: url(../font/GothamMedium.ttf);}
   @font-face {font-family: 'Gotham-Bold'; src: url(../font/GothamBold.ttf);}
   @font-face {font-family: 'GothamLight'; src: url(../font/GothamLight.otf);}
-*,::before,::after{margin: 0; padding: 0;box-sizing: border-box,}
+*,::before,::after{margin: 0; padding: 0;box-sizing: border-box;}
+*{user-select: none;}
 body{width: 100%; height: 100vh; overflow: hidden;cursor: none;}
+/* ZOOM */
+.zoom-transition{
+  transition: -moz-transform ease 200ms;
+  transition: -ms-transform ease 200ms;
+  transition: -o-transform ease 200ms;
+  transition: -webkit-transform ease 200ms;
+  transition: transform ease 200ms;
+}
 /* Cursor */
 .cursor {width: 60px;height: 60px;border: 1px dashed  rgba(229,17,116, 0.92);border-radius: 50%;position: absolute;animation: Anim1 1s infinite alternate; pointer-events: none;z-index: 2222222222222222;}
 .cursor::before {content: '';position: absolute; top: 50%;left: 50%;transform: translate(-50%,-50%);width: 5px; height: 5px;background: white;border-radius: 50%;}
@@ -61,10 +70,10 @@ justify-content: center;align-items: center;}
   display: flex; justify-content: center; align-items: center; flex-direction: column;}
 /**************** Partie Jeu :score ****************/
 /******************************************************************** tapeClavier pour apparaitre en JS */
-#boxTape{background: rgba(0, 0, 0, 0.466); position:fixed;width:100vw;top: 0;left: 0;
-   height:100vh;display: flex; justify-content: center;align-items: center;flex-direction:column;}
+#boxTape{background: rgba(0, 0, 0, 0.6); position:fixed;width:100vw;top: 0;left: 0;height:100vh;
+  display: flex; justify-content: center;align-items: center;flex-direction:column;}
 #boxTape>#nomLangage{width:28vw;height:10vh;font-size:63px;display: flex;justify-content: center;
-  border: none; outline: none;color:white;padding:10px;background:transparent;}
+  border: none; outline: none;color:white;padding:10px;background:transparent;text-align: center;}
 .opacite{ opacity: 0; z-index: -1;}
 .popCode{ display: none;color: white;} 
 .boxDeskTop{display: none;}
@@ -72,10 +81,9 @@ justify-content: center;align-items: center;}
 .boxMobile{display: none;}
 #boxTape>.tapeName {height:0vh;font-size:15px;color: white;font-family: 'GothamMedium'; letter-spacing: 5px;padding-top:20px;opacity:0.5;}
 /*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
-.resultat{width: 50%;position: fixed; top: 20px; left: 20px;}
-
+#resultat{width: 50%;position: fixed; top: 20px; left: 20px;}
 /* .resultat >.boxScore> h4{ font-family: 'GothamMedium';font-size: 12px;letter-spacing: 2px;color: #0AEFF7; rotate:-90deg;margin-left: 55px; margin-top: 20px;} */
-.resultat::before{ position: absolute;content: 'SCORE';font-family: 'GothamMedium';font-size: 12px;letter-spacing: 2px;color: #0AEFF7; rotate:-90deg;
+#resultat::before{ position: absolute;content: 'SCORE';font-family: 'GothamMedium';font-size: 12px;letter-spacing: 2px;color: #0AEFF7; rotate:-90deg;
   border-bottom: 1px solid #D9D9D9;top: 15px;left: 1px; }
 /* Box Score 08 / 30*/
 .score{width: 50%;display: flex;margin-left: 35px;}
@@ -91,7 +99,8 @@ justify-content: center;align-items: center;}
 .boxImg> img{width:100%;} 
 /**************** PARTIE JEU ZOOM *****************/
 #zoom{ width: 50%;position: absolute; bottom: 20px;left: 0;}
-.zoom{ width: 100%;height:100vh;}
+.zoom1{ width: 100%;height:100vh;}
+.zoom{  width: 100%;height: 100%;object-fit: cover;}
 /* partie BOX ZOOM */
 .boxZoomer{width: 5%; display:flex; justify-content: space-between;align-items:center;
   margin: 0px 0px 70px 15px;flex-direction: row-reverse; font-family:'GothamMedium';font-size: 14px;color:#fff;}
@@ -107,24 +116,25 @@ justify-content: center;align-items: center;}
 .langages{padding-left: 10px; font-family:'GothamLight';font-size: 8px; color: #fff; letter-spacing: 2px; text-decoration: none;}
 /***************************MODALE POUR LES LANGAGES TROUVES ************************/
 .modal-btn{ padding: 10px 14px;font-size: 18px; margin: 100px auto;display:block;min-width: 150px; cursor: pointer; }
-.modal{ width: 100%; max-width: 800px; min-height: 400px;background: #fff;border-radius: 5px; position: absolute; top: 0; left: 100%;
+.modal{ width: 100%; max-width: 800px; min-height: 400px;background:rgba(0,0,0,0.4);color:white;border-radius: 5px; position: absolute; top: 0; left: 100%;
 transform: translate(-50%, calc(-50% - 50%)); transition: opacity 0.4s ease-out; transform: 0.4s ease-out;} 
 .close-modal{padding: 8px 10px; border: none; border-radius: 5px; font-size: 18px; 
 position: absolute;top:10px;right: 10px; cursor: pointer; background:#0AEFF7;;color:#fff;transition: opacity 0.4s 0.2s ease-out }
 #modalTitle{font-size:30px;margin-bottom: 10px;font-family: 'GothamMedium';font-weight: 900;}
-#dialogDesc{font-size:28px;line-height: 1.4;margin-top: 20px;color: black;margin-left: 10px;font-family: 'GothamMedium';font-weight: 500;}
-.none{opacity: 0;}
-/* ^ à renommer en noOpacity */
-.none2{display: none !important;}
-/* ^ à renommer en none */
-/* .none3{display: none;} */
+#dialogDesc{font-size:28px;line-height: 1.4;margin-top: 20px;color:white;margin-left: 10px;font-family: 'GothamMedium';font-weight: 500;}
+.noOpacity{opacity: 0;}
+/* ^ à renommer en noOpacity  au lieu de none*/
+.none{display: none !important;}
+/* ^ à renommer en none au lien de none2*/
+
 /**********************************************************************************************************************************/
-#popup1{position: fixed;top: 50%;left: 20%;font-size: 2rem;color: white;font-family: 'Gotham-Bold';}
-#popup2{position: fixed;top: 50%;left: 30%;font-size: 2rem;color: white;font-family: 'Gotham-Bold';}
-#popEnd{position: fixed;top: 35%;left: 30%;font-size: 7rem;color: white;font-family:'neon';font-weight: 400; margin-top: -50px;animation: neon 2s infinite;}
-#recommencer{position: fixed;top: 50%;left: 30%;font-size: 2rem;color: white;font-family: 'Gotham-Bold';}
-#gagne{position: fixed;top: 50%;left: 38%;font-size: 2rem;color: white;font-family: 'Gotham-Bold';}
-#deja{position: fixed;top: 50%;left: 38%;font-size: 2rem;color: white;font-family: 'Gotham-Bold';}
+#popup1{position: fixed;top: 50%;left: 20%;font-size: 3rem;color: white;font-family: 'Gotham-Bold';text-align: center;padding-top: 20px;margin-top: -80px;}
+#popup2{position: fixed;top: 50%;left: 25%;font-size: 3rem;color: white;font-family: 'Gotham-Bold';text-align: center;padding-top: 20px;margin-top: -50px;}
+#popEnd{position: fixed;top: 35%;left: 25%;font-size: 7rem;color: white;font-family:'neon';font-weight: 400; margin-top: -30px;animation: neon 2s infinite;}
+#recommencer{position: fixed;top: 50%;left: 20%;font-size: 3rem;color: white;font-family: 'Gotham-Bold';}
+#gagne{position: fixed;top: 50%;left: 35%;font-size: 7rem;color:white;font-family: 'Gotham-Bold';margin-top: -50px;text-align: center;}
+#deja{position: fixed;top: 50%;left: 38%;font-size: 3rem;color: white;font-family: 'Gotham-Bold';}
+#victoire{position: fixed;top: 35%;left: 25%;font-size: 7rem;color: white;font-family:'neon';font-weight: 400; margin-top: -30px;animation: neon 2s infinite;text-align: center;}
 
 
 
@@ -133,7 +143,7 @@ position: absolute;top:10px;right: 10px; cursor: pointer; background:#0AEFF7;;co
 /*#popupcontent{position: absolute;visibility: hidden;overflow: hidden;border:1px solid #CCC;background-color:#F9F9F9;border:1px solid #333; padding:5px;} */
 /***************************************************média query tablette******************************************************************************/
 /* max-width: 1024px */
-@media screen and (hover:none) and (max-width: 1024px){ 
+@media screen  and (max-width: 1024px)  { 
 #boxJeu{background:url(../img/jeu2.jpg)center center / cover no-repeat; 
 width:100%; height: 100vh;display: flex;flex-direction: column;opacity: 0.8;}
 .resultat{display: none;}
@@ -147,11 +157,10 @@ width:100%; height: 100vh;display: flex;flex-direction: column;opacity: 0.8;}
 .boxMobile{display: none;}
 
 
- i{
-  width: 20px;height: 20px; color:black;opacity: 0.5;
-}
+ i{width: 20px;height: 20px; color:black;opacity: 0.5;}
 }
   
 
 
 
+/* and (hover:none) */
