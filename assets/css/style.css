@@ -1,27 +1,18 @@
- /* @import url('https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap'); font-family: 'Neonderthaw', cursive; */
   @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
   @font-face {font-family: 'neon'; src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);}
-  @font-face {font-family: 'GothamMedium'; src: url(../font/GothamMedium.ttf);}
-  @font-face {font-family: 'Gotham-Bold'; src: url(../font/GothamBold.ttf);}
-  @font-face {font-family: 'GothamLight'; src: url(../font/GothamLight.otf);}
 *,::before,::after{margin: 0; padding: 0;box-sizing: border-box;}
 *{user-select: none;}
 body{width: 100%; height: 100vh; overflow: hidden;cursor: none;}
-/* ZOOM */
-.zoom-transition{
-  transition: -moz-transform ease 200ms;
-  transition: -ms-transform ease 200ms;
-  transition: -o-transform ease 200ms;
-  transition: -webkit-transform ease 200ms;
-  transition: transform ease 200ms;
-}
-/* Cursor */
+/********************* code ext pour zoomer du ZOOM***************** */
+.zoom-transition{transition: -moz-transform ease 200ms;transition: -ms-transform ease 200ms;transition: -o-transform ease 200ms;transition: -webkit-transform ease 200ms;transition: transform ease 200ms;}
+/**************************** Cursor******************* */
 .cursor {width: 60px;height: 60px;border: 1px dashed  rgba(229,17,116, 0.92);border-radius: 50%;position: absolute;animation: Anim1 1s infinite alternate; pointer-events: none;z-index: 2222222222222222;}
 .cursor::before {content: '';position: absolute; top: 50%;left: 50%;transform: translate(-50%,-50%);width: 5px; height: 5px;background: white;border-radius: 50%;}
 .expand {animation: Anim2 .5s; background:  rgba(229,17,116, 0.92); border: 2px solid  rgba(229,17,116, 0.92);}
     @keyframes Anim1 {from {transform: scale(1) rotate(0deg);}to {transform: scale(0.7) rotate(190deg);}}
     @keyframes Anim2 {0%{transform: scale(1);}50%{transform: scale(2);}100%{transform: scale(1);opacity:0;}} 
-    /**************************************************************************************************************************************/
+  /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/***********************************************************section Loader  id=loader***************************************************************************/
 #loader{ width: 100%; height: 100vh;display: flex; flex-direction: column;background: url(//images.weserv.nl/?url=i.imgur.com/6QJjYMe.jpg) center center/ cover;}
 .logo-code{ width: 100%;}
 .logo-code>img{ width: 16%;margin: 50px 50px;}
@@ -46,103 +37,108 @@ body{width: 100%; height: 100vh; overflow: hidden;cursor: none;}
     100%{ transform : rotate(75deg); margin-top: 1200px;display: none;}}   
 .wrapper{ width: 100%; display: flex; justify-content: center; position: absolute; z-index: 1; top:95%; left:50%;  transform:translate(-50%, -50%);}
 .wrapper > h3{  color: rgb(255, 255, 255);font-family: 'Poppins', sans-serif; font-size: 30px; font-weight: 400;margin-bottom: 100px; animation:blur-text 3s 1s infinite;} 
-  @keyframes blur-text { 0% {filter: blur(0px);}100% {filter: blur(4px);}}  
-    /* Partie animation chargement en cours */
+  @keyframes blur-text { 0% {filter: blur(0px);}100% {filter: blur(4px);}} 
+  /* Partie animation chargement en cours */
 .dot {width: 15px; height: 15px; border-radius: 50%; background-color: #fff;transform-origin: 50%; margin: 0 10px; margin-top: 30px;}
   @keyframes jump {100%{transform:translateY(-20px);}}
 .dot1{animation: jump infinite .30s alternate ease-in-out,blur-text 3s 1s infinite;}
 .dot2{animation: jump infinite .30s 0.05s alternate ease-in-out,blur-text 3s 1s infinite;}
 .dot3{animation: jump infinite .30s 0.1s alternate ease-in-out,blur-text 3s 1s infinite;}
-/************ Partie Mentions légales ***************/
-#boxMentions{position: absolute;right: 0; bottom: 0;z-index: 11111111111111;}
-#boxMentions > a{ font-family:'GothamLight'; color: white; padding-left: 20px;} 
-#boxMentions > a > .legales,.politique { width: 100%;}
-/* section partie chargement  */
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/********************************************************** section partie chargement id=boxChargement*************************************************************** */
 #boxChargement{background: url(../img/Chargement.jpg) center center / cover; width: 100%; height: 100%; animation: appartion 2s 3s;display: flex;
 justify-content: center;align-items: center;}
-.chargement{ font-family: 'GothamMedium';text-align:center;  width: 100%; min-height: 100vh;display: flex; justify-content:flex-end; align-items: center;flex-direction: column;}
+.chargement{ font-family: 'Poppins';font-weight:500;text-align:center;  width: 100%; min-height: 100vh;display: flex; justify-content:flex-end; align-items: center;flex-direction: column;}
 .chargement >.number{  width: 100%; height: 30vh; font-size: 150px; color: #0AEFF7;  transform: translateY(-0px);}
 .chargement >.reference{ width: 100%;font-size: 15px;color: #fff;line-height: 30px;letter-spacing: 5px; transform: translateY(-38px);}
 .chargement >.commencer{width: 100%; color: #FFAAFF;font-size: 13px; padding-top: 50px;letter-spacing: 5px; transform: translatey(-40px);text-decoration: none; animation: clignotte 3s infinite}
-@keyframes clignotte {0%,	50%,100% {opacity: 1;}25%,75% {opacity: 0;}}
-/*************************** Section Jeu *********************/
-#boxJeu{ width: 100%; min-height: 100vh; opacity: 1; position: relative;
-  display: flex; justify-content: center; align-items: center; flex-direction: column;}
-/**************** Partie Jeu :score ****************/
-/******************************************************************** tapeClavier pour apparaitre en JS */
-#boxTape{background: rgba(0, 0, 0, 0.6); position:fixed;width:100vw;top: 0;left: 0;height:100vh;
-  display: flex; justify-content: center;align-items: center;flex-direction:column;}
-#boxTape>#nomLangage{width:28vw;height:10vh;font-size:63px;display: flex;justify-content: center;
-  border: none; outline: none;color:white;padding:10px;background:transparent;text-align: center;}
-.opacite{ opacity: 0; z-index: -1;}
-.popCode{ display: none;color: white;} 
-.boxDeskTop{display: none;}
-.boxTab{display: none;}
-.boxMobile{display: none;}
-#boxTape>.tapeName {height:0vh;font-size:15px;color: white;font-family: 'GothamMedium'; letter-spacing: 5px;padding-top:20px;opacity:0.5;}
-/*///////////////////////////////////////////////////////////////////////////////////////////////////////*/
+  @keyframes clignotte {0%,	50%,100% {opacity: 1;}25%,75% {opacity: 0;}}
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*********************************************************** Section Jeu  id = jeuPopCode******************************************************************************/
+#boxJeu{ width: 100%; min-height: 100vh; opacity: 1; position: relative;display: flex; justify-content: center; align-items: center; flex-direction: column;}
+/**************** Partie Jeu :score class = resultat***************/
 #resultat{width: 50%;position: fixed; top: 20px; left: 20px;}
-/* .resultat >.boxScore> h4{ font-family: 'GothamMedium';font-size: 12px;letter-spacing: 2px;color: #0AEFF7; rotate:-90deg;margin-left: 55px; margin-top: 20px;} */
-#resultat::before{ position: absolute;content: 'SCORE';font-family: 'GothamMedium';font-size: 12px;letter-spacing: 2px;color: #0AEFF7; rotate:-90deg;
-  border-bottom: 1px solid #D9D9D9;top: 15px;left: 1px; }
-/* Box Score 08 / 30*/
-.score{width: 50%;display: flex;margin-left: 35px;}
-.score>p{font-family:'GothamMedium';padding-left: 5px;color:#fff;font-size: 18px;}
+/* .resultat >.boxScore> h4{ font-family: 'Poppins';font-weight:500;font-size: 12px;letter-spacing: 2px;color: #0AEFF7; rotate:-90deg;margin-left: 55px; margin-top: 20px;} */
+#resultat::before{ position: absolute;content: 'SCORE';font-family: 'Poppins';font-weight:500;font-size: 12px;letter-spacing: 2px;color: #0AEFF7; rotate:-90deg;border-bottom: 1px solid #D9D9D9;top: 15px;left: 1px; }
+/* Box Score class= erreur*/
+.score{width: 50%;display: flex;margin-left: 45px;}
+.score>p{font-family: 'Poppins';font-weight:500;padding-left: 5px;color:#fff;font-size: 18px;}
 /* Box ERREUR XXX */
-.erreur{width:50%;display: flex; justify-content: flex-start;margin: 5px 0 0 33px;font-family:'GothamMedium';font-size: 18px;}
+.erreur{width:50%;display: flex; justify-content: flex-start;margin: 0 0 0 42px;font-family: 'Poppins';font-weight:500;font-size: 18px;}
 .erreur>span{ color: rgba(255, 255, 255, 0.3);padding-left: 10px;}
 .erreur>.Xone{color:rgba(255, 255, 255, 0.3);}  
 .erreur>.Xtwo{color:rgba(255, 255, 255, 0.3);} 
 .erreur>.Xtree{color:rgba(255, 255, 255, 0.3);}   
-/* Partie Gauche Logo */
-.boxImg{width: 160px;position:absolute;top:10px; right: 10px; } 
-.boxImg> img{width:100%;} 
-/**************** PARTIE JEU ZOOM *****************/
+/*PARTIE JEU barre de ZOOM id = zoom*/
 #zoom{ width: 50%;position: absolute; bottom: 20px;left: 0;}
 .zoom1{ width: 100%;height:100vh;}
 .zoom{  width: 100%;height: 100%;object-fit: cover;}
 /* partie BOX ZOOM */
-.boxZoomer{width: 5%; display:flex; justify-content: space-between;align-items:center;
-  margin: 0px 0px 70px 15px;flex-direction: row-reverse; font-family:'GothamMedium';font-size: 14px;color:#fff;}
+.boxZoomer{width: 5%; display:flex; justify-content: space-between;align-items:center;margin: 0px 0px 70px 15px;flex-direction: row-reverse; font-family: 'Poppins';font-weight:500;font-size: 14px;color:#fff;}
 .zoomer{font-size: 10px; color: #0AEFF7; rotate:-90deg; margin-bottom: 20px;}
 .more-less{width: 1vh;height:200px;margin-left: 25px;display: flex;justify-content: space-between;align-items: center;flex-direction: column;}
 .more{color:white;}
 .less{color:white}
 .progres{width: 0%; border: 1px solid #D9D9D9; height: 124px;}
-/* BOX LANGAGES */
+/* partie LANGAGES id = searchLagages*/
 #searchLangages{ width: 100%;display: flex;align-items: center; margin-bottom: 15px;margin-left: 20px}
 .boxLangages{width:25%; height: 25px; display: flex;justify-content: center;align-items: center;border: 1px solid #fff;margin-left: 50px;margin-top: -50px;}
 .boxLangages> a>.langages{display: flex; height: 10vh; margin-top :20px ;}
-.langages{padding-left: 10px; font-family:'GothamLight';font-size: 8px; color: #fff; letter-spacing: 2px; text-decoration: none;}
-/***************************MODALE POUR LES LANGAGES TROUVES ************************/
+.langages{padding-left: 10px; font-family: 'Poppins';font-weight:300;font-size: 8px; color: #fff; letter-spacing: 2px; text-decoration: none;}
+/* tapeClavier pour apparaitre en JS id =boxTape*/
+#boxTape{background: rgba(0, 0, 0, 0.6); position:fixed;width:100vw;top: 0;left: 0;height:100vh;
+  display: flex; justify-content: center;align-items: center;flex-direction:column;}
+#boxTape>#nomLangage{width:28vw;height:13vh;font-size:63px;display: flex;justify-content: center;
+  border: none; outline: none;color:white;padding:10px;background:transparent;text-align: center;}
+.opacite{ opacity: 0; z-index: -1;}
+/* VOIR SON UTILITE OU DEPLACER */
+#boxTape>.tapeName {height:0vh;font-size:15px;color: white;font-family: 'Poppins';font-weight:500;letter-spacing: 5px;padding-top:20px;opacity:0.5;}
+/* Partie Gauche Logo */
+/* MODIFIER LE CSS POUR LE METTRE BIEN EN PLACE */
+.boxImg{width: 160px;position:absolute;right: -98%;bottom: 251%; } 
+.boxImg> img{width:100%;} 
+/*MODALE POUR LES LANGAGES TROUVES id = modal*/
 .modal-btn{ padding: 10px 14px;font-size: 18px; margin: 100px auto;display:block;min-width: 150px; cursor: pointer; }
-.modal{ width: 100%; max-width: 800px; min-height: 400px;background:rgba(0,0,0,0.4);color:white;border-radius: 5px; position: absolute; top: 0; left: 100%;
-transform: translate(-50%, calc(-50% - 50%)); transition: opacity 0.4s ease-out; transform: 0.4s ease-out;} 
-.close-modal{padding: 8px 10px; border: none; border-radius: 5px; font-size: 18px; 
-position: absolute;top:10px;right: 10px; cursor: pointer; background:#0AEFF7;;color:#fff;transition: opacity 0.4s 0.2s ease-out }
-#modalTitle{font-size:30px;margin-bottom: 10px;font-family: 'GothamMedium';font-weight: 900;}
-#dialogDesc{font-size:28px;line-height: 1.4;margin-top: 20px;color:white;margin-left: 10px;font-family: 'GothamMedium';font-weight: 500;}
+.modal{ width: 100%; max-width: 800px; min-height: 400px;background:rgba(0,0,0,0.4);color:white;border-radius: 5px; position: absolute; top: 0; left: 100%;transform: translate(-50%, calc(-50% - 50%)); transition: opacity 0.4s ease-out; transform: 0.4s ease-out;} 
+.close-modal{padding: 8px 10px; border: none; border-radius: 5px; font-size: 18px;position: absolute;top:10px;right: 10px; cursor: pointer; background:#0AEFF7;;color:#fff;transition: opacity 0.4s 0.2s ease-out }
+#modalTitle{font-size:30px;margin-bottom: 10px;font-family: 'Poppins';font-weight: 900;}
+#dialogDesc{font-size:28px;line-height: 1.4;margin-top: 20px;color:white;margin-left: 10px;font-family: 'Poppins';font-weight: 500;}
+/* //////////////////////////////////////// */
+/* **********class Générale**************** */
 .noOpacity{opacity: 0;}
 /* ^ à renommer en noOpacity  au lieu de none*/
 .none{display: none !important;}
 /* ^ à renommer en none au lien de none2*/
-
-/**********************************************************************************************************************************/
-#popup1{position: fixed;top: 50%;left: 20%;font-size: 3rem;color: white;font-family: 'Gotham-Bold';text-align: center;padding-top: 20px;margin-top: -80px;}
-#popup2{position: fixed;top: 50%;left: 25%;font-size: 3rem;color: white;font-family: 'Gotham-Bold';text-align: center;padding-top: 20px;margin-top: -50px;}
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/********************************************Section partie perdant id = boxLost*********************************************************************/
+#popup1{position: fixed;top: 50%;left: 20%;font-size: 3rem;color: white;font-family: 'Poppins';font-weight:700;text-align: center;padding-top: 20px;margin-top: -80px;}
+#popup2{position: fixed;top: 50%;left: 25%;font-size: 3rem;color: white;font-family: 'Poppins';font-weight:700;text-align: center;padding-top: 20px;margin-top: -50px;}
 #popEnd{position: fixed;top: 35%;left: 25%;font-size: 7rem;color: white;font-family:'neon';font-weight: 400; margin-top: -30px;animation: neon 2s infinite;}
-#recommencer{position: fixed;top: 50%;left: 20%;font-size: 3rem;color: white;font-family: 'Gotham-Bold';}
-#gagne{position: fixed;top: 50%;left: 35%;font-size: 7rem;color:white;font-family: 'Gotham-Bold';margin-top: -50px;text-align: center;}
-#deja{position: fixed;top: 50%;left: 38%;font-size: 3rem;color: white;font-family: 'Gotham-Bold';}
+#recommencerLost{position: fixed;top: 80%;left: 26%;font-size: 1.5rem;color:white;font-family: 'Poppins';font-weight:700;letter-spacing: 5px; text-decoration: none; animation: clignotte 4s infinite;}
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/********************************************Section partie Gagnante id = boxWin***********************************************************************/
+#gagne{position: fixed;top: 50%;left: 35%;font-size: 7rem;color:white;font-family: 'Poppins';font-weight:700;margin-top: -50px;text-align: center;}
+#deja{position: fixed;top: 50%;left: 38%;font-size: 3rem;color: white;font-family: 'Poppins';font-weight:700;}
 #victoire{position: fixed;top: 35%;left: 25%;font-size: 7rem;color: white;font-family:'neon';font-weight: 400; margin-top: -30px;animation: neon 2s infinite;text-align: center;}
+#recommencerWin{position: fixed;top: 50%;left: 20%;font-size: 3rem;color: white;font-family: 'Poppins';font-weight:700;letter-spacing: 2px;}
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/********************************** Section partie modal pour description des languages trouvés id = boxModalDesc****************************************/
 
 
 
 
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/********************************************* Section Mentions légales id = boxControl*************************************/
+#boxMentions{position: absolute;right: 0; bottom: 20px;z-index: 1111111111;}
+#boxMentions > a{ font-family: 'Poppins';font-weight:300; color: white; padding-left: 20px;text-decoration: none;} 
+/* #boxMentions > a > .legales,.politique { width: 100%;} */
+.legales{border-bottom: 1px solid white;padding-left: 25px;margin-left:10px;}
+.politique{border-bottom: 1px solid white;padding-left: 20px;margin-left: 20px  ;}
 
 /*#popupcontent{position: absolute;visibility: hidden;overflow: hidden;border:1px solid #CCC;background-color:#F9F9F9;border:1px solid #333; padding:5px;} */
-/***************************************************média query tablette******************************************************************************/
-/* max-width: 1024px */
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/***********************************************Section média query tablette id = boxMedia*******************************************************************/
+/* max-width: 1024px *//* and (hover:none) */
 @media screen  and (max-width: 1024px)  { 
 #boxJeu{background:url(../img/jeu2.jpg)center center / cover no-repeat; 
 width:100%; height: 100vh;display: flex;flex-direction: column;opacity: 0.8;}
@@ -155,12 +151,8 @@ width:100%; height: 100vh;display: flex;flex-direction: column;opacity: 0.8;}
 .boxDeskTop{display: none;}
 .boxTab{display: block;}
 .boxMobile{display: none;}
+ i{width: 20px;height: 20px; color:black;opacity: 0.5;}}
+/* voir ou il va */
+.popCode{ display: none;color: white;} 
 
 
- i{width: 20px;height: 20px; color:black;opacity: 0.5;}
-}
-  
-
-
-
-/* and (hover:none) */

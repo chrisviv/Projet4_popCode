@@ -6,7 +6,7 @@ function VanillaCounter() {
             endAt: parseInt(i.getAttribute('data-end-at')),
             delay: parseInt(i.getAttribute('data-delay')) || 0,
             format: '{}',
-            time: parseInt(i.getAttribute('data-time')) || 3500
+            time: parseInt(i.getAttribute('data-time')) || 3000
         }
         if (i.getAttribute('data-format')) {
             data.format = i.getAttribute('data-format')
@@ -35,5 +35,4 @@ function VanillaCounter() {
         }, data.delay)
     })
 }
-
 window.VanillaCounter = VanillaCounter

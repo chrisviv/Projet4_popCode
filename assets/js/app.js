@@ -1,11 +1,15 @@
-// Au chargement du jeu:  affiche/affiche pas apres 6s
-let title = document.querySelector("#title");
-let wrapper = document.querySelector(".wrapper");
-let boxchargement = document.querySelector("#boxChargement");
+// Au chargement du jeu:  affiche/affiche pas apres 6s// section loader
 let loader = document.querySelector("#loader");
 let logo = document.querySelector(".logo-code");
+let title = document.querySelector("#title");
+let wrapper = document.querySelector(".wrapper");
+// section boxChargement
+let boxchargement = document.querySelector("#boxChargement");
 let chargement = document.querySelector(".chargement");
+let preChargement = document.getElementById('preChargement');
+let logoJeu = document.getElementById('logoJeu');
 /**************************************************************** */
+let boxJeu = document.querySelector("#boxJeu");
 // variables pour le score gagnant et perdant
 var score = 0;
 let numberFirst = document.getElementById("numberFirst");
@@ -40,49 +44,66 @@ let listeLangages = [
   "Clojure",
   "WebAssembly",
   "R"];
-// variable 
+// variable tableau vide pour langages trouvés
 let langagesPassed = [];
-// dialogDesc sur html c'est la liste trouvé
+// dialogDesc sur html c'est la liste trouvé dans la modal
 let program = document.getElementById('dialogDesc');
-/***************************************************/
+/****************partie id = boxTape***********************************/
 // affichage au bout de 7s class'tapeName = "Tape un nom de langague de programmation"
 let boxTape = document.getElementById("boxTape");
 // nomLangage correspond au input
 let nomLangage = document.getElementById("nomLangage");
 let tapeName = document.querySelector(".tapeName");
-let boxJeu = document.querySelector("#boxJeu");
-/*************************************************/
+//Modale pour les langages trouvés // variable
+let searchLangages = document.getElementById('searchLangages');
+const modalContainer = document.getElementById("modal");
+let btn = document.getElementById('close')
+/*****************partie boxLost********************************/
 // variable pour les erreurs
 let popup1 = document.getElementById('popup1');
 let popup2 = document.getElementById('popup2');
 let popupEnd = document.getElementById('popupEnd');
-let recommencer = document.getElementById('recommencer');
+let recommencerLost = document.getElementById('recommencerLost');
+// let zoom1 = document.getElementsByClassName('zoom1');
+/*****************partie boxWin********************************/
 // variable deja trouvé le langague, gagné, gameOver et la victoire
 let gagne = document.getElementById('gagne');
 let victoire = document.getElementById('victoire');
 let deja = document.getElementById('deja');
+let recommencerWin = document.getElementById('recommencerWin');
+// variable cursor
+const cursor = document.querySelector(".cursor");
 /******************************************************* */
+/*//////////////////section loader///////////////////////*/
+recommencerLost.style.display = 'none';
+  recommencerWin.style.display = 'none';
 window.onload = setTimeout(showContent, 6000);
-
 function showContent() {
   // logo.style.display = "none";
   title.style.display = "none";
   wrapper.style.display = "none";
   loader.style.display = "none";
-  resultat.style.display = "none";
+  recommencerLost.style.display = 'none';
+  recommencerWin.style.display = 'none';
+  // resultat.style.display = "none";
     // nouvelle page apparait
-  boxchargement.style.display = "block";
-};
+  boxchargement.style.display = "block";};
 // liste des noms de languages transformer en miniscule 
 listeLangages = listeLangages.map(name => name.toLowerCase());
 // La méthode map() crée un nouveau tableau avec les résultats de l'appel d'une fonction fournie sur chaque élément du tableau appelant.
 // a verfier si pb  est none ou noOpacity
 tapeName.style.display = "none";
-
 window.onload = setTimeout(showTape, 7000);
-
 function showTape() {
-  tapeName.style.display = "block";}
+  tapeName.style.display = "block";
+};
+/************************************************************************************/
+// function checkScore() {
+//   if (score === listeLangages.length-1) {
+//   victoire.add('none')
+  
+//   }
+// }
 /*************************************************************** */
 // evenement avec la touche du clavier 
 window.addEventListener("keydown", function (event) {
@@ -96,15 +117,8 @@ window.addEventListener("keydown", function (event) {
 document.getElementsByClassName('commencer')[0].addEventListener('click', function(){
   document.getElementsByClassName('jeuPopCode')[0].classList.remove('none')
   document.getElementById('boxChargement').classList.add('none')
-})
-
+});
 /************************************************************************************ */
-// function checkScore() {
-//   if (score === listeLangages.length-1) {
-//   document.
-//   }
-// }
-/************************************************************************************/
 window.addEventListener("keyup", function (event) {
   //evenement avec les touche echappe et entrée pour vider le input
   key = event.key;
@@ -120,7 +134,7 @@ window.addEventListener("keyup", function (event) {
     /***************************************************************************************/
     // variable - le input 'html' c est id= "nomLangage"
     let res = input.toLowerCase()
-    find = false;
+      find = false;
     // console.log(input);
     for (let i = 0; i < listeLangages.length; i++) {
       if (input.toLowerCase() === listeLangages[i].toLowerCase()) {
@@ -128,13 +142,13 @@ window.addEventListener("keyup", function (event) {
         setTimeout(() => {
           gagne.classList.add('none')
         }, 1000);
-
-        if (score === listeLangages.length - 1)
-          document.querySelector('victoire').style = 'color: #0AEFF7';
-        victoire.classList.remove('none')
-        setTimeout(() => {
-          victoire.classList.add('none')
-        }, 1000)
+        // if (score === listeLangages.length - 1)
+        // // victoire.classList;
+        //   document.querySelector('victoire').classList.style = 'color: #0AEFF7';
+        // victoire.classList.remove('none')
+        // setTimeout(() => {
+        //   victoire.classList.add('none')
+        // }, 1000)
         // Mets le langague trouvé dans le tableau/modal nommé le language trouvé et enléve un language dans le premier tableau 'listeLangages'
         langagesPassed.push(res)
         program.textContent += langagesPassed.slice(-1) + ''
@@ -152,7 +166,7 @@ window.addEventListener("keyup", function (event) {
         }
         find = true;
         break;
-        // sinon si le language trouvé est inclus dans le tableau déjà trouvé : réponse à chaque figuration
+        // sinon si le language trouvé est inclus dans le tableau déjà trouvé : réponse à chaque configuration
       } else if (langagesPassed.includes(res)) {
         erreur -= 1;
         deja.classList.remove('none')
@@ -174,7 +188,7 @@ window.addEventListener("keyup", function (event) {
     } else {
       erreur += 1;
       // console.log(erreur)
-      // 1 erreur met la X en bleu
+      // 1 erreur s'affiche en bleu
       switch (erreur) {
         case 1:
           document.querySelector('.Xone').style = 'color: #0AEFF7';
@@ -195,14 +209,20 @@ window.addEventListener("keyup", function (event) {
         case 3:
           document.querySelector('.Xtree').style = 'color: #0AEFF7';
           popEnd.textContent = ' GAME OVER !'
-          // recommencer.classList.add('recommencer')
+            preChargement.classList.remove('none');
+            recommencerLost.style.display = 'block';
+          
+          setTimeout(() => {
+          score.classList.remove('none')
+          }, 500)
           popEnd.classList.remove("none")
           setTimeout(() => {
             popEnd.classList.add('none')
-            // popEnd.textContent = 'Clic ici pour refaire une nouvelle partie'
-
-            // recommencer.classList.add('recommencer')
-          }, 3000)
+            }, 8000)
+          document.getElementsByClassName('recommencerLost')[0].addEventListener('click', function(){
+            document.getElementsByClassName('preChargement')[0].classList.remove('none')
+            document.getElementById('boxChargement').classList.add('none')
+          });
           break;
       }
       // console.log(erreur);
@@ -210,8 +230,6 @@ window.addEventListener("keyup", function (event) {
   }
 });
 ///////////////////////////////////CURSOR ANIME///////////////////////////////////////////////////
-// variable
-const cursor = document.querySelector(".cursor");
 document.addEventListener("mousemove", (e) => {
   cursor.setAttribute("style", "top:" + (e.pageY - 20) + "px; left:" + (e.pageX - 20) + "px;");
 });
@@ -223,15 +241,15 @@ document.addEventListener("click", () => {
 });
 /*********************************************************************************************************/
 //Modale pour les langages trouvés // variable
-let searchLangages = document.getElementById('searchLangages');
-const modalContainer = document.getElementById("modal");
-let btn = document.getElementById('close')
+// let searchLangages = document.getElementById('searchLangages');
+// const modalContainer = document.getElementById("modal");
+// let btn = document.getElementById('close')
 searchLangages.addEventListener("click", () => {
   modalContainer.classList.remove('none')
-})
+});
 btn.addEventListener("click", () => {
   modalContainer.classList.add('none')
-})
+});
 // console.log(searchLangages)
 /*****************************************zoom************************************************************** */
 zoom({
