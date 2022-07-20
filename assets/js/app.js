@@ -6,8 +6,9 @@ let wrapper = document.querySelector(".wrapper");
 // section boxChargement
 let boxchargement = document.querySelector("#boxChargement");
 let chargement = document.querySelector(".chargement");
-let preChargement = document.getElementById('preChargement');
+var preChargement = document.getElementById('preChargement');
 let logoJeu = document.getElementById('logoJeu');
+var jeuPopCode = document.getElementsByClassName('jeuPopCode')
 /**************************************************************** */
 let boxJeu = document.querySelector("#boxJeu");
 // variables pour le score gagnant et perdant
@@ -57,9 +58,10 @@ let tapeName = document.querySelector(".tapeName");
 //Modale pour les langages trouvés // variable
 let searchLangages = document.getElementById('searchLangages');
 const modalContainer = document.getElementById("modal");
-let btn = document.getElementById('close')
+let btn = document.getElementById('close');
 /*****************partie boxLost********************************/
 // variable pour les erreurs
+let boxLost = document.getElementById('boxLost');
 let popup1 = document.getElementById('popup1');
 let popup2 = document.getElementById('popup2');
 let popupEnd = document.getElementById('popupEnd');
@@ -75,7 +77,6 @@ let recommencerWin = document.getElementById('recommencerWin');
 const cursor = document.querySelector(".cursor");
 /******************************************************* */
 /*//////////////////section loader///////////////////////*/
-recommencerLost.style.display = 'none';
   recommencerWin.style.display = 'none';
 window.onload = setTimeout(showContent, 6000);
 function showContent() {
@@ -83,8 +84,8 @@ function showContent() {
   title.style.display = "none";
   wrapper.style.display = "none";
   loader.style.display = "none";
-  recommencerLost.style.display = 'none';
-  recommencerWin.style.display = 'none';
+  // recommencerLost.style.display = 'none';
+  // recommencerWin.style.display = 'none';
   // resultat.style.display = "none";
     // nouvelle page apparait
   boxchargement.style.display = "block";};
@@ -191,7 +192,7 @@ window.addEventListener("keyup", function (event) {
       // 1 erreur s'affiche en bleu
       switch (erreur) {
         case 1:
-          document.querySelector('.Xone').style = 'color: #0AEFF7';
+          document.querySelector('.Xone').classList.add('lightblue');
           popup1.classList.remove('none')
           setTimeout(() => {
             popup1.classList.add('none')
@@ -199,7 +200,7 @@ window.addEventListener("keyup", function (event) {
           break;
 
         case 2:
-          document.querySelector('.Xtwo').style = 'color: #0AEFF7';
+          document.querySelector('.Xtwo').classList.add('lightblue');
           popup2.classList.remove('none')
           setTimeout(() => {
             popup2.classList.add('none')
@@ -207,27 +208,38 @@ window.addEventListener("keyup", function (event) {
           break;
 
         case 3:
-          document.querySelector('.Xtree').style = 'color: #0AEFF7';
-          popEnd.textContent = ' GAME OVER !'
-            preChargement.classList.remove('none');
-            recommencerLost.style.display = 'block';
-          
-          setTimeout(() => {
-          score.classList.remove('none')
-          }, 500)
-          popEnd.classList.remove("none")
-          setTimeout(() => {
-            popEnd.classList.add('none')
-            }, 8000)
-          document.getElementsByClassName('recommencerLost')[0].addEventListener('click', function(){
-            document.getElementsByClassName('preChargement')[0].classList.remove('none')
-            document.getElementById('boxChargement').classList.add('none')
-          });
+          document.querySelector('.Xtree').classList.add('lightblue');
+          // popEnd.textContent = ' GAME OVER !'
+         boxLost.classList.remove('none');
+         jeuPopCode[0].classList.add('none');
+
+                     
+          // setTimeout(() => {
+          // score.classList.remove('none')
+          // }, 500)
+          // popEnd.classList.remove("none")
+          // setTimeout(() => {
+          //   popEnd.classList.add('none')
+          //   }, 8000)
+        
           break;
-      }
+        }
       // console.log(erreur);
     }
   }
+});
+document.getElementById('recommencerLost').addEventListener('click', function(){
+  document.querySelector('#boxLost').classList.add('none')
+  boxchargement.classList.remove('none')
+  score = 0;
+  numberFirst.textContent = "0" + score;
+  document.querySelector('.Xone').classList.remove('lightblue');
+  document.querySelector('.Xtwo').classList.remove('lightblue');
+  document.querySelector('.Xtree').classList.remove('lightblue');
+  langagesPassed = [];
+  program.textContent ='';
+  erreur = 0;
+
 });
 ///////////////////////////////////CURSOR ANIME///////////////////////////////////////////////////
 document.addEventListener("mousemove", (e) => {

@@ -111,9 +111,10 @@ justify-content: center;align-items: center;}
 /* ^ à renommer en none au lien de none2*/
 /* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 /********************************************Section partie perdant id = boxLost*********************************************************************/
+#boxLost{width: 100%;height: 100vh;position: fixed;top: 0;left: 0;background: url('../img/preChargement.jpg'); display: flex;}
 #popup1{position: fixed;top: 50%;left: 20%;font-size: 3rem;color: white;font-family: 'Poppins';font-weight:700;text-align: center;padding-top: 20px;margin-top: -80px;}
 #popup2{position: fixed;top: 50%;left: 25%;font-size: 3rem;color: white;font-family: 'Poppins';font-weight:700;text-align: center;padding-top: 20px;margin-top: -50px;}
-#popEnd{position: fixed;top: 35%;left: 25%;font-size: 7rem;color: white;font-family:'neon';font-weight: 400; margin-top: -30px;animation: neon 2s infinite;}
+#popupEnd{position: fixed;top: 35%;left: 25%;font-size: 7rem;color: white;font-family:'neon';font-weight: 400; margin-top: -30px;animation: neon 2s infinite;}
 #recommencerLost{position: fixed;top: 80%;left: 26%;font-size: 1.5rem;color:white;font-family: 'Poppins';font-weight:700;letter-spacing: 5px; text-decoration: none; animation: clignotte 4s infinite;}
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 /********************************************Section partie Gagnante id = boxWin***********************************************************************/
@@ -130,28 +131,34 @@ justify-content: center;align-items: center;}
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /********************************************* Section Mentions légales id = boxControl*************************************/
 #boxMentions{position: absolute;right: 0; bottom: 20px;z-index: 1111111111;}
-#boxMentions > a{ font-family: 'Poppins';font-weight:300; color: white; padding-left: 20px;text-decoration: none;} 
+#boxMentions > a{ font-family: 'Poppins';font-weight:300; color: white; padding-left: 20px;text-decoration-line: none;} 
 /* #boxMentions > a > .legales,.politique { width: 100%;} */
 .legales{border-bottom: 1px solid white;padding-left: 25px;margin-left:10px;}
 .politique{border-bottom: 1px solid white;padding-left: 20px;margin-left: 20px  ;}
 
-/*#popupcontent{position: absolute;visibility: hidden;overflow: hidden;border:1px solid #CCC;background-color:#F9F9F9;border:1px solid #333; padding:5px;} */
-/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*  */
+.lightblue{color: #0AEFF7 !important;}
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /***********************************************Section média query tablette id = boxMedia*******************************************************************/
 /* max-width: 1024px *//* and (hover:none) */
 @media screen  and (max-width: 1024px)  { 
 #boxJeu{background:url(../img/jeu2.jpg)center center / cover no-repeat; 
 width:100%; height: 100vh;display: flex;flex-direction: column;opacity: 0.8;}
-.resultat{display: none;}
 .zoom{display:none} 
 #boxTape{display: none;}
 #zoom{display: none;}
 .boxMedia{width:100%; height:100vh;display:flex;justify-content: center;align-items: center;flex-direction: column;}
-.titlePopCode{ width: 100%; height: 100vh;color: white;opacity:1;display: block;font-size: 5rem;font-family: 'neon'; margin-top: 200px;color: rgba(229,17,116, 1);animation: neon 2s infinite;}
+#titlePopCode{ width: 100%; height: 100vh;opacity:1;font-size: 5rem;font-family: 'neon'; 
+  margin-top: 200px;color: rgba(229,17,116, 1);animation: neon 2s infinite;}
 .boxDeskTop{display: none;}
 .boxTab{display: block;}
 .boxMobile{display: none;}
- i{width: 20px;height: 20px; color:black;opacity: 0.5;}}
+#resultat{display: none;}
+boby > *{display: none;}
+}
+
+
+
 /* voir ou il va */
 .popCode{ display: none;color: white;} 
 

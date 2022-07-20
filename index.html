@@ -11,7 +11,7 @@
 </head>
     <body>
         <div class="cursor"></div>
-        <div id="preChargement" class="none"><img src="./assets/img/Pré lancement.jpg" alt="image d'un mur de brique bleu"></div>
+       
     
     <section id="loader">
         <div class="logo-code">
@@ -58,7 +58,8 @@
                     <span class="X Xtree">X</span>
                 </div>
             </div>  
-
+            <div id="popup1" class="none">ATTENTION ! <br> Au bout de 3 erreurs, le défit est perdu !</div>
+            <div id="popup2" class="none">Fait attention, <br> tu as droit encore à 1 erreurs !</div>
             <div id="zoom">
                 <div class="boxZoom">
                     <div class="more-less">
@@ -94,22 +95,19 @@
         </div>
     </section>
                         
-    <section id="boxLost">
-
-        <div id="popup1" class="none">ATTENTION ! <br> Au bout de 3 erreurs, le défit est perdu !</div>
-        <div id="popup2"class="none">Fait attention, <br> tu as droit encore à 1 erreurs !</div>
-        <div id="popEnd" class="none"></div>
-        <p id="recommencerLost" class="'none">Cliquer ici pour recommencer une partie !</p>
-
-        <!-- <p id="recommencer" class="none">CLIQUER POUR RECOMMENCER</p> -->
+    <section id="boxLost" class="none">
+     
+        <div id="popupEnd"> GAME OVER !</div>
+        <p id="recommencerLost">Cliquer ici pour recommencer une partie !</p> 
+            
     </section>
 
     <section id="boxWin">
 
         <div id="gagne" class="none">Bravo ! </div>
         <div id="deja" class="none">Tu l'as déjà trouvé  !</div>
-        <div id="victoire"class="none">Tu est le vainqueur! <br> Un crack du language Web. </div>
-        <p id="recommencerWin"class="none">Cliquer ici pour refaire une partie !</p>
+        <div id="victoire" class="none">Tu est le vainqueur! <br> Un crack du language Web. </div>
+        <p id="recommencerWin" class="none">Cliquer ici pour refaire une partie !</p>
     </section>
 
     <section id="boxModalDesc">
@@ -132,7 +130,7 @@
     <section id="mediaQuery">
 
         <div id="boxMedia"> 
-            <h1 class="titlePopCode">Pop Code</h1>
+            <h1 id="titlePopCode">Pop Code</h1>
             <i class="fa-thin fa-desktop boxDeskTop"></i>
             <i class="fa-thin fa-tablet-screen boxTab"></i>
             <i class="fa-light fa-tablet-screen boxTab"></i>
