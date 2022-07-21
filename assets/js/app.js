@@ -8,7 +8,7 @@ let boxchargement = document.querySelector("#boxChargement");
 let chargement = document.querySelector(".chargement");
 var preChargement = document.getElementById('preChargement');
 let logoJeu = document.getElementById('logoJeu');
-var jeuPopCode = document.getElementsByClassName('jeuPopCode')
+var jeuPopCode = document.getElementsByClassName('jeuPopCode');
 /**************************************************************** */
 let boxJeu = document.querySelector("#boxJeu");
 // variables pour le score gagnant et perdant
@@ -69,6 +69,7 @@ let recommencerLost = document.getElementById('recommencerLost');
 // let zoom1 = document.getElementsByClassName('zoom1');
 /*****************partie boxWin********************************/
 // variable deja trouvé le langague, gagné, gameOver et la victoire
+// let boxWin = document.getElementById('boxWin');
 let gagne = document.getElementById('gagne');
 let victoire = document.getElementById('victoire');
 let deja = document.getElementById('deja');
@@ -92,12 +93,10 @@ function showContent() {
 // liste des noms de languages transformer en miniscule 
 listeLangages = listeLangages.map(name => name.toLowerCase());
 // La méthode map() crée un nouveau tableau avec les résultats de l'appel d'une fonction fournie sur chaque élément du tableau appelant.
-// a verfier si pb  est none ou noOpacity
 tapeName.style.display = "none";
 window.onload = setTimeout(showTape, 7000);
 function showTape() {
-  tapeName.style.display = "block";
-};
+  tapeName.style.display = "block";};
 /************************************************************************************/
 // function checkScore() {
 //   if (score === listeLangages.length-1) {
@@ -139,17 +138,27 @@ window.addEventListener("keyup", function (event) {
     // console.log(input);
     for (let i = 0; i < listeLangages.length; i++) {
       if (input.toLowerCase() === listeLangages[i].toLowerCase()) {
-        gagne.classList.remove('none')
+       fetch('assets/js/languages.json').then(responce => responce.json().then(responce => {
+        for (let i = 0; i < listeLangages.length; i++) {
+          if (input.toLowerCase() === responce.languages.langage[i].name) {
+            document.querySelector('.titleModal').textContent = responce.languages.langage[i].name;
+            document.querySelector('.langageDesc').textContent = responce.languages.langage[i].description;
+            document.querySelector('.secondLine > img').src = responce.languages.langage[i].picture;
+            document.querySelector('.secondLine > img').alt= 'logo de ' + responce.languages.langage[i].name ;
+          }          
+        }
+      }))
+        gagne.classList.remove('none');
         setTimeout(() => {
-          gagne.classList.add('none')
+          gagne.classList.add('none');
+          document.querySelector('#boxModalDesc').classList.remove('none');
         }, 1000);
-        // if (score === listeLangages.length - 1)
-        // // victoire.classList;
-        //   document.querySelector('victoire').classList.style = 'color: #0AEFF7';
-        // victoire.classList.remove('none')
-        // setTimeout(() => {
-        //   victoire.classList.add('none')
-        // }, 1000)
+        if (document.getElementById('modalCheck').checked === true) {
+          setTimeout(() => {
+            document.getElementById('boxModalDesc').classList.add('none');
+          }, 2000);
+        }
+          // console.log(gagne);
         // Mets le langague trouvé dans le tableau/modal nommé le language trouvé et enléve un language dans le premier tableau 'listeLangages'
         langagesPassed.push(res)
         program.textContent += langagesPassed.slice(-1) + ''
@@ -209,28 +218,17 @@ window.addEventListener("keyup", function (event) {
 
         case 3:
           document.querySelector('.Xtree').classList.add('lightblue');
-          // popEnd.textContent = ' GAME OVER !'
-         boxLost.classList.remove('none');
-         jeuPopCode[0].classList.add('none');
-
-                     
-          // setTimeout(() => {
-          // score.classList.remove('none')
-          // }, 500)
-          // popEnd.classList.remove("none")
-          // setTimeout(() => {
-          //   popEnd.classList.add('none')
-          //   }, 8000)
-        
-          break;
+          boxLost.classList.remove('none');
+          jeuPopCode[0].classList.add('none');
+        break;
         }
       // console.log(erreur);
     }
   }
 });
 document.getElementById('recommencerLost').addEventListener('click', function(){
-  document.querySelector('#boxLost').classList.add('none')
-  boxchargement.classList.remove('none')
+  document.querySelector('#boxLost').classList.add('none');
+  boxchargement.classList.remove('none');
   score = 0;
   numberFirst.textContent = "0" + score;
   document.querySelector('.Xone').classList.remove('lightblue');
@@ -239,11 +237,22 @@ document.getElementById('recommencerLost').addEventListener('click', function(){
   langagesPassed = [];
   program.textContent ='';
   erreur = 0;
-
 });
+// document.getElementById('recommencerWin').addEventListener('click', function(){
+//   document.querySelector('#boxWin').classList.add('none');
+//   boxchargement.classList.remove('none');
+//   score = 0;
+//   numberFirst.textContent = "0" + score;
+//   document.querySelector('.Xone').classList.remove('lightblue');
+//   document.querySelector('.Xtwo').classList.remove('lightblue');
+//   document.querySelector('.Xtree').classList.remove('lightblue');
+//   langagesPassed = [];
+//   program.textContent ='';
+//   erreur = 0;
+// });
 ///////////////////////////////////CURSOR ANIME///////////////////////////////////////////////////
 document.addEventListener("mousemove", (e) => {
-  cursor.setAttribute("style", "top:" + (e.pageY - 20) + "px; left:" + (e.pageX - 20) + "px;");
+  cursor.setAttribute("style", "top:" + (e.pageY - 30) + "px; left:" + (e.pageX - 30) + "px;");
 });
 document.addEventListener("click", () => {
   cursor.classList.add("expand");
@@ -252,10 +261,6 @@ document.addEventListener("click", () => {
   }, 500);
 });
 /*********************************************************************************************************/
-//Modale pour les langages trouvés // variable
-// let searchLangages = document.getElementById('searchLangages');
-// const modalContainer = document.getElementById("modal");
-// let btn = document.getElementById('close')
 searchLangages.addEventListener("click", () => {
   modalContainer.classList.remove('none')
 });
@@ -263,6 +268,10 @@ btn.addEventListener("click", () => {
   modalContainer.classList.add('none')
 });
 // console.log(searchLangages)
+/*///////////////////////////////////////////////////////// close ModalDesc*/////////////////////////////////*/
+document.getElementsByClassName('cross')[0].addEventListener('click' , function(){
+  document.getElementById('boxModalDesc').classList.add('none');
+});
 /*****************************************zoom************************************************************** */
 zoom({
   active: "zoom-active", // Class added to container when it is zoomed
@@ -309,3 +318,6 @@ zoom({
 // '{"code" :"Clojure","Logo": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Clojure_logo.svg", "description":"Clojure est un langage de programmation fonctionnel compilé, multi-plateforme et destiné à la création de programmes sûrs et facilement distribuables. C’est un dialecte de Lisp. Il transpile vers du bytecode Java, du code JavaScript et du bytecode .NET. Clojure est donc disponible sur la JVM, le CLR, les navigateurs et Node.js."}' +
 // '{"code" :"WebAssembly","Logo": "https://upload.wikimedia.org/wikipedia/commons/1/1f/WebAssembly_Logo.svg", "description":"WebAssembly, abrégé wasm, est un standard du World Wide Web pour le développement d’applications. Il est conçu pour compléter JavaScript avec des performances supérieures. Le standard consiste en un bytecode, sa représentation textuelle et un environnement d'exécution dans un bac à sable compatible avec JavaScript. Il peut être exécuté dans un navigateur Web et en dehors. WebAssembly est standardisé dans le cadre du World Wide Web Consortium.\n\n    Comme WebAssembly ne spécifie qu'un langage de bas niveau, le bytecode est généralement produit en compilant un langage de plus haut niveau. Parmi les premiers langages supportés figurent Rust avec le projet/module (crate) wasm-bindgen ainsi que le C et C++, compilés avec Emscripten (basé sur LLVM). De nombreux autres langages de programmation possèdent aujourd'hui un compilateur WebAssembly, parmi lesquels : C#, Go, Java, Lua, Python ou Ruby.\n    \n    Les navigateurs Web compilent le bytecode wasm dans le langage machine de l'hôte sur lequel ils sont utilisés avant de l'exécuter."}],
 /*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** */
+
+
+

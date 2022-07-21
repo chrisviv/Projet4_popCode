@@ -12,7 +12,6 @@
     <body>
         <div class="cursor"></div>
        
-    
     <section id="loader">
         <div class="logo-code">
             <img src="./assets/img/logo.png" alt="image du logo popCode">
@@ -96,39 +95,41 @@
     </section>
                         
     <section id="boxLost" class="none">
-     
         <div id="popupEnd"> GAME OVER !</div>
         <p id="recommencerLost">Cliquer ici pour recommencer une partie !</p> 
-            
     </section>
 
-    <section id="boxWin">
-
-        <div id="gagne" class="none">Bravo ! </div>
-        <div id="deja" class="none">Tu l'as déjà trouvé  !</div>
-        <div id="victoire" class="none">Tu est le vainqueur! <br> Un crack du language Web. </div>
-        <p id="recommencerWin" class="none">Cliquer ici pour refaire une partie !</p>
+    <section id="boxWin" class="none">
+        <div id="gagne">Bravo !</div>
+        <div id="deja">Tu l'as déjà trouvé !</div>
+        <div id="victoire">Tu est le vainqueur! <br> Un crack du language Web. </div>
+        <p id="recommencerWin">Cliquer ici pour refaire une partie !</p>
     </section>
 
-    <section id="boxModalDesc">
-
-        <!-- <div class="modal none" id="modal" role="dialog" aria-labelledby="modalTitle" aria-describedby="dialogDesc">
-            <button id='close' class="close-modal modal-trigger">X</button>
-            <h2 id="modalTitle">Voici les langages déjà trouvés</h2>
-            <p id="dialogDesc" class="listeTrouve"></p>
-        </div> -->
+    <section id="boxModalDesc" class='none'>
+        <div class="modalDesc">
+            <div class="firstLine">
+                <h2 class="titleModal"></h2>
+                <i class="fa-solid fa-xmark cross fa-3x"></i>
+            </div>
+            <div class="secondLine">
+                <img src="" alt="">
+                <p class="langageDesc"></p>
+            </div>
+            <div class="thirdLine">
+                <label for="modalCheck"> Fermer automatiquement cette fermettre </label>
+                <input type="checkbox" name="modalCheck" id="modalCheck">
+            </div>
+        </div>
     </section>
 
     <section id="boxControl">
-
         <div id="boxMentions">
             <a href="#" class="legales"> Mentions Légales </a> 
-            <a href="#" class="politique"> Politique de confidentialité </a>
         </div> 
     </section>    
 
     <section id="mediaQuery">
-
         <div id="boxMedia"> 
             <h1 id="titlePopCode">Pop Code</h1>
             <i class="fa-thin fa-desktop boxDeskTop"></i>

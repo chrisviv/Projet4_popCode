@@ -19,8 +19,8 @@ body{width: 100%; height: 100vh; overflow: hidden;cursor: none;}
 /* ***********PARTIE lOADER************ */
 #title {width: 100%; display: flex; justify-content: center; align-content: center; font-size: 125px; user-select: none; animation : apparition 2s;}
   @keyframes apparition {0% {transform: scale(0);}100% {transform: scale(1);}} 
-#title > .letter {font-family:'neon';font-weight: 400;color: #fee; animation: neon 2s infinite;}
-  @keyframes neon {
+#title > .letter {font-family:'neon';font-weight: 400;color: #fee; animation: effetNeon 2s infinite;}
+  @keyframes effetNeon {
     from {text-shadow:0 0 6px rgba(9,132,248,0.92),0 0 30px rgba(18,222,239,0.34), 0 0 12px rgba(3,158,252,0.52),0 0 21px rgba(9,238,246,0.92), 0 0 34px rgba(13,225,240,0.78),0 0 54px rgba(18,126,183,0.92);}
     to {text-shadow:0 0 10px rgba(229,17,116, 0.92),0 0 30px rgba(247,167,252,0.42),0 0 12px rgba(255,35,223,0.58),0 0 22px rgba(254,120,243,0.84),0 0 38px rgba(255,170,255,0.88), 0 0 60px rgba(251,69,229,1);}}
 #title > .letter > .c1{text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 0 10px 3px #000; animation :blink 5s alternate;} 
@@ -28,9 +28,9 @@ body{width: 100%; height: 100vh; overflow: hidden;cursor: none;}
       78% {color: inherit;text-shadow: inherit;}79%{color: #333;}
       80% { text-shadow: none;} 81% {color: inherit;text-shadow: inherit;}82% {color: #333; text-shadow: none;}83% {color: inherit; text-shadow: inherit;}
       92% {color: #333; text-shadow: none;}92.5% {color: inherit; text-shadow: inherit;}} 
-#title >.letter:nth-of-type(4){animation: blink 5s linear alternate, neon 5s , break 4s 2s both;}
+#title >.letter:nth-of-type(4){animation: blink 5s linear alternate, effetNeon 5s , break 4s 2s both;}
   @keyframes break { 
-    0%{transform : rotate(0deg); margin-top: 0px; margin-left: 0px; animation: neon 5s alternate, blink 2s linear alternate;}
+    0%{transform : rotate(0deg); margin-top: 0px; margin-left: 0px; animation: effetNeon 5s alternate, blink 2s linear alternate;}
     50%{transform : rotate(28deg);margin-top: 82px;margin-left: -4px;animation: blink 2s linear alternate;
       text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 0 10px 3px #000; }
     80%{transform : rotate(45deg);margin-top: 140px;margin-left: 0px;animation :blink 2s alternate ;}
@@ -56,9 +56,10 @@ justify-content: center;align-items: center;}
 /*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /*********************************************************** Section Jeu  id = jeuPopCode******************************************************************************/
 #boxJeu{ width: 100%; min-height: 100vh; opacity: 1; position: relative;display: flex; justify-content: center; align-items: center; flex-direction: column;}
+.zoom1{ width: 100%;height:100vh;display: flex;justify-content: center;align-items: center;}
+.zoom{  width: 100%;height: 100%;object-fit: cover;}
 /**************** Partie Jeu :score class = resultat***************/
 #resultat{width: 50%;position: fixed; top: 20px; left: 20px;}
-/* .resultat >.boxScore> h4{ font-family: 'Poppins';font-weight:500;font-size: 12px;letter-spacing: 2px;color: #0AEFF7; rotate:-90deg;margin-left: 55px; margin-top: 20px;} */
 #resultat::before{ position: absolute;content: 'SCORE';font-family: 'Poppins';font-weight:500;font-size: 12px;letter-spacing: 2px;color: #0AEFF7; rotate:-90deg;border-bottom: 1px solid #D9D9D9;top: 15px;left: 1px; }
 /* Box Score class= erreur*/
 .score{width: 50%;display: flex;margin-left: 45px;}
@@ -68,12 +69,12 @@ justify-content: center;align-items: center;}
 .erreur>span{ color: rgba(255, 255, 255, 0.3);padding-left: 10px;}
 .erreur>.Xone{color:rgba(255, 255, 255, 0.3);}  
 .erreur>.Xtwo{color:rgba(255, 255, 255, 0.3);} 
-.erreur>.Xtree{color:rgba(255, 255, 255, 0.3);}   
+.erreur>.Xtree{color:rgba(255, 255, 255, 0.3);} 
+#popup1{position: fixed;top: 50%;left: 20%;font-size: 3rem;color: white;font-family: 'Poppins';font-weight:700;text-align: center;padding-top: 20px;margin-top: -80px;}
+#popup2{position: fixed;top: 50%;left: 25%;font-size: 3rem;color: white;font-family: 'Poppins';font-weight:700;text-align: center;padding-top: 20px;margin-top: -50px;}  
 /*PARTIE JEU barre de ZOOM id = zoom*/
-#zoom{ width: 50%;position: absolute; bottom: 20px;left: 0;}
-.zoom1{ width: 100%;height:100vh;}
-.zoom{  width: 100%;height: 100%;object-fit: cover;}
 /* partie BOX ZOOM */
+#zoom{ width: 50%;position: absolute; bottom: 20px;left: 0;}
 .boxZoomer{width: 5%; display:flex; justify-content: space-between;align-items:center;margin: 0px 0px 70px 15px;flex-direction: row-reverse; font-family: 'Poppins';font-weight:500;font-size: 14px;color:#fff;}
 .zoomer{font-size: 10px; color: #0AEFF7; rotate:-90deg; margin-bottom: 20px;}
 .more-less{width: 1vh;height:200px;margin-left: 25px;display: flex;justify-content: space-between;align-items: center;flex-direction: column;}
@@ -86,10 +87,8 @@ justify-content: center;align-items: center;}
 .boxLangages> a>.langages{display: flex; height: 10vh; margin-top :20px ;}
 .langages{padding-left: 10px; font-family: 'Poppins';font-weight:300;font-size: 8px; color: #fff; letter-spacing: 2px; text-decoration: none;}
 /* tapeClavier pour apparaitre en JS id =boxTape*/
-#boxTape{background: rgba(0, 0, 0, 0.6); position:fixed;width:100vw;top: 0;left: 0;height:100vh;
-  display: flex; justify-content: center;align-items: center;flex-direction:column;}
-#boxTape>#nomLangage{width:28vw;height:13vh;font-size:63px;display: flex;justify-content: center;
-  border: none; outline: none;color:white;padding:10px;background:transparent;text-align: center;}
+#boxTape{background: rgba(0, 0, 0, 0.6); position:fixed;width:100vw;top: 0;left: 0;height:100vh;display: flex; justify-content: center;align-items: center;flex-direction:column;}
+#boxTape>#nomLangage{width:28vw;height:13vh;font-size:63px;display: flex;justify-content: center;border: none; outline: none;color:white;padding:10px;background:transparent;text-align: center;}
 .opacite{ opacity: 0; z-index: -1;}
 /* VOIR SON UTILITE OU DEPLACER */
 #boxTape>.tapeName {height:0vh;font-size:15px;color: white;font-family: 'Poppins';font-weight:500;letter-spacing: 5px;padding-top:20px;opacity:0.5;}
@@ -101,65 +100,75 @@ justify-content: center;align-items: center;}
 .modal-btn{ padding: 10px 14px;font-size: 18px; margin: 100px auto;display:block;min-width: 150px; cursor: pointer; }
 .modal{ width: 100%; max-width: 800px; min-height: 400px;background:rgba(0,0,0,0.4);color:white;border-radius: 5px; position: absolute; top: 0; left: 100%;transform: translate(-50%, calc(-50% - 50%)); transition: opacity 0.4s ease-out; transform: 0.4s ease-out;} 
 .close-modal{padding: 8px 10px; border: none; border-radius: 5px; font-size: 18px;position: absolute;top:10px;right: 10px; cursor: pointer; background:#0AEFF7;;color:#fff;transition: opacity 0.4s 0.2s ease-out }
+#modalTitle{font-size:30px;margin-bottom: 10px;font-family: 'Poppins';font-weight: 900;letter-spacing: 5px;}
+#dialogDesc{width: 100%;height: 40vh;display: flex;flex-direction: column; font-size:28px;line-height: 1.4;margin-top: 20px;color:white;margin-left: 10px;font-family: 'Poppins';font-weight: 500;}
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/********************************************Section partie perdant id = boxLost*********************************************************************/
+#boxLost{width: 100%;height: 100vh;position: fixed;top: 0;left: 0;background: url('../img/preChargement.jpg') center center / cover; display: flex;}
+#popupEnd{width:100%; height: 100vh; position: fixed;font-size: 10rem;color: white;font-family:'neon';font-weight: 400;display: flex;justify-content: center;animation: effetNeon 2s infinite;
+display: flex;justify-content:center;align-items: center;}
+#recommencerLost{width:100%;height:100vh;display: flex;justify-content: center; left:-30px;position: fixed;top: 80%;font-size: 1.5rem;color:white;font-family: 'Poppins';font-weight:700;letter-spacing: 5px; text-decoration: none; animation: clignotte 4s infinite;}
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/********************************************Section partie Gagnante id = boxWin***********************************************************************/
+#boxWin{width: 100%;height: 100vh;position: fixed;top: 0;left: 0;background: url('../img/preChargement.jpg') center center / cover; display: flex;}
+#gagne{width: 100%;position: fixed;top: 50%;left: 35%;font-size: 7rem;color:white;font-family: 'Poppins';font-weight:700;margin-top: -50px;text-align: center;}
+#deja{width: 100%;position: fixed;top: 50%;left: 38%;font-size: 3rem;color: white;font-family: 'Poppins';font-weight:700;}
+#victoire{width: 100%;position: fixed;top: 35%;left: 25%;font-size: 7rem;color: white;font-family:'neon';font-weight: 400; margin-top: -30px;animation: effetNeon 2s infinite;text-align: center;}
+#recommencerWin{width:100%;height:100vh;display: flex;justify-content: center; left:-30px;position: fixed;top: 80%;font-size: 1.5rem;color:white;font-family: 'Poppins';font-weight:700;letter-spacing: 5px; text-decoration: none; animation: clignotte 4s infinite;}
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/********************************** Section partie modal pour description des languages trouvés id = boxModalDesc****************************************/
+.modalDesc-btn{ padding: 10px 14px;font-size: 18px; margin: 100px auto;display:block;min-width: 150px; cursor: pointer; }
+.modalDesc{ width: 100%; max-width: 800px; min-height: 400px;background:rgba(0,0,0,0.4);color:white;border-radius: 5px; position: absolute; top: 0; left: 100%;transform: translate(-50%, calc(-50% - 50%)); transition: opacity 0.4s ease-out; transform: 0.4s ease-out;} 
+.close-modalDesc{padding: 8px 10px; border: none; border-radius: 5px; font-size: 18px;position: absolute;top:10px;right: 10px; cursor: pointer; background:#0AEFF7;;color:#fff;transition: opacity 0.4s 0.2s ease-out }
+#modalTitleDesc{font-size:30px;margin-bottom: 10px;font-family: 'Poppins';font-weight: 900;}
+#dialogDescLangages{font-size:28px;line-height: 1.4;margin-top: 20px;color:white;margin-left: 10px;font-family: 'Poppins';font-weight: 500;}
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/********************************** Section partie modal pour description des languages trouvés id = boxModalDesc****************************************/
+#boxModalDesc{width: 100%;height: 100vh; position: fixed; top: 0;left: 0; background-color: rgba(0, 0, 0, 0.75); z-index: 5555555; display: flex;justify-content: center;align-items: center; color: white;}
+.modalDesc{width: 60vw;height: 60vh; display: flex;flex-direction: column;justify-content: space-between;}
+.firstLine{width: 100%;display: flex;justify-content: space-between;align-items: center;}
+.fa-xmark{z-index: 10000000000000000000000;}
+.secondLine{width:100%;display: flex;align-items: center;justify-content: space-between;gap: 10px;}
+.secondLine > p {padding:10px;}
+.secondLine > img { max-width: 300px;max-height: 300px;object-fit: cover;}
+.thirdLine{width: 100%;display: flex;justify-content: flex-end;align-items: center;}
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/********************************************* Section Mentions légales id = boxControl*************************************/
+#boxMentions{position: absolute;right: 0; bottom: 20px;z-index: 1111111111;}
+#boxMentions > .legales{ font-family: 'Poppins';font-weight:300; color: white; 
+ text-decoration-line: none;border-bottom: 1px solid white;} 
+ /*MODALE pour les mentions légales id = modalMention*/
+/* .modal-btn{ padding: 10px 14px;font-size: 18px; margin: 100px auto;display:block;min-width: 150px; cursor: pointer; }
+.modal{ width: 100%; max-width: 800px; min-height: 400px;background:rgba(0,0,0,0.4);color:white;border-radius: 5px; position: absolute; top: 0; left: 100%;transform: translate(-50%, calc(-50% - 50%)); transition: opacity 0.4s ease-out; transform: 0.4s ease-out;} 
+.close-modal{padding: 8px 10px; border: none; border-radius: 5px; font-size: 18px;position: absolute;top:10px;right: 10px; cursor: pointer; background:#0AEFF7;;color:#fff;transition: opacity 0.4s 0.2s ease-out }
 #modalTitle{font-size:30px;margin-bottom: 10px;font-family: 'Poppins';font-weight: 900;}
-#dialogDesc{font-size:28px;line-height: 1.4;margin-top: 20px;color:white;margin-left: 10px;font-family: 'Poppins';font-weight: 500;}
-/* //////////////////////////////////////// */
-/* **********class Générale**************** */
+#dialogDesc{font-size:28px;line-height: 1.4;margin-top: 20px;color:white;margin-left: 10px;font-family: 'Poppins';font-weight: 500;} */
+/***************************************************************************************************************************/
+/* Global- Générale */
 .noOpacity{opacity: 0;}
 /* ^ à renommer en noOpacity  au lieu de none*/
 .none{display: none !important;}
 /* ^ à renommer en none au lien de none2*/
-/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
-/********************************************Section partie perdant id = boxLost*********************************************************************/
-#boxLost{width: 100%;height: 100vh;position: fixed;top: 0;left: 0;background: url('../img/preChargement.jpg'); display: flex;}
-#popup1{position: fixed;top: 50%;left: 20%;font-size: 3rem;color: white;font-family: 'Poppins';font-weight:700;text-align: center;padding-top: 20px;margin-top: -80px;}
-#popup2{position: fixed;top: 50%;left: 25%;font-size: 3rem;color: white;font-family: 'Poppins';font-weight:700;text-align: center;padding-top: 20px;margin-top: -50px;}
-#popupEnd{position: fixed;top: 35%;left: 25%;font-size: 7rem;color: white;font-family:'neon';font-weight: 400; margin-top: -30px;animation: neon 2s infinite;}
-#recommencerLost{position: fixed;top: 80%;left: 26%;font-size: 1.5rem;color:white;font-family: 'Poppins';font-weight:700;letter-spacing: 5px; text-decoration: none; animation: clignotte 4s infinite;}
-/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
-/********************************************Section partie Gagnante id = boxWin***********************************************************************/
-#gagne{position: fixed;top: 50%;left: 35%;font-size: 7rem;color:white;font-family: 'Poppins';font-weight:700;margin-top: -50px;text-align: center;}
-#deja{position: fixed;top: 50%;left: 38%;font-size: 3rem;color: white;font-family: 'Poppins';font-weight:700;}
-#victoire{position: fixed;top: 35%;left: 25%;font-size: 7rem;color: white;font-family:'neon';font-weight: 400; margin-top: -30px;animation: neon 2s infinite;text-align: center;}
-#recommencerWin{position: fixed;top: 50%;left: 20%;font-size: 3rem;color: white;font-family: 'Poppins';font-weight:700;letter-spacing: 2px;}
-/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-/********************************** Section partie modal pour description des languages trouvés id = boxModalDesc****************************************/
-
-
-
-
-/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-/********************************************* Section Mentions légales id = boxControl*************************************/
-#boxMentions{position: absolute;right: 0; bottom: 20px;z-index: 1111111111;}
-#boxMentions > a{ font-family: 'Poppins';font-weight:300; color: white; padding-left: 20px;text-decoration-line: none;} 
-/* #boxMentions > a > .legales,.politique { width: 100%;} */
-.legales{border-bottom: 1px solid white;padding-left: 25px;margin-left:10px;}
-.politique{border-bottom: 1px solid white;padding-left: 20px;margin-left: 20px  ;}
-
-/*  */
 .lightblue{color: #0AEFF7 !important;}
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /***********************************************Section média query tablette id = boxMedia*******************************************************************/
 /* max-width: 1024px *//* and (hover:none) */
-@media screen  and (max-width: 1024px)  { 
+@media screen  and (max-width: 1024px) {
 #boxJeu{background:url(../img/jeu2.jpg)center center / cover no-repeat; 
-width:100%; height: 100vh;display: flex;flex-direction: column;opacity: 0.8;}
+width:100%; height: 100vh;display: flex;flex-direction: column;opacity: 0.25;}
 .zoom{display:none} 
 #boxTape{display: none;}
 #zoom{display: none;}
 .boxMedia{width:100%; height:100vh;display:flex;justify-content: center;align-items: center;flex-direction: column;}
 #titlePopCode{ width: 100%; height: 100vh;opacity:1;font-size: 5rem;font-family: 'neon'; 
-  margin-top: 200px;color: rgba(229,17,116, 1);animation: neon 2s infinite;}
+  margin-top: 200px;color: rgba(229,17,116, 1);animation: effetNeon 2s infinite;}
 .boxDeskTop{display: none;}
 .boxTab{display: block;}
 .boxMobile{display: none;}
 #resultat{display: none;}
-boby > *{display: none;}
 }
 
 
 
-/* voir ou il va */
-.popCode{ display: none;color: white;} 
 
 
