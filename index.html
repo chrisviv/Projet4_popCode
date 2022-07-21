@@ -60,7 +60,7 @@
             <div id="popup1" class="none">ATTENTION ! <br> Au bout de 3 erreurs, le défit est perdu !</div>
             <div id="popup2" class="none">Fait attention, <br> tu as droit encore à 1 erreurs !</div>
             <div id="zoom">
-                <div class="boxZoom">
+                <div id="boxZoom" class="none">
                     <div class="more-less">
                         <span class="zoomer">ZOOM</span>
                         <span class="more">+</span>
@@ -69,7 +69,7 @@
                     </div>
                 </div>
 
-                <div id="searchLangages">
+                <div id="searchLangages"class='none'>
                     <div class="boxLangages">
                         <img src="./assets/img/loupe.svg" alt="recherche ">
                         <a class="langages" href="">LANGAGES TROUVÉS</a>
@@ -82,7 +82,7 @@
                 </div>
 
                 <div class="boxImg">
-                    <img id="logoJeu" class='none' src="./assets/img/logo_pop_code1.png" alt="logo du jeu Pop Code">
+                    <img id="logoJeu" src="./assets/img/logo_pop_code1.png" alt="logo du jeu Pop Code">
                 </div>
                 
                 <div class="modal none" id="modal" role="dialog" aria-labelledby="modalTitle" aria-describedby="dialogDesc">
@@ -117,7 +117,7 @@
                 <p class="langageDesc"></p>
             </div>
             <div class="thirdLine">
-                <label for="modalCheck"> Fermer automatiquement cette fermettre </label>
+                <label for="modalCheck"> Fermer automatiquement cette fenêtre </label>
                 <input type="checkbox" name="modalCheck" id="modalCheck">
             </div>
         </div>
@@ -131,7 +131,7 @@
 
     <section id="mediaQuery">
         <div id="boxMedia"> 
-            <h1 id="titlePopCode">Pop Code</h1>
+            <h1 id="titlePopCode" class="none">Pop Code</h1>
             <i class="fa-thin fa-desktop boxDeskTop"></i>
             <i class="fa-thin fa-tablet-screen boxTab"></i>
             <i class="fa-light fa-tablet-screen boxTab"></i>

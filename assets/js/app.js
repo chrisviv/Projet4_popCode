@@ -11,6 +11,7 @@ let logoJeu = document.getElementById('logoJeu');
 var jeuPopCode = document.getElementsByClassName('jeuPopCode');
 /**************************************************************** */
 let boxJeu = document.querySelector("#boxJeu");
+let boxZoom = document.querySelector("#boxZoom");
 // variables pour le score gagnant et perdant
 var score = 0;
 let numberFirst = document.getElementById("numberFirst");
@@ -69,7 +70,7 @@ let recommencerLost = document.getElementById('recommencerLost');
 // let zoom1 = document.getElementsByClassName('zoom1');
 /*****************partie boxWin********************************/
 // variable deja trouvé le langague, gagné, gameOver et la victoire
-// let boxWin = document.getElementById('boxWin');
+let boxWin = document.getElementById('boxWin');
 let gagne = document.getElementById('gagne');
 let victoire = document.getElementById('victoire');
 let deja = document.getElementById('deja');
@@ -78,25 +79,24 @@ let recommencerWin = document.getElementById('recommencerWin');
 const cursor = document.querySelector(".cursor");
 /******************************************************* */
 /*//////////////////section loader///////////////////////*/
-  recommencerWin.style.display = 'none';
 window.onload = setTimeout(showContent, 6000);
 function showContent() {
-  // logo.style.display = "none";
   title.style.display = "none";
   wrapper.style.display = "none";
   loader.style.display = "none";
-  // recommencerLost.style.display = 'none';
-  // recommencerWin.style.display = 'none';
-  // resultat.style.display = "none";
-    // nouvelle page apparait
-  boxchargement.style.display = "block";};
+  // nouvelle page apparait
+  boxchargement.style.display = "block";
+  boxZoom.classList.remove('none');
+  searchLangages.classList.remove('none');
+};
 // liste des noms de languages transformer en miniscule 
 listeLangages = listeLangages.map(name => name.toLowerCase());
 // La méthode map() crée un nouveau tableau avec les résultats de l'appel d'une fonction fournie sur chaque élément du tableau appelant.
-tapeName.style.display = "none";
+// tapeName.style.display = "none";
 window.onload = setTimeout(showTape, 7000);
 function showTape() {
-  tapeName.style.display = "block";};
+  tapeName.style.display = "block";
+};
 /************************************************************************************/
 // function checkScore() {
 //   if (score === listeLangages.length-1) {
@@ -147,7 +147,7 @@ window.addEventListener("keyup", function (event) {
             document.querySelector('.secondLine > img').alt= 'logo de ' + responce.languages.langage[i].name ;
           }          
         }
-      }))
+      }));
         gagne.classList.remove('none');
         setTimeout(() => {
           gagne.classList.add('none');
@@ -157,7 +157,7 @@ window.addEventListener("keyup", function (event) {
           setTimeout(() => {
             document.getElementById('boxModalDesc').classList.add('none');
           }, 2000);
-        }
+        };
           // console.log(gagne);
         // Mets le langague trouvé dans le tableau/modal nommé le language trouvé et enléve un language dans le premier tableau 'listeLangages'
         langagesPassed.push(res)
@@ -173,7 +173,7 @@ window.addEventListener("keyup", function (event) {
           numberFirst.textContent = "0" + score;
         } else {
           numberFirst.textContent = score;
-        }
+        };
         find = true;
         break;
         // sinon si le language trouvé est inclus dans le tableau déjà trouvé : réponse à chaque configuration
