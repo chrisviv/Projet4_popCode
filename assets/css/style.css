@@ -134,8 +134,8 @@ display: flex;justify-content:center;align-items: center;}
 #boxModalMention{width: 100%;height: 100vh; position: fixed; top: 0;left: 0; background-color: rgba(0, 0, 0, 0.75); z-index: 5555555; display: flex;justify-content: center;align-items: center; color: white;}
 .modalMention{width: 60vw;height: 60vh; display: flex;flex-direction: column;justify-content: space-between;}
 .modalLine1{width: 100%;display: flex;justify-content: space-between;align-items: center;}
-.modalLine2{width: 100%;height: 40vh;overflow-y: auto;}
-.titleModalMention{font-size: 2rem;font-family: 'Poppins';font-weight: 500;}
+.modalLine2{width: 100%;height: 40vh;overflow-y: auto;font-size: 0.8rem;font-family: 'Poppins';}
+.titleModalMention{font-size: 1.5rem;font-family: 'Poppins';font-weight: 500;}
 .cross1{z-index: 2222222222222222222222;}
 /***************************************************************************************************************************/
 /* Global- Générale */

@@ -120,6 +120,16 @@ window.addEventListener("keyup", function (event) {
     document.querySelector('#boxModalDesc').classList.add('none');
   }
   clearTimeout();
+
+  if (document.querySelector('#boxModalMention').classList.contains('none') === false) {
+    document.querySelector('#boxModalMention').classList.add('none');
+  }
+  clearTimeout();
+
+  if (document.querySelector('#modal').classList.contains('none') === false) {
+    document.querySelector('#modal').classList.add('none');
+  }
+  clearTimeout();
   //evenement avec les touche echappe et entrée pour vider le input
   key = event.key;
   if ("Escape" === event.key) {
