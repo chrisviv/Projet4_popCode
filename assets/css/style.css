@@ -17,7 +17,7 @@ body{width: 100%; height: 100vh; overflow: hidden;cursor: none;}
 .logo-code{ width: 100%;}
 .logo-code>img{ width: 16%;margin: 50px 50px;}
 /* ***********PARTIE lOADER************ */
-#title {width: 100%; display: flex; justify-content: center; align-content: center; font-size: 125px; user-select: none; animation : apparition 2s;}
+#title {width: 100%; display: flex; justify-content: center; align-content: center; font-size: 7.813rem; user-select: none; animation : apparition 2s;}
   @keyframes apparition {0% {transform: scale(0);}100% {transform: scale(1);}} 
 #title > .letter {font-family:'neon';font-weight: 400;color: #fee; animation: effetNeon 2s infinite;}
   @keyframes effetNeon {
@@ -36,7 +36,7 @@ body{width: 100%; height: 100vh; overflow: hidden;cursor: none;}
     80%{transform : rotate(45deg);margin-top: 140px;margin-left: 0px;animation :blink 2s alternate ;}
     100%{ transform : rotate(75deg); margin-top: 1200px;display: none;}}   
 .wrapper{ width: 100%; display: flex; justify-content: center; position: absolute; z-index: 1; top:95%; left:50%;  transform:translate(-50%, -50%);}
-.wrapper > h3{  color: rgb(255, 255, 255);font-family: 'Poppins', sans-serif; font-size: 30px; font-weight: 400;margin-bottom: 100px; animation:blur-text 3s 1s infinite;} 
+.wrapper > h3{  color: rgb(255, 255, 255);font-family: 'Poppins', sans-serif; font-size: 1.875rem; font-weight: 400;margin-bottom: 100px; animation:blur-text 3s 1s infinite;} 
   @keyframes blur-text { 0% {filter: blur(0px);}100% {filter: blur(4px);}} 
   /* Partie animation chargement en cours */
 .dot {width: 15px; height: 15px; border-radius: 50%; background-color: #fff;transform-origin: 50%; margin: 0 10px; margin-top: 30px;}
@@ -49,9 +49,9 @@ body{width: 100%; height: 100vh; overflow: hidden;cursor: none;}
 #boxChargement{background: url(../img/Chargement.jpg) center center / cover; width: 100%; height: 100%; animation: appartion 2s 3s;display: flex;
 justify-content: center;align-items: center;}
 .chargement{ font-family: 'Poppins';font-weight:500;text-align:center;  width: 100%; min-height: 100vh;display: flex; justify-content:flex-end; align-items: center;flex-direction: column;}
-.chargement >.number{  width: 100%; height: 30vh; font-size: 150px; color: #0AEFF7;  transform: translateY(-0px);}
-.chargement >.reference{ width: 100%;font-size: 15px;color: #fff;line-height: 30px;letter-spacing: 5px; transform: translateY(-38px);}
-.chargement >.commencer{width: 40%;color: #FFAAFF;font-size: 13px; padding-top: 50px;letter-spacing: 5px; transform: translatey(-40px);text-decoration: none; animation: clignotte 3s infinite}
+.chargement >.number{  width: 100%; height: 30vh; font-size: 9.375rem; color: #0AEFF7;  transform: translateY(-0px);}
+.chargement >.reference{ width: 100%;font-size: 0.938rem;color: #fff;line-height: 30px;letter-spacing: 5px; transform: translateY(-38px);}
+.chargement >.commencer{width: 40%;color: #FFAAFF;font-size: 0.813rem; padding-top: 50px;letter-spacing: 5px; transform: translatey(-40px);text-decoration: none; animation: clignotte 3s infinite}
   @keyframes clignotte {0%,	50%,100% {opacity: 1;}25%,75% {opacity: 0;}}
 /*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /*********************************************************** Section Jeu  id = jeuPopCode******************************************************************************/
@@ -60,83 +60,86 @@ justify-content: center;align-items: center;}
 .zoom{  width: 100%;height: 100%;object-fit: cover;}
 /**************** Partie Jeu :score class = resultat***************/
 #resultat{width: 10%;position: fixed; top: 20px; left: 20px;}
-#resultat::before{ position: absolute;content: 'SCORE';font-family: 'Poppins';font-weight:500;font-size: 12px;letter-spacing: 2px;color: #0AEFF7;transform: rotate(-90deg);border-bottom: 1px solid #D9D9D9;top: 15px;left: 1px; }
+#resultat::before{ position: absolute;content: 'SCORE';font-family: 'Poppins';font-weight:500;font-size: 0.75rem;letter-spacing: 2px;color: #0AEFF7;transform: rotate(-90deg);border-bottom: 1px solid #D9D9D9;top: 15px;left: 1px; }
 /* Box Score class= erreur*/
 .score{width: 10%;display: flex;margin-left: 45px;}
-.score>p{font-family: 'Poppins';font-weight:500;padding-left: 5px;color:#fff;font-size: 18px;}
+.score>p{font-family: 'Poppins';font-weight:500;padding-left: 5px;color:#fff;font-size:1.125rem;}
 /* Box ERREUR XXX */
-.erreur{width:10%;display: flex; justify-content: flex-start;margin: 0 0 0 42px;font-family: 'Poppins';font-weight:500;font-size: 18px;}
+.erreur{width:10%;display: flex; justify-content: flex-start;margin: 0 0 0 42px;font-family: 'Poppins';font-weight:500;font-size: 1.125rem;}
 .erreur>span{ color: rgba(255, 255, 255, 0.3);padding-left: 10px;}
 .erreur>.Xone{color:rgba(255, 255, 255, 0.3);}  
 .erreur>.Xtwo{color:rgba(255, 255, 255, 0.3);} 
 .erreur>.Xtree{color:rgba(255, 255, 255, 0.3);} 
-#popup1{position: fixed;top: 50%;left: 20%;font-size: 3rem;color: white;font-family: 'Poppins';font-weight:700;text-align: center;padding-top: 20px;margin-top: -80px;}
-#popup2{position: fixed;top: 50%;left: 25%;font-size: 3rem;color: white;font-family: 'Poppins';font-weight:700;text-align: center;padding-top: 20px;margin-top: -50px;}  
+#popup1, #popup2{position: fixed;top: 50%;left: 20%;font-size: 3rem;color: white;font-family: 'Poppins';font-weight:700;text-align: center;padding-top: 20px;margin-top: -80px;}
+/* #popup2{position: fixed;top: 50%;left: 25%;font-size: 3rem;color: white;font-family: 'Poppins';font-weight:700;text-align: center;padding-top: 20px;margin-top: -50px;}   */
+#popup2{left: 25%;margin-top: -50px;}
 /*PARTIE JEU barre de ZOOM id = zoom*/
 /* partie BOX ZOOM */
-#zoom{ width: 50%;position: absolute; bottom: 20px;left: 0;}
+#zoom{ width: 50%;bottom: 20px;left: 0;}
 #boxZoom{height: 20vh; position: fixed;bottom: 0; left: 0; z-index: 6666666666666;}
-/* .boxZoomer{width: 5%; display:flex; justify-content: space-between;align-items:center;margin: 0px 0px 70px 15px;flex-direction: row-reverse; font-family: 'Poppins';font-weight:500;font-size: 14px;color:#fff;} */
-.zoomer{font-size: 10px; color: #0AEFF7;margin-bottom: 20px; transform: rotateX(270deg);}
-.more-less{height:25vh;position: fixed;bottom: 20px;left: 20px;}
-.more{color:white;position: fixed;bottom: 224px;left: 30px;}
-.less{color:white;position: fixed;bottom: 35px;left: 30px;}
-.progres{border: 1px solid #D9D9D9;}
+.more-less{width:2%; height:25vh;bottom: 37px;left: 20px;}
+.zoomer{font-size:0.625rem; color: #0AEFF7;transform: rotate(-90deg); position: fixed; left: 22px;bottom:226px; letter-spacing: 2px;font-family: "poppins";font-size: 0.8rem;}
+.more{color:white;position: fixed;bottom: 180px;left: 40px;}
+.progres{border: 1px solid #D9D9D9;height: 124px; Margin-left: 43px;bottom: 48px;position: fixed;}
+.less{color:white;position: fixed;bottom: 26px;left: 41px;}
 /* partie LANGAGES id = searchLagages*/
-#searchLangages{ width: 100%;position: fixed;}
-.boxLangages{width:10%; height: 28px; border: 1px solid #fff;position: fixed;bottom: 37px;left: 75px;text-align: center;display:flex;}
+#searchLangages{width: 100%;position: fixed;}
+.boxLangages{width:12%; height: 28px; border: 1px solid #fff;position: fixed;bottom: 32px;left: 95px;text-align: center;display:flex;}
+.boxLangages > img{width: 14px;height: 14px;margin: 6px 0px 0px 10px;}
 .boxLangages> p>.langages{display: flex; height: 10vh; margin-top :20px ;}
-.langages{padding-left: 25px; font-family: 'Poppins';font-weight:300;font-size: 8px; color: #fff; letter-spacing: 2px; text-decoration: none;padding-top: 8px;}
+.langages{width: 100%; font-family: 'Poppins';font-weight:300;font-size: 0.5rem; color: #fff; letter-spacing: 2px; text-decoration: none;padding-top: 8px;}
 /* tapeClavier pour apparaitre en JS id =boxTape*/
 #boxTape{background: rgba(0, 0, 0, 0.6); position:fixed;width:100vw;top: 0;left: 0;height:100vh;display: flex; justify-content: center;align-items: center;flex-direction:column;}
-#boxTape>#nomLangage{width:28vw;height:13vh;font-size:63px;display: flex;justify-content: center;border: none; outline: none;color:white;padding:10px;background:transparent;text-align: center;}
+#boxTape>#nomLangage{width:28vw;height:13vh;font-size:3.938rem;display: flex;justify-content: center;border: none; outline: none;color:white;padding:10px;background:transparent;text-align: center;}
 .opacite{ opacity: 0; z-index: -1;}
-/* VOIR SON UTILITE OU DEPLACER */
-#boxTape>.tapeName {height:0vh;font-size:15px;color: white;font-family: 'Poppins';font-weight:500;letter-spacing: 5px;padding-top:20px;opacity:0.5;}
+#boxTape>.tapeName {height:0vh;font-size:0.938rem;color: white;font-family: 'Poppins';font-weight:500;letter-spacing: 5px;padding-top:20px;opacity:0.5;}
 /* Partie Gauche Logo */
-/* MODIFIER LE CSS POUR LE METTRE BIEN EN PLACE */
 .boxImg{width: 160px;} 
 .boxImg> img{position: fixed;top: 10px;right: 10px;} 
 /*MODALE POUR LES LANGAGES TROUVES id = modal*/
-.modal-btn{ padding: 10px 14px;font-size: 18px; margin: 100px auto;display:block;min-width: 150px; cursor: pointer; box-sizing: border-box;}
+.modal-btn{ padding: 10px 14px;font-size:1.125rem; margin: 100px auto;display:block;min-width: 150px; cursor: pointer; box-sizing: border-box;}
 .modal{ width: 100%; max-width: 800px; min-height: 400px;background:rgba(0,0,0,0.4);color:white;border-radius: 5px;position: fixed;left: 48%;bottom: -30%;transform: translate(-50%, calc(-50% - 50%)); transition: opacity 0.4s ease-out; transform: 0.4s ease-out;} 
-.close-modal{padding: 8px 12px; border: none; border-radius: 5px; font-size: 18px;position: absolute;top:4px;right: 10px; cursor: pointer; background:#0AEFF7;;color:#fff;transition: opacity 0.4s 0.2s ease-out }
-#modalTitle{font-size:30px;margin-bottom: 10px;font-family: 'Poppins';font-weight: 900;letter-spacing: 5px;}
-#dialogDesc{width: 100%;height: 40vh;display: flex;flex-direction: column; font-size:28px;line-height: 1.4;margin-top: 20px;color:white;margin-left: 10px;font-family: 'Poppins';font-weight: 500;}
+.close-modal{padding: 8px 12px; border: none; border-radius: 5px; font-size: 1.125rem;position: absolute;top:4px;right: 10px; cursor: pointer;
+  color:#fff;transition: opacity 0.4s 0.2s ease-out }
+#modalTitle{font-size:1.25rem;margin-bottom: 10px;font-family: 'Poppins';font-weight: 500;letter-spacing: 5px;text-align: center;margin-top: 22px;}
+#dialogDesc{width: 100%;height: 40vh;display: flex;flex-direction: column; font-size:1.75rem;line-height: 1.4;margin-top: 20px;color:white;margin-left: 10px;font-family: 'Poppins';font-weight: 500;}
 /* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 /********************************************Section partie perdant id = boxLost*********************************************************************/
 #boxLost{width: 100%;height: 100vh;position: fixed;top: 0;left: 0;background: url('../img/preChargement.jpg') center center / cover; display: flex;}
 #popupEnd{width:100%; height: 100vh; position: fixed;font-size: 10rem;color: white;font-family:'neon';font-weight: 400;display: flex;justify-content: center;animation: effetNeon 2s infinite;
 display: flex;justify-content:center;align-items: center;}
-#recommencerLost{width:100%;height:100vh;display: flex;justify-content: center; left:-30px;position: fixed;top: 80%;font-size: 1.5rem;color:white;font-family: 'Poppins';font-weight:700;letter-spacing: 5px; text-decoration: none; animation: clignotte 4s infinite;}
+#recommencerLost{width:100%;height:100vh;display: flex;justify-content: center; left:-30px;position: fixed;top: 80%;font-size: 1rem;color:white;font-family: 'Poppins';font-weight:700;letter-spacing: 5px; text-decoration: none; animation: clignotte 4s infinite;}
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 /********************************************Section partie Gagnante id = boxWin***********************************************************************/
 #boxWin{width: 100%;height: 100vh;position: fixed;top: 0;left: 0;background: url('../img/preChargement.jpg') center center / cover; display: flex;}
-#gagne{width: 100%;height:100vh;position: fixed;top: 30%;font-size: 7rem;color:white;font-family: 'Poppins';font-weight:700;text-align: center;}
-#deja{width: 100%;height:100vh; position: fixed;top: 30%;font-size: 3rem;color: white;font-family: 'Poppins';font-weight:700;text-align: center;}
-#victoire{width: 100%;position: fixed;top: 35%;left: 25%;font-size: 7rem;color: white;font-family:'neon';font-weight: 400; margin-top: -30px;animation: effetNeon 2s infinite;text-align: center;}
-#recommencerWin{width:100%;height:100vh;display: flex;justify-content: center; left:-30px;position: fixed;top: 80%;font-size: 1.5rem;color:white;font-family: 'Poppins';font-weight:700;letter-spacing: 5px; text-decoration: none; animation: clignotte 4s infinite;}
+#gagne, #deja{width: 100%;height:100vh;position: fixed;top: 30%;font-size: 7rem;color:white;font-family: 'Poppins';font-weight:700;text-align: center;}
+#deja{ font-size: 3rem;}
+#victoire{width: 100%;height: 100vh;position: fixed;top: 35%;left: 25%;font-size: 7rem;color: white;font-family:'neon';animation: effetNeon 2s infinite;text-align: center;}
+#recommencerWin{width:100%;height:100vh;display: flex;justify-content: center; left:-30px;position: fixed;top: 80%;font-size: 1rem;color:white;font-family: 'Poppins';font-weight:700;letter-spacing: 5px; text-decoration: none; animation: clignotte 4s infinite;}
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /********************************** Section partie modal pour description des languages trouvés id = boxModalDesc****************************************/
 #boxModalDesc{width: 100%;height: 100vh; position: fixed; top: 0;left: 0; background-color: rgba(0, 0, 0, 0.75); z-index: 5555555; display: flex;justify-content: center;align-items: center; color: white;}
 .modalDesc{width: 60vw;height: 60vh; display: flex;flex-direction: column;justify-content: space-between;}
+.titleModal{font-size: 5rem;font-family: 'Poppins';}
+.langagesDesc{font-size: 0.813rem;font-family: 'Poppins';font-weight: 500;}
 .firstLine{width: 100%;display: flex;justify-content: space-between;align-items: center;}
-.fa-xmark{z-index: 10000000000000000000000;}
+.bi{z-index: 10000000000000000000000;color: #FFAAFF;  font-size: 2.5rem;}
 .secondLine{width:100%;display: flex;align-items: center;justify-content: space-between;gap: 10px;}
-.secondLine > p {padding:10px;}
+.secondLine > p {padding:10px;font-family: 'Poppins';}
 .secondLine > img { max-width: 300px;max-height: 300px;object-fit: cover;}
 .thirdLine{width: 100%;display: flex;justify-content: flex-end;align-items: center;}
+label{font-family: 'poppins'; padding-left: 10px;font-size: 1rem;margin-right: 10px;}
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /********************************************* Section Mentions légales id = boxControl*************************************/
 #boxMentions{position: absolute;right: 0; bottom: 20px;z-index: 1111111111;}
-#boxMentions > .legales{ font-family: 'Poppins';font-weight:300; color: white;text-decoration-line: none;border-bottom: 1px solid white;} 
+#boxMentions > .legales{ font-family: 'Poppins';font-weight:300; color: white;text-decoration-line: none;border-bottom: 1px solid white;margin-right: 20px;} 
 /* Modul Mention */
 #boxModalMention{width: 100%;height: 100vh; position: fixed; top: 0;left: 0; background-color: rgba(0, 0, 0, 0.75); z-index: 5555555; display: flex;justify-content: center;align-items: center; color: white;}
 .modalMention{width: 60vw;height: 60vh; display: flex;flex-direction: column;justify-content: space-between;}
 .modalLine1{width: 100%;display: flex;justify-content: space-between;align-items: center;}
 .modalLine2{width: 100%;height: 40vh;overflow-y: auto;font-size: 0.8rem;font-family: 'Poppins';}
 .titleModalMention{font-size: 1.5rem;font-family: 'Poppins';font-weight: 500;}
-.cross1{z-index: 2222222222222222222222;}
+.cross1{z-index: 2222222222222222222222;color: #FFAAFF;}
 /***************************************************************************************************************************/
 /* Global- Générale */
 .noOpacity{opacity: 0;}
@@ -149,10 +152,8 @@ display: flex;justify-content:center;align-items: center;}
 /* max-width: 1024px *//* and (hover:none) */
 @media screen  and (max-width: 1024px) {
 #boxJeu{background:url(../img/jeu2.jpg)center center / cover no-repeat;width:100%; height: 100vh;display: flex;flex-direction: column;opacity: 0.25;}
-
 .zoom{display:none;}  
 #boxTape{display: none;} 
-
 .boxMedia{width:100%; height:100vh;display:flex;justify-content: center;align-items: center;flex-direction: column;}
 #titlePopCode{width: 100%;font-size: 5rem;font-family: 'neon'; 
   margin-top: 200px;color: rgba(229,17,116, 1);animation: effetNeon 2s infinite;}

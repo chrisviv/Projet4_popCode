@@ -93,14 +93,11 @@ function showContent() {
 // liste des noms de languages transformer en miniscule 
 listeLangages = listeLangages.map(name => name.toLowerCase());
 // La méthode map() crée un nouveau tableau avec les résultats de l'appel d'une fonction fournie sur chaque élément du tableau appelant.
-// tapeName.style.display = "none";
 window.onload = setTimeout(showTape, 7000);
 function showTape() {
   tapeName.style.display = "block";
 };
 /************************************************************************************/
-
-/*************************************************************** */
 // evenement avec la touche du clavier 
 window.addEventListener("keydown", function (event) {
   key = event.key;
@@ -120,12 +117,10 @@ window.addEventListener("keyup", function (event) {
     document.querySelector('#boxModalDesc').classList.add('none');
   }
   clearTimeout();
-
   if (document.querySelector('#boxModalMention').classList.contains('none') === false) {
     document.querySelector('#boxModalMention').classList.add('none');
   }
   clearTimeout();
-
   if (document.querySelector('#modal').classList.contains('none') === false) {
     document.querySelector('#modal').classList.add('none');
   }
@@ -174,10 +169,6 @@ window.addEventListener("keyup", function (event) {
           document.getElementById('boxWin').classList.remove('none')
           break;
         }
-
-
-
-
           // console.log(gagne);
         // Mets le langague trouvé dans le tableau/modal nommé le language trouvé et enléve un language dans le premier tableau 'listeLangages'
         langagesPassed.push(res);
@@ -217,8 +208,7 @@ window.addEventListener("keyup", function (event) {
       }
     } else {
       erreur += 1;
-      // console.log(erreur)
-      // 1 erreur s'affiche en bleu
+      // console.log(erreur)// 1 erreur s'affiche en bleu
       switch (erreur) {
         case 1:
           document.querySelector('.Xone').classList.add('lightblue');
