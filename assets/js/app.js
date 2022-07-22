@@ -19,11 +19,11 @@ let X = document.querySelectorAll(".X");
 let erreur = 0;
 // tableau de la liste des languages à trouver
 let listeLangages = [
-  "JavaScript",
   "HTML",
+  "JavaScript",
   "CSS",
-  "SQL",
   "Python",
+  "SQL",
   "Java",
   "Bash",
   "PowerShell",
@@ -32,20 +32,21 @@ let listeLangages = [
   "C++",
   "TypeScript",
   "C",
+  "Objective-C",
   "Ruby",
   "Go",
   "Assembly",
   "Swift",
   "Kotlin",
+  "r",
   "VBA",
-  "Objective-C",
   "Scala",
   "Rust",
   "Dart",
   "Elixir",
   "Clojure",
-  "WebAssembly",
-  "R"];
+  "WebAssembly"
+  ];
 // variable tableau vide pour langages trouvés
 let langagesPassed = [];
 // dialogDesc sur html c'est la liste trouvé dans la modal
@@ -98,12 +99,7 @@ function showTape() {
   tapeName.style.display = "block";
 };
 /************************************************************************************/
-// function checkScore() {
-//   if (score === listeLangages.length-1) {
-//   victoire.add('none')
-  
-//   }
-// }
+
 /*************************************************************** */
 // evenement avec la touche du clavier 
 window.addEventListener("keydown", function (event) {
@@ -120,6 +116,10 @@ document.getElementsByClassName('commencer')[0].addEventListener('click', functi
 });
 /************************************************************************************ */
 window.addEventListener("keyup", function (event) {
+  if (document.querySelector('#boxModalDesc').classList.contains('none') === false) {
+    document.querySelector('#boxModalDesc').classList.add('none');
+  }
+  clearTimeout();
   //evenement avec les touche echappe et entrée pour vider le input
   key = event.key;
   if ("Escape" === event.key) {
@@ -139,8 +139,9 @@ window.addEventListener("keyup", function (event) {
     for (let i = 0; i < listeLangages.length; i++) {
       if (input.toLowerCase() === listeLangages[i].toLowerCase()) {
        fetch('assets/js/languages.json').then(responce => responce.json().then(responce => {
-        for (let i = 0; i < listeLangages.length; i++) {
-          if (input.toLowerCase() === responce.languages.langage[i].name) {
+        for (let i = 0; i < responce.languages.langage.length; i++) {
+          // console.log(responce.languages.langage[i].name,input.toUpperCase());
+          if (input.toUpperCase() === responce.languages.langage[i].name) {
             document.querySelector('.titleModal').textContent = responce.languages.langage[i].name;
             document.querySelector('.langageDesc').textContent = responce.languages.langage[i].description;
             document.querySelector('.secondLine > img').src = responce.languages.langage[i].picture;
@@ -158,15 +159,24 @@ window.addEventListener("keyup", function (event) {
             document.getElementById('boxModalDesc').classList.add('none');
           }, 2000);
         };
+        if (listeLangages.length === 1){
+          document.querySelector('.jeuPopCode').classList.add('none')
+          document.getElementById('boxWin').classList.remove('none')
+          break;
+        }
+
+
+
+
           // console.log(gagne);
         // Mets le langague trouvé dans le tableau/modal nommé le language trouvé et enléve un language dans le premier tableau 'listeLangages'
-        langagesPassed.push(res)
-        program.textContent += langagesPassed.slice(-1) + ''
+        langagesPassed.push(res);
+          program.textContent += langagesPassed.slice(-1) + ''
         // variable / remet la reponse trouvé en miniscule
         let lowerCaseAnswer = langagesPassed.map(name => name.toLowerCase())
         // ! :Renvoie false si son unique opérande peut être converti en true, sinon il renvoie true. 
         listeLangages = listeLangages.filter((val) => !lowerCaseAnswer.includes(val));
-        console.log(listeLangages);
+        // console.log(listeLangages);
         // si le score est inf à 10 tu ecris 0+le score en dessous de 10 sinon tu mets le score qui est au dessus de 9
         // console.log(true);
         if (score < 10) {
@@ -238,18 +248,18 @@ document.getElementById('recommencerLost').addEventListener('click', function(){
   program.textContent ='';
   erreur = 0;
 });
-// document.getElementById('recommencerWin').addEventListener('click', function(){
-//   document.querySelector('#boxWin').classList.add('none');
-//   boxchargement.classList.remove('none');
-//   score = 0;
-//   numberFirst.textContent = "0" + score;
-//   document.querySelector('.Xone').classList.remove('lightblue');
-//   document.querySelector('.Xtwo').classList.remove('lightblue');
-//   document.querySelector('.Xtree').classList.remove('lightblue');
-//   langagesPassed = [];
-//   program.textContent ='';
-//   erreur = 0;
-// });
+document.getElementById('recommencerWin').addEventListener('click', function(){
+  document.querySelector('#boxWin').classList.add('none');
+  boxchargement.classList.remove('none');
+  score = 0;
+  numberFirst.textContent = "0" + score;
+  document.querySelector('.Xone').classList.remove('lightblue');
+  document.querySelector('.Xtwo').classList.remove('lightblue');
+  document.querySelector('.Xtree').classList.remove('lightblue');
+  langagesPassed = [];
+  program.textContent ='';
+  erreur = 0;
+});
 ///////////////////////////////////CURSOR ANIME///////////////////////////////////////////////////
 document.addEventListener("mousemove", (e) => {
   cursor.setAttribute("style", "top:" + (e.pageY - 30) + "px; left:" + (e.pageX - 30) + "px;");
@@ -271,6 +281,17 @@ btn.addEventListener("click", () => {
 /*///////////////////////////////////////////////////////// close ModalDesc*/////////////////////////////////*/
 document.getElementsByClassName('cross')[0].addEventListener('click' , function(){
   document.getElementById('boxModalDesc').classList.add('none');
+});
+/*///////////////////////////////////////////////////////// close ModalModal*/////////////////////////////////*/
+document.getElementsByClassName('cross1')[0].addEventListener('click' , function(){
+  document.getElementById('boxModalMention').classList.add('none');
+});
+document.querySelector('.legales').addEventListener('click',function () {
+  fetch('assets/js/languages.json').then(responce => responce.json().then(responce => {
+  document.querySelector('.titleModalMention').textContent = responce.legals.legal[0].title;
+  document.querySelector('.modalLine2').insertAdjacentHTML ('beforeend', responce.legals.legal[0].content);
+}));  
+document.getElementById('boxModalMention').classList.remove('none');
 });
 /*****************************************zoom************************************************************** */
 zoom({
@@ -318,6 +339,3 @@ zoom({
 // '{"code" :"Clojure","Logo": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Clojure_logo.svg", "description":"Clojure est un langage de programmation fonctionnel compilé, multi-plateforme et destiné à la création de programmes sûrs et facilement distribuables. C’est un dialecte de Lisp. Il transpile vers du bytecode Java, du code JavaScript et du bytecode .NET. Clojure est donc disponible sur la JVM, le CLR, les navigateurs et Node.js."}' +
 // '{"code" :"WebAssembly","Logo": "https://upload.wikimedia.org/wikipedia/commons/1/1f/WebAssembly_Logo.svg", "description":"WebAssembly, abrégé wasm, est un standard du World Wide Web pour le développement d’applications. Il est conçu pour compléter JavaScript avec des performances supérieures. Le standard consiste en un bytecode, sa représentation textuelle et un environnement d'exécution dans un bac à sable compatible avec JavaScript. Il peut être exécuté dans un navigateur Web et en dehors. WebAssembly est standardisé dans le cadre du World Wide Web Consortium.\n\n    Comme WebAssembly ne spécifie qu'un langage de bas niveau, le bytecode est généralement produit en compilant un langage de plus haut niveau. Parmi les premiers langages supportés figurent Rust avec le projet/module (crate) wasm-bindgen ainsi que le C et C++, compilés avec Emscripten (basé sur LLVM). De nombreux autres langages de programmation possèdent aujourd'hui un compilateur WebAssembly, parmi lesquels : C#, Go, Java, Lua, Python ou Ruby.\n    \n    Les navigateurs Web compilent le bytecode wasm dans le langage machine de l'hôte sur lequel ils sont utilisés avant de l'exécuter."}],
 /*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** */
-
-
-
