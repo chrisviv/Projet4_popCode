@@ -79,12 +79,15 @@ let recommencerWin = document.getElementById('recommencerWin');
 // variable cursor
 const cursor = document.querySelector(".cursor");
 /******************************************************* */
+// let mediaQuery = document.querySelector('mediaQuery');
+let checkbox = document.querySelector('#modalCheck');
 /*//////////////////section loader///////////////////////*/
 window.onload = setTimeout(showContent, 6000);
 function showContent() {
   title.style.display = "none";
   wrapper.style.display = "none";
   loader.style.display = "none";
+  // mediaQuery.classList.add('none');
   // nouvelle page apparait
   boxchargement.style.display = "block";
   boxZoom.classList.remove('none');
@@ -150,7 +153,7 @@ window.addEventListener("keyup", function (event) {
             document.querySelector('.titleModal').textContent = responce.languages.langage[i].name;
             document.querySelector('.langageDesc').textContent = responce.languages.langage[i].description;
             document.querySelector('.secondLine > img').src = responce.languages.langage[i].picture;
-            document.querySelector('.secondLine > img').alt= 'logo de ' + responce.languages.langage[i].name ;
+            document.querySelector('.secondLine > img').alt= 'logo de ' + responce.languages.langage[i].name;
           }          
         }
       }));
@@ -165,10 +168,13 @@ window.addEventListener("keyup", function (event) {
           }, 2000);
         };
         if (listeLangages.length === 1){
-          document.querySelector('.jeuPopCode').classList.add('none')
-          document.getElementById('boxWin').classList.remove('none')
+          setTimeout(() => {
+          document.querySelector('.jeuPopCode').classList.add('none');
+          document.getElementById('boxWin').classList.remove('none');
+          }, 2200);
           break;
-        }
+        };
+         
           // console.log(gagne);
         // Mets le langague trouvé dans le tableau/modal nommé le language trouvé et enléve un language dans le premier tableau 'listeLangages'
         langagesPassed.push(res);
@@ -247,7 +253,7 @@ document.getElementById('recommencerLost').addEventListener('click', function(){
   langagesPassed = [];
   program.textContent ='';
   erreur = 0;
-});
+  });
 document.getElementById('recommencerWin').addEventListener('click', function(){
   document.querySelector('#boxWin').classList.add('none');
   boxchargement.classList.remove('none');

@@ -105,7 +105,8 @@
     </section>
 
     <section id="boxWin" class="none">
-        <div id="victoire">Tu est le vainqueur! <br> Un crack du language Web. </div>
+        <p id="victoire">Victoire !</p>
+        <p class="winner">Tu es un crack du language Web </p>
         <p id="recommencerWin">Cliquer ici pour refaire une partie !</p>
     </section>
 
@@ -145,13 +146,23 @@
     </section>
 
     <section id="mediaQuery">
-        <div id="boxMedia"> 
-            <h1 id="titlePopCode" class="none">Pop Code</h1>
-            <i class="fa-thin fa-desktop boxDeskTop"></i>
-            <i class="fa-thin fa-tablet-screen boxTab"></i>
-            <i class="fa-light fa-tablet-screen boxTab"></i>
-            <i class="fa-thin fa-mobile-notch boxMobile"></i>
-        </div> 
+        <div class="boxMedia"> 
+            <h1 id="titlePopCode" >Pop Code</h1>
+            <div class="boxIconMedia">
+                <div class="check">
+                    <i class="fa-solid fa-desktop fa-5x"></i>
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <div class="noCheck">
+                    <i class="fa-solid fa-tablet"></i>
+                    <i class="fa-solid fa-mobile"></i>
+                    <i class="fa-solid fa-circle-xmark"></i>
+                </div>
+               
+
+            </div>
+
+         </div> 
     </section>
 
     <script src="./assets/js/count.js"></script>

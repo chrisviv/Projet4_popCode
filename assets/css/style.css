@@ -106,16 +106,19 @@ justify-content: center;align-items: center;}
 /* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 /********************************************Section partie perdant id = boxLost*********************************************************************/
 #boxLost{width: 100%;height: 100vh;position: fixed;top: 0;left: 0;background: url('../img/preChargement.jpg') center center / cover; display: flex;}
-#popupEnd{width:100%; height: 100vh; position: fixed;font-size: 10rem;color: white;font-family:'neon';font-weight: 400;display: flex;justify-content: center;animation: effetNeon 2s infinite;
-display: flex;justify-content:center;align-items: center;}
+#popupEnd{width:100%; height: 100vh; position: fixed;font-size: 8.5rem;color: white;font-family:'neon';font-weight: 400;display: flex;justify-content: center;animation: effetNeon 2s infinite;
+display: flex;justify-content:center;align-items: center; animation: apparition 3s, effetNeon 3s infinite}
+
 #recommencerLost{width:100%;height:100vh;display: flex;justify-content: center; left:-30px;position: fixed;top: 80%;font-size: 1rem;color:white;font-family: 'Poppins';font-weight:700;letter-spacing: 5px; text-decoration: none; animation: clignotte 4s infinite;}
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 /********************************************Section partie Gagnante id = boxWin***********************************************************************/
-#boxWin{width: 100%;height: 100vh;position: fixed;top: 0;left: 0;background: url('../img/preChargement.jpg') center center / cover; display: flex;}
 #gagne, #deja{width: 100%;height:100vh;position: fixed;top: 30%;font-size: 7rem;color:white;font-family: 'Poppins';font-weight:700;text-align: center;}
 #deja{ font-size: 3rem;}
-#victoire{width: 100%;height: 100vh;position: fixed;top: 35%;left: 25%;font-size: 7rem;color: white;font-family:'neon';animation: effetNeon 2s infinite;text-align: center;}
-#recommencerWin{width:100%;height:100vh;display: flex;justify-content: center; left:-30px;position: fixed;top: 80%;font-size: 1rem;color:white;font-family: 'Poppins';font-weight:700;letter-spacing: 5px; text-decoration: none; animation: clignotte 4s infinite;}
+#boxWin{width: 100%;height: 100vh;position: fixed;top: 0;left: 0;background: url('../img/preChargement.jpg') center center / cover; display: flex;}
+#victoire{width:100%; height: 100vh; position: fixed;font-size: 8.5rem;color: white;font-family:'neon';font-weight: 400;display: flex;justify-content: center;animation: effetNeon 2s infinite;
+  display: flex;justify-content:center;align-items: center; animation: apparition 3s, effetNeon 3s infinite}
+.winner{width: 100%;height: 100vh;position: fixed;top: 47%;font-size: 3rem;color: white;font-family:'poppins';animation: effetNeon 2s infinite;text-align: center;}
+#recommencerWin{width:100%;height:100vh;position: fixed;top: 80%;font-size: 1rem;color:white;font-family: 'Poppins';font-weight:500;letter-spacing: 5px; text-decoration: none; animation: clignotte 4s 3s;text-align: center;}
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /********************************** Section partie modal pour description des languages trouvés id = boxModalDesc****************************************/
 #boxModalDesc{width: 100%;height: 100vh; position: fixed; top: 0;left: 0; background-color: rgba(0, 0, 0, 0.75); z-index: 5555555; display: flex;justify-content: center;align-items: center; color: white;}
@@ -135,7 +138,7 @@ label{font-family: 'poppins'; padding-left: 10px;font-size: 1rem;margin-right: 1
 #boxMentions > .legales{ font-family: 'Poppins';font-weight:300; color: white;text-decoration-line: none;border-bottom: 1px solid white;margin-right: 20px;} 
 /* Modul Mention */
 #boxModalMention{width: 100%;height: 100vh; position: fixed; top: 0;left: 0; background-color: rgba(0, 0, 0, 0.75); z-index: 5555555; display: flex;justify-content: center;align-items: center; color: white;}
-.modalMention{width: 60vw;height: 60vh; display: flex;flex-direction: column;justify-content: space-between;}
+.modalMention{width: 60vw;height: 55vh; display: flex;flex-direction: column;justify-content: space-between;}
 .modalLine1{width: 100%;display: flex;justify-content: space-between;align-items: center;}
 .modalLine2{width: 100%;height: 40vh;overflow-y: auto;font-size: 0.8rem;font-family: 'Poppins';}
 .titleModalMention{font-size: 1.5rem;font-family: 'Poppins';font-weight: 500;}
@@ -148,21 +151,29 @@ label{font-family: 'poppins'; padding-left: 10px;font-size: 1rem;margin-right: 1
 /* ^ à renommer en none au lien de none2*/
 .lightblue{color: #0AEFF7 !important;}
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+#boxMedia {display: none;}
 /***********************************************Section média query tablette id = boxMedia*******************************************************************/
 /* max-width: 1024px *//* and (hover:none) */
 @media screen  and (max-width: 1024px) {
-#boxJeu{background:url(../img/jeu2.jpg)center center / cover no-repeat;width:100%; height: 100vh;display: flex;flex-direction: column;opacity: 0.25;}
-.zoom{display:none;}  
-#boxTape{display: none;} 
-.boxMedia{width:100%; height:100vh;display:flex;justify-content: center;align-items: center;flex-direction: column;}
-#titlePopCode{width: 100%;font-size: 5rem;font-family: 'neon'; 
-  margin-top: 200px;color: rgba(229,17,116, 1);animation: effetNeon 2s infinite;}
-.boxDeskTop{display: none;}
-.boxTab{display: block;}
-.boxMobile{display: none;}
+.zoom{display:none;}
+#loader{display: none;}
+.chargement{display: none;} 
+#boxTape{display: none;}
 #resultat{display: none;}
+#boxZoom{display: none;}
+#boxMentions{display: none;}
+#searchLangages{display: none;}
+#mediaQuery{display: block;}
+/* partie visible mediaQuery */
+#mediaQuery{width:100%; height:100vh;display:flex;justify-content: center;align-items: center;flex-direction: column;z-index: 888888888;}
+.boxMedia{width:100%; height:100vh;display:flex;justify-content: flex-start;align-items: center;flex-direction: column;}
+.boxIconMedia{width: 100%;height: 100vh;position: fixed;top: 0%;left: 0%;z-index: 888888888;text-align: center;}
+.fa-desktop{width: 50%;height: 50%;position: fixed;top: 523px;left: 0px;z-index: 66666666;color: white;font-size: 250px;}
+.fa-tablet{width: 50%;height: 50%;position: fixed;top:570px;left:300px;z-index: 666666666;color: white;font-size: 200px;}
+.fa-mobile{width: 50%;height: 50%;position: fixed;top: 663px;left: 440px;z-index: 66666666;color: white;font-size: 100px;}
+.fa-circle-xmark{position: fixed;bottom: 38px;width: 50%;font-size: 4rem; color: #FFAAFF;left:370px;}
+.fa-check{ position: fixed;bottom: 30px;width: 50%;font-size: 4rem; color: #FFAAFF;left: 0;}
 }
-
 
 
 
