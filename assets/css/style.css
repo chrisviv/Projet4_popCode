@@ -84,7 +84,7 @@ justify-content: center;align-items: center;}
 .less{color:white;position: fixed;bottom: 26px;left: 41px;}
 /* partie LANGAGES id = searchLagages*/
 #searchLangages{width: 100%;position: fixed;}
-.boxLangages{width:12%; height: 28px; border: 1px solid #fff;position: fixed;bottom: 32px;left: 95px;text-align: center;display:flex;}
+.boxLangages{width:14%; height: 28px; border: 1px solid #fff;position: fixed;bottom: 32px;left: 95px;text-align: center;display:flex;}
 .boxLangages > img{width: 14px;height: 14px;margin: 6px 0px 0px 10px;}
 .boxLangages> p>.langages{display: flex; height: 10vh; margin-top :20px ;}
 .langages{width: 100%; font-family: 'Poppins';font-weight:300;font-size: 0.5rem; color: #fff; letter-spacing: 2px; text-decoration: none;padding-top: 8px;}
@@ -164,17 +164,24 @@ label{font-family: 'poppins'; padding-left: 10px;font-size: 1rem;margin-right: 1
 #boxMentions{display: none;}
 #searchLangages{display: none;}
 #mediaQuery{display: block;}
-/* partie visible mediaQuery */
+/* partie visible mediaQuery à partir de max-width:1024px*/
 #mediaQuery{width:100%; height:100vh;display:flex;justify-content: center;align-items: center;flex-direction: column;z-index: 888888888;}
 .boxMedia{width:100%; height:100vh;display:flex;justify-content: flex-start;align-items: center;flex-direction: column;}
 .boxIconMedia{width: 100%;height: 100vh;position: fixed;top: 0%;left: 0%;z-index: 888888888;text-align: center;}
 .fa-desktop{width: 50%;height: 50%;position: fixed;top: 523px;left: 0px;z-index: 66666666;color: white;font-size: 250px;}
-.fa-tablet{width: 50%;height: 50%;position: fixed;top:570px;left:300px;z-index: 666666666;color: white;font-size: 200px;}
-.fa-mobile{width: 50%;height: 50%;position: fixed;top: 663px;left: 440px;z-index: 66666666;color: white;font-size: 100px;}
-.fa-circle-xmark{position: fixed;bottom: 38px;width: 50%;font-size: 4rem; color: #FFAAFF;left:370px;}
-.fa-check{ position: fixed;bottom: 30px;width: 50%;font-size: 4rem; color: #FFAAFF;left: 0;}
-}
-
-
-
-
+.fa-tablet{width: 50%;height: 50%;position: fixed;top:570px;left:442px;z-index: 666666666;color: white;font-size: 200px;}
+.fa-mobile{width: 50%;height: 50%;position: fixed;top: 663px;left: 594px;z-index: 66666666;color: white;font-size: 100px;}
+.fa-circle-xmark{position: fixed;bottom: 38px;width: 50%;font-size: 4rem; color:#FD19DB;left:529px;}
+.fa-check{ position: fixed;bottom: 30px;width: 50%;font-size: 4rem; color: #FD19DB;left: 0;}}
+@media screen  and (max-width: 850px) {
+.fa-desktop {  font-size: 208px;}
+.fa-tablet {left: 243px;font-size: 160px;}
+.fa-mobile {left: 359px; font-size: 66px;}
+.fa-check {bottom: 80px;font-size: 3rem;}
+.fa-circle-xmark {bottom: 76px;font-size: 3rem;left: 300px;}}
+@media screen  and (max-width: 530px){
+.fa-desktop {  font-size: 135px;top:479px}
+.fa-tablet {left: 154px;font-size: 87px;top:528px}
+.fa-mobile {left: 217px; font-size: 38px;top: 578px;}
+.fa-check {bottom: 212px;font-size: 3rem;top: 654px;}
+.fa-circle-xmark {bottom: 180px;font-size: 2.5rem;left: 180px;}}
