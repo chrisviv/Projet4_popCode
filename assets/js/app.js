@@ -178,7 +178,7 @@ window.addEventListener("keyup", function (event) {
           // console.log(gagne);
         // Mets le langague trouvé dans le tableau/modal nommé le language trouvé et enléve un language dans le premier tableau 'listeLangages'
         langagesPassed.push(res);
-          program.textContent += langagesPassed.slice(-1) + ''
+        program.textContent += langagesPassed.slice(-1) + ''
         // variable / remet la reponse trouvé en miniscule
         let lowerCaseAnswer = langagesPassed.map(name => name.toLowerCase())
         // ! :Renvoie false si son unique opérande peut être converti en true, sinon il renvoie true. 
