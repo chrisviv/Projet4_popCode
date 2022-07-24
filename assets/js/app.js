@@ -100,6 +100,17 @@ window.onload = setTimeout(showTape, 7000);
 function showTape() {
   tapeName.style.display = "block";
 };
+// // partie localSorage ESSAI 
+// function clickSaved () {
+//   if(localStorage.clickSaved){
+//     localStorage.clickSaved = listePassed(localStorage.clickSaved) +1;
+//       }else{
+//         localStorage.clickSaved = listePassed;
+//       }
+//    document.getElementById('buttonSaved').addEventListener('click', function(){
+//     document.getElementById('buttonSaved').innerHTML = localStorage.clickSaved;
+//   })
+// }
 /************************************************************************************/
 // evenement avec la touche du clavier 
 window.addEventListener("keydown", function (event) {
@@ -178,8 +189,8 @@ window.addEventListener("keyup", function (event) {
           // console.log(gagne);
         // Mets le langague trouvé dans le tableau/modal nommé le language trouvé et enléve un language dans le premier tableau 'listeLangages'
         langagesPassed.push(res);
-        program.textContent += langagesPassed.slice(-1) + ''
-        // variable / remet la reponse trouvé en miniscule
+        program.textContent += langagesPassed.slice(-1) + ', ';
+         // variable / remet la reponse trouvé en miniscule
         let lowerCaseAnswer = langagesPassed.map(name => name.toLowerCase())
         // ! :Renvoie false si son unique opérande peut être converti en true, sinon il renvoie true. 
         listeLangages = listeLangages.filter((val) => !lowerCaseAnswer.includes(val));
